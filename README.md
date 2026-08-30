@@ -1,5 +1,11 @@
 # ToVA Universal Development Starter Kit
 
+## Start here
+
+Copy this starter kit into the repository you want to work on, then point your AI agent at this `README.md`. The agent should follow `docs/TOVA_SETUP.md` to inspect the target repository and install the workflow safely.
+
+For an existing repository, use the included installer rather than overwriting its files blindly. It first makes a zero-write plan, preserves existing project truth, and applies only the missing workflow owners after you review that plan.
+
 Workflow version: `2.0.0-rc.11-dev`
 Architecture generation: 2
 Release status: unassembled successor; not published
