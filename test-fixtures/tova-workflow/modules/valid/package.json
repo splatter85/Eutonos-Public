@@ -1,0 +1,7 @@
+{
+  "name": "workflow-module-valid-fixture",
+  "private": true,
+  "scripts": {
+    "docs:module-check": "node modules/documentation-health/check.js"
+  }
+}

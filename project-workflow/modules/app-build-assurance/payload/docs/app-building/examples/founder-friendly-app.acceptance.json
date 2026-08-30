@@ -1,0 +1,11 @@
+{
+  "kind": "example.appAcceptanceEvidence",
+  "exampleOnly": true,
+  "ok": true,
+  "checks": [
+    "sample workflow success criteria are linked",
+    "sample responsibility and data boundaries are explicit",
+    "sample assurance contract passes structural validation"
+  ],
+  "claimBoundary": "This file is executable module documentation, not evidence for a real application."
+}

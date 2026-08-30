@@ -1,0 +1,82 @@
+# Migration Ledger
+
+Status: draft
+
+Target project root: `<exact-project-root>`
+
+Source workflow version/classification: `<version-or-legacy/non-tova>`
+
+Target workflow version: `{{WORKFLOW_VERSION}}`
+
+Structural plan hash: `<sha256>`
+
+JSON ledger: `<repository-relative-path>`
+
+This ledger records content-level reconciliation. It is not a second task board or project-truth owner. Follow `{{OWNER_tovaMigration}}`.
+
+## Review Summary
+
+- Baseline roles mapped: `<yes/no>`
+- Blocking conflicts: `<count>`
+- Retirement candidates: `<count>`
+- Safe to retire: `<count>`
+- Declared extensions: `<count>`
+- Review status: `<draft/in-review/accepted/rejected>`
+- Reviewer/owner decision: `<decision and identity>`
+
+## Artifact Index
+
+| Source | Proposed role | Target role/path | Relationship | Disposition | Review | Retirement |
+| --- | --- | --- | --- | --- | --- | --- |
+| `<path>` | `<role>` | `<role>` / `<path>` | `<same/overlapping/partial/distinct/historical/obsolete>` | `<CREATE/REUSE/MERGE/SPLIT/RENAME_MOVE/RETAIN_EXTENSION/DISTILL_ARCHIVE/RETIRE_AFTER_MERGE/SUPERSEDED/CONFLICT/DEFER>` | `<status>` | `<not-applicable/pending/safe>` |
+
+## Artifact Record
+
+### `<source-path>`
+
+- Source SHA-256/fingerprint: `<value>`
+- Detected/proposed role: `<role>`
+- Target ToVA role: `<role>`
+- Target path: `<path>`
+- Relationship: `<same/overlapping/partial/distinct/historical/obsolete>`
+- Unique current content: `<facts/sections>`
+- Duplicated content: `<facts/sections>`
+- Conflicting content: `<facts/sections>`
+- Stronger compatible project rules: `<rules>`
+- Baseline rules that supersede older workflow: `<rules>`
+- Destination owner(s): `<paths>`
+- Disposition: `<canonical disposition>`
+- Required transformation: `<merge/split/rewrite/move/archive action>`
+- Required verification: `<checks>`
+- Unresolved questions: `<questions>`
+- Stop condition: `<condition>`
+- Review status: `<draft/in-review/accepted/rejected>`
+- Reviewer/owner decision: `<decision>`
+- `content_reconciled`: `<true/false/not-applicable>`
+- `references_updated`: `<true/false/not-applicable>`
+- `historical_copy_required`: `<true/false>`
+- `safe_to_retire`: `<true/false>`
+
+#### Child Content Units
+
+Use a child record when one document contains sections with different roles or dispositions.
+
+| Unit/section | Unique current content | Destination | Disposition | Review |
+| --- | --- | --- | --- | --- |
+| `<heading/range/id>` | `<content>` | `<owner/path>` | `<disposition>` | `<status>` |
+
+## Final Acceptance
+
+- [ ] Every required baseline role has one accepted live owner.
+- [ ] Every blocking `CONFLICT` is resolved.
+- [ ] Every retained extension declares its distinct role and baseline relationship.
+- [ ] Every retirement candidate has content and reference accounting.
+- [ ] No two live documents claim the same canonical role.
+- [ ] Required workflow, collaboration, migration, Project Health, cold-start, and release-specific gates passed.
+- [ ] A zero-write rerun produced no unexpected mutation.
+
+Accepted by: `<owner/reviewer>`
+
+Accepted at: `<ISO-8601>`
+
+Accepted JSON SHA-256: `<sha256>`

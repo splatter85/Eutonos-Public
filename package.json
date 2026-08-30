@@ -1,0 +1,14 @@
+{
+  "name": "tova-universal-development-starter-kit",
+  "version": "2.0.0-rc.11-dev",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "workflow:check": "node tools/project-workflow-check.js",
+    "workflow:collaboration-check": "node tools/collaboration-workflow-check.js",
+    "workflow:migration-check": "node tools/project-workflow-migration-check.js",
+    "workflow:install": "node tools/project-workflow-install.js",
+    "workflow:fixtures": "node tools/project-workflow-fixtures.js",
+    "test": "node --test tests/*.spec.js"
+  }
+}

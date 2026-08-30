@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "template_reference": "docs/templates/EXCHANGE_TEMPLATE.json",
+  "exchange_id": "XCH-EXAMPLE-SL12-001",
+  "lifecycle": "ready",
+  "previous_exchange_id": null,
+  "terminal_reason": null,
+  "request": {
+    "work_unit_id": "EXAMPLE-SL12",
+    "work_mode": "implement",
+    "source_revision": "0000000000000000000000000000000000000000",
+    "target": {
+      "agent_class": "local_agent",
+      "required_capabilities": ["EXAMPLE-repository-write"],
+      "assigned_owner": null,
+      "preferred_node_id": null
+    },
+    "workspace_strategy": {
+      "mode": "serial_shared_branch",
+      "integration_branch": "EXAMPLE-main",
+      "work_branch": "EXAMPLE-main"
+    },
+    "context_packet": {
+      "profile_requested": "auto",
+      "profile_selected": null,
+      "selection_reason": null,
+      "campaign_capsule_path": null,
+      "slice_packet_path": null,
+      "route_ids": ["route://workflow/collaboration"]
+    },
+    "authority_envelope": {
+      "mission": "EXAMPLE-Implement only the assigned Slice and return bounded evidence.",
+      "non_goals": ["EXAMPLE-Do not begin another Slice."],
+      "stop_conditions": ["EXAMPLE-Stop when the source contradicts the assigned behavior."],
+      "permissions": {
+        "source_changes": true,
+        "test_changes": true,
+        "documentation_changes": true,
+        "adjacent_defect_fixes": false,
+        "new_slice_work": false,
+        "architecture_changes": false,
+        "destructive_authority_expansion": false,
+        "external_write_authority_expansion": false,
+        "public_exposure_authority_expansion": false
+      },
+      "human_authorization": null,
+      "path_guidance": {
+        "likely_tracked_changes": ["EXAMPLE-src/feature/**", "EXAMPLE-tests/feature.spec.js"],
+        "forbidden_content": [".env", "credentials", "private-evidence", "raw-model-output", "hidden-reasoning"]
+      }
+    },
+    "required_verification": [
+      { "id": "EXAMPLE-CHECK-001", "owner_path": "docs/CURRENT_TASK.md" }
+    ],
+    "procedure_owners": ["docs/PROJECT_HEALTH.md"]
+  },
+  "amendments": [],
+  "response": null,
+  "integration_review": null
+}

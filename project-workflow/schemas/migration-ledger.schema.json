@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tova.local/project-workflow/migration-ledger.schema.json",
+  "title": "ToVA Project Workflow Migration Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "target_workflow_version", "target_root", "status", "plan_hash", "artifacts", "review"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": { "const": "tova.projectWorkflowMigrationLedger" },
+    "source_workflow_version": { "type": ["string", "null"] },
+    "source_classification": { "enum": ["established-non-tova", "legacy-untrusted", "versioned-upgrade"] },
+    "target_workflow_version": { "type": "string", "minLength": 3 },
+    "target_root": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "in-review", "accepted", "rejected"] },
+    "plan_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "artifacts": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reviewer", "decision", "accepted_at"],
+      "properties": {
+        "status": { "enum": ["draft", "in-review", "accepted", "rejected"] },
+        "reviewer": { "type": ["string", "null"] },
+        "decision": { "type": ["string", "null"] },
+        "accepted_at": { "type": ["string", "null"], "format": "date-time" }
+      }
+    }
+  },
+  "$defs": {
+    "stringArray": { "type": "array", "items": { "type": "string" } },
+    "retirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_reconciled", "references_updated", "historical_copy_required", "safe_to_retire"],
+      "properties": {
+        "content_reconciled": { "type": "boolean" },
+        "references_updated": { "type": "boolean" },
+        "historical_copy_required": { "type": "boolean" },
+        "safe_to_retire": { "type": "boolean" }
+      }
+    },
+    "contentUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "relationship", "unique_current_content", "destinations", "disposition", "review_status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "relationship": { "$ref": "#/$defs/relationship" },
+        "unique_current_content": { "$ref": "#/$defs/stringArray" },
+        "destinations": { "$ref": "#/$defs/stringArray" },
+        "disposition": { "$ref": "#/$defs/disposition" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_path", "source_fingerprint", "proposed_role", "target_role", "target_path", "relationship",
+        "unique_current_content", "duplicated_content", "conflicting_content", "stronger_project_rules",
+        "superseded_baseline_rules", "destinations", "disposition", "required_transformation", "required_verification",
+        "unresolved_questions", "stop_conditions", "review_status", "owner_decision", "retirement", "content_units"
+      ],
+      "properties": {
+        "source_path": { "type": "string", "minLength": 1 },
+        "source_fingerprint": { "type": "string", "minLength": 8 },
+        "proposed_role": { "type": ["string", "null"] },
+        "target_role": { "type": ["string", "null"] },
+        "target_path": { "type": ["string", "null"] },
+        "relationship": { "$ref": "#/$defs/relationship" },
+        "unique_current_content": { "$ref": "#/$defs/stringArray" },
+        "duplicated_content": { "$ref": "#/$defs/stringArray" },
+        "conflicting_content": { "$ref": "#/$defs/stringArray" },
+        "stronger_project_rules": { "$ref": "#/$defs/stringArray" },
+        "superseded_baseline_rules": { "$ref": "#/$defs/stringArray" },
+        "destinations": { "$ref": "#/$defs/stringArray" },
+        "disposition": { "$ref": "#/$defs/disposition" },
+        "required_transformation": { "$ref": "#/$defs/stringArray" },
+        "required_verification": { "$ref": "#/$defs/stringArray" },
+        "unresolved_questions": { "$ref": "#/$defs/stringArray" },
+        "stop_conditions": { "$ref": "#/$defs/stringArray" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "owner_decision": { "type": ["string", "null"] },
+        "extension_contract": {
+          "type": ["object", "null"],
+          "required": ["purpose", "owns", "does_not_own", "read_when", "update_when", "referenced_by", "extends_complements", "distinct_role_reason"]
+        },
+        "retirement": { "$ref": "#/$defs/retirement" },
+        "content_units": { "type": "array", "items": { "$ref": "#/$defs/contentUnit" } }
+      }
+    },
+    "relationship": { "enum": ["same-role", "overlapping-role", "partial-role", "distinct-extension", "historical", "obsolete-workflow"] },
+    "disposition": { "enum": ["CREATE", "REUSE", "MERGE", "SPLIT", "RENAME_MOVE", "RETAIN_EXTENSION", "DISTILL_ARCHIVE", "RETIRE_AFTER_MERGE", "SUPERSEDED", "CONFLICT", "DEFER"] },
+    "reviewStatus": { "enum": ["draft", "in-review", "accepted", "rejected", "deferred"] }
+  }
+}

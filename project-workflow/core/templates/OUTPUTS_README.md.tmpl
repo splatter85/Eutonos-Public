@@ -1,0 +1,55 @@
+# Outputs
+
+## Purpose
+
+This directory is the repository-owned workspace for intentionally retained work products that are useful to the project but are not handoff packages and do not belong in a more authoritative owner.
+
+Typical outputs include bounded reports, analyses, audits, comparisons, generated summaries, design or review exports, and other deliverables worth keeping with the repository. Their presence does not make their claims accepted project truth.
+
+Use `{{OWNER_handoffs}}` instead when an artifact is prepared for a specific AI, Codex session, machine, or human receiver and needs transfer instructions, a manifest, or archive-integrity checks.
+
+## Truth Boundary
+
+- `{{OWNER_currentTask}}` remains the sole live checklist owner.
+- Product, architecture, capability, bug, lesson, verification, and acceptance truth remain in their existing owners.
+- Generated application or build artifacts remain governed by `{{OWNER_architecture}}`; copying them here does not make them durable source.
+- `{{STATE_ROOT}}/` owns compact workflow state and generated workflow reports.
+- Git owns exact history and rollback.
+- An output points to authoritative owners when it summarizes or derives from them; it does not silently replace them.
+
+## What Belongs Here
+
+- A report, analysis, comparison, audit, or summary intentionally retained for later reference.
+- A bounded visual, data, or document export that is part of project work but is not durable source or a transfer package.
+- A user-requested deliverable that should remain with the repository and has no specific external receiver.
+- A clearly labeled snapshot whose source revision and limitations are recorded.
+
+Do not store secrets, credentials, personal or production data, signing material, dependencies, caches, routine build output, large disposable artifacts, or files already owned elsewhere.
+
+## Recommended Shape
+
+Use one clearly named file or a topic directory:
+
+```text
+<docs-root>/outputs/
+  README.md
+  <topic>-<date>.<ext>
+  <output-id>/
+    README.md
+    ...bounded output files...
+```
+
+For a non-trivial output, record its purpose and status, creation date, producing command/tool/agent when useful, source revision or dirty-tree caveat, authoritative owner links, checks, limitations, and commit-safety boundary.
+
+Prefer stable, filesystem-safe names. When an output is already referenced, create a dated or versioned successor rather than overwriting it in place.
+
+## Lifecycle
+
+1. Retain an output only when it has practical future value.
+2. Keep temporary intermediates outside the repository or in an ignored workspace.
+3. Run the proportional check from `{{OWNER_projectHealth}}` for the claims or format involved.
+4. If the output changes project truth, update the actual owning document or source file.
+5. If it becomes a transfer package, follow `{{OWNER_handoffs}}`; the output workspace does not satisfy handoff requirements automatically.
+6. If it becomes canonical documentation, move the durable content into the proper owner and retire or clearly mark the old output.
+
+Outputs are convenient retained artifacts, not automatic evidence, acceptance, publication, or release records.

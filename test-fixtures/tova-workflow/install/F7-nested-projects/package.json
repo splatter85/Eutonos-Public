@@ -1,0 +1,9 @@
+{
+  "name": "f7-parent-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"console.log('F7 tests passed')\"",
+    "build": "node -e \"console.log('F7 build passed')\""
+  }
+}

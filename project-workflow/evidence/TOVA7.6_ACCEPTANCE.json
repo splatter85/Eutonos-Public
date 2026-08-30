@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "kind": "tova.projectWorkflowFixtureAcceptance",
+  "slice": "TOVA7.6",
+  "status": "passed",
+  "workflow_version": "2.0.0-rc.1",
+  "run_date": "2026-07-18",
+  "command": "npm.cmd run workflow:fixtures",
+  "runner": "tools/project-workflow-fixtures.js",
+  "fixture_manifest": "test-fixtures/tova-workflow/install/FIXTURES.json",
+  "mutation_boundary": "temporary copies under the operating-system temp directory only",
+  "committed_fixture_tree_unchanged": true,
+  "fixtures": [
+    {
+      "id": "F1",
+      "shape": "blank repository",
+      "classification": "blank",
+      "layout": { "state_root": ".project", "docs_root": "docs" },
+      "preserved_original_files": 0,
+      "archived_original_files": 0,
+      "health_mode": "manual-project-health",
+      "cold_start": {
+        "product_owner": "docs/PROJECT_GOALS.md",
+        "current_task": "Workflow Initialization Review",
+        "health_commands": ["manual project-health checks"],
+        "next_action": "Confirm project goals and architecture owners."
+      },
+      "manifest_path": ".project/TOVA_INSTALLATION.json",
+      "repeat_apply_writes": 0,
+      "repeat_finalize_writes": 0
+    },
+    {
+      "id": "F2",
+      "shape": "existing non-ToVA repository",
+      "classification": "existing-non-tova",
+      "layout": { "state_root": ".project", "docs_root": "Docs" },
+      "preserved_original_files": 7,
+      "archived_original_files": 0,
+      "health_mode": "declared-commands",
+      "cold_start": {
+        "product_owner": "Docs/PROJECT_GOALS.md",
+        "current_task": "Export Audit Slice",
+        "health_commands": ["npm run test", "npm run build"],
+        "known_bug": "F2-EXPORT-001 - Duplicate identifiers are not rejected",
+        "next_action": "Add a duplicate-identifier fixture and focused assertion."
+      },
+      "manifest_path": ".project/TOVA_INSTALLATION.json",
+      "repeat_apply_writes": 0,
+      "repeat_finalize_writes": 0
+    },
+    {
+      "id": "F3",
+      "shape": "generation 1 legacy repository",
+      "classification": "legacy",
+      "layout": { "state_root": ".project", "docs_root": "docs" },
+      "preserved_original_files": 7,
+      "archived_original_files": 4,
+      "health_mode": "declared-commands",
+      "cold_start": {
+        "product_owner": "docs/PROJECT_GOALS.md",
+        "current_task": "Reconciliation Total Slice",
+        "health_commands": ["npm run test", "npm run build"],
+        "known_bug": "F3-LEDGER-004 - Refunds remain in available total",
+        "next_action": "Add the refunded-contribution sample."
+      },
+      "manifest_path": ".project/TOVA_INSTALLATION.json",
+      "repeat_apply_writes": 0,
+      "repeat_finalize_writes": 0
+    },
+    {
+      "id": "F4",
+      "shape": "customized generation 1 repository",
+      "classification": "legacy",
+      "layout": { "state_root": ".tova", "docs_root": "Docs" },
+      "preserved_original_files": 14,
+      "archived_original_files": 4,
+      "preserved_customizations": [
+        "capitalized Docs layout",
+        ".tova state layout",
+        "website overlay",
+        "connector and logging guidance",
+        "project AGENTS contract",
+        "content-review-agent collision boundary"
+      ],
+      "health_mode": "declared-commands",
+      "cold_start": {
+        "product_owner": "Docs/PROJECT_GOALS.md",
+        "current_task": "Event Card Accessibility Slice",
+        "parallel_work": "content-review-agent",
+        "health_commands": ["npm run test", "npm run build"],
+        "known_bug": "F4-SITE-007 - Date text lacks an explicit accessible label",
+        "next_action": "Add the accessible date-label rendering assertion."
+      },
+      "manifest_path": ".tova/TOVA_INSTALLATION.json",
+      "repeat_apply_writes": 0,
+      "repeat_finalize_writes": 0
+    }
+  ],
+  "failure_boundaries": [
+    { "id": "stale-plan", "code": "PLAN_HASH_MISMATCH", "writes": 0, "target_unchanged": true },
+    { "id": "owner-collision", "code": "ROLE_OWNER_COLLISION", "writes": 0, "target_unchanged": true },
+    { "id": "unavailable-command", "code": "DECLARED_COMMAND_UNAVAILABLE", "writes": 0, "target_unchanged": true },
+    { "id": "occupied-archive", "code": "LEGACY_ARCHIVE_TARGET_EXISTS", "writes": 0, "target_unchanged": true },
+    { "id": "newer-version", "code": "TARGET_VERSION_NEWER", "writes": 0, "target_unchanged": true },
+    { "id": "case-only-paths", "code": "CASE_COLLISION", "writes": 0, "target_unchanged": true }
+  ],
+  "claim_boundary": {
+    "installed_only_cold_start_audit": true,
+    "separate_human_or_model_release_approval": false,
+    "repository_installation_manifest_written": false,
+    "baseline_accepted": false,
+    "git_commit_created": false,
+    "published": false
+  }
+}

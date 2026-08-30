@@ -1,0 +1,148 @@
+# ToVA Workflow Setup And Adoption
+
+Use this guide while this repository is adopting, initializing, or upgrading ToVA Project Workflow. It is a conditional setup owner, not routine boot context and not a second source of product truth.
+
+ToVA Project Workflow is a documentation, planning, verification, and continuity layer. It supports this project's product and architecture; it does not replace them.
+
+## Migration Doctrine For Existing Repositories
+
+Existing repositories are migration sources, not alternate ToVA standards. The current supported Starter Kit defines the target ToVA workflow contract. Preservation-first automation protects project information and user work; it does not preserve obsolete workflow authority.
+
+Preserve project facts, project-specific rules and commands, compatible local improvements, history, and evidence. Reconcile overlapping owners into the current baseline, retain extra documents only when they have a distinct declared role, and never retire a container until its unique current content has an accepted destination. Read `docs/TOVA_MIGRATION.md` before approving any established-repository or older-version plan.
+
+## Complete Adoption
+
+A complete adoption has three stages:
+
+1. **Deploy:** use the version-aware installer to discover one explicit project root, exclude reported nested ToVA roots, preserve existing owners, and bootstrap only missing workflow files.
+2. **Initialize:** inspect the repository and populate or confirm every applicable core owner using project evidence and user-confirmed facts.
+3. **Accept:** run target-local workflow, project-health, and cold-start checks; save acceptance evidence; then finalize installation identity.
+
+File presence is not acceptance. Full-core adoption means every core owner is evaluated, not that optional overlays/modules are automatically enabled or that unknown facts are invented.
+
+Git is part of setup, not an optional convenience. If Git is missing or this folder is not a Git worktree, ask the owner before installing Git, running `git init`, or connecting a remote.
+
+## Which Path Applies?
+
+- **Blank/new repository:** deploy the full core, run `docs/PROJECT_DISCOVERY.md`, and populate the project owners from confirmed answers.
+- **Established repository:** follow `docs/TOVA_MIGRATION.md`, map logical roles before filenames, reuse clean native owners, and deliberately merge/split overlapping content.
+- **Legacy ToVA layout:** use untrusted legacy discovery and reconcile unique content before any retirement.
+- **Accepted older installation:** the current supported baseline owns ToVA workflow semantics while project truth survives; follow the release-specific upgrade chain and fresh target acceptance. Never downgrade a newer target.
+
+## Upgrade An Older ToVA-Enabled Repository
+
+Use the newest Starter Kit outside the target and upgrade one exact repository root at a time:
+
+1. Confirm no active writer lease, record Git branch/HEAD/status, and read the existing installation manifest. Do not hand-edit the manifest.
+2. From the newest Starter Kit root, run a fresh dry-run. A valid accepted older target should classify as `installed-upgrade`; stop and understand any other classification.
+3. Review state/docs casing, installed/candidate versions, nested-root exclusions, exact and semantic role candidates, creates, retirement candidates, conflicts, real health commands, and the exact `planHash`.
+4. Remember that apply is create-only: it preserves customized owners, does not retire source documents, and does not silently rewrite `package.json`. Reconcile the accepted ledger before the separate retirement phase.
+5. For rc.9 continuity, reconcile `.project/EXECUTION_STATE.json`, `.project/DEVELOPMENT_NODES.json`, `docs/COLLABORATION_PROTOCOL.md`, `docs/agent-notes/README.md`, Exchange/receipt templates, ignored `.tova-runtime/`, and access to the real collaboration checker. Add `assignment_base_sha` only as an explicit work-origin field; retain or deliberately clear `source_baseline_sha` as compatibility data, never as Current HEAD or a global verified version. Preserve prior verification as claim-specific historical evidence, then record Current HEAD, Evidence SHA, carry-forward rationale, and the smallest required focused gate in the target's actual Slice/Exchange/report/handoff owner.
+6. Apply only the latest reviewed plan hash, initialize new applicable owners, reconcile preserved owners, and run the portable workflow and collaboration checks plus the target's real Project Health gate and installed-only cold-start review.
+7. Create fresh target-local acceptance evidence for the exact version/root/checks, finalize from the newest Starter Kit, confirm the previous manifest was archived and valid module/Variant selections were preserved, then review the Git diff and zero-write repeat behavior.
+
+When upgrading several repositories, never reuse a `planHash`, acceptance-evidence file, installation manifest, dry-run classification, or proof claim. Each belongs to one target tree and revision.
+
+From the newest Starter Kit root:
+
+```powershell
+npm.cmd run workflow:install -- --root C:\path\to\project --phase dry-run
+npm.cmd run workflow:install -- --root C:\path\to\project --phase apply --plan-hash <exact-reviewed-planHash>
+npm.cmd run workflow:migration-check -- --root C:\path\to\project --ledger .project\migration-ledger.json
+npm.cmd run workflow:install -- --root C:\path\to\project --phase retire --migration-ledger .project\migration-ledger.json
+npm.cmd run workflow:check -- --root C:\path\to\project
+npm.cmd run workflow:collaboration-check -- --root C:\path\to\project
+npm.cmd run workflow:install -- --root C:\path\to\project --phase finalize --acceptance-evidence .project\workflow-acceptance.json --migration-ledger .project\migration-ledger.json
+```
+
+Replace `.project` with that target's reported state root. Commit, publish, export, and baseline promotion remain separate owner decisions.
+
+## Deploy From The Starter Package
+
+From the current starter-package root:
+
+```powershell
+npm.cmd run workflow:install -- --help
+npm.cmd run workflow:install -- --root C:\path\to\project --phase dry-run
+npm.cmd run workflow:install -- --root C:\path\to\project --phase apply --plan-hash <exact-reviewed-planHash>
+```
+
+Before apply, verify the exact root, nested-root exclusions, Git/work state, classification, state/docs casing, owner paths, semantic candidates, reused bytes, creates, retirement candidates, real health commands, empty conflict list, and current `planHash`. Any target change requires a fresh dry-run.
+
+Apply creates only missing owners, preserves discovered bytes/casing, records migration-pending state, and leaves every retirement candidate live. Retire requires the accepted ledger. Neither phase enables optional material, commits, publishes, or accepts the project.
+
+## Initialize This Repository Completely
+
+Start with `.project/PROJECT_BOOT_PROTOCOL.md`, inspect existing source/docs/commands/assets/behavior, and use `docs/PROJECT_DISCOVERY.md` only for facts that remain open. Evaluate these owners:
+
+| Truth | Owner and required result |
+| --- | --- |
+| Purpose and success | `docs/PROJECT_GOALS.md` identifies product, users, outcomes, measurable first success, constraints, and non-goals. |
+| Construction | `docs/ARCHITECTURE.md` identifies durable source, components, platforms, data/runtime/host/integration boundaries, generated artifacts, recovery, and debugging paths. |
+| Supported outcomes | `docs/CURRENT_CAPABILITIES.md` describes only complete supported processes with inputs, outputs, evidence, environments, and limitations. |
+| Implemented mechanisms | `docs/CURRENT_FEATURES.md` inventories commands, controls, adapters, formats, jobs, APIs, and target operations with source/proof refs. |
+| Desired scope | `docs/FUTURE_CAPABILITIES.md` and `docs/FUTURE_FEATURES.md` keep unimplemented outcomes/mechanisms out of current claims. |
+| Verification | `docs/PROJECT_HEALTH.md` names real automated and human/external gates; placeholders never pass. |
+| Active work | `docs/CURRENT_TASK.md` keeps one initialization checklist and the next unresolved action. |
+| Compact context | `.project/CURRENT_STATE.md` keeps concise confirmed truth; `.project/EXECUTION_STATE.json` keeps durable work/writer/Exchange state; `.project/ACTIVE_AGENT_WORK.md` is compatibility-only. |
+| Collaboration | `docs/COLLABORATION_PROTOCOL.md`, `.project/DEVELOPMENT_NODES.json`, `docs/agent-notes/README.md`, Exchanges, and ignored local journals are evaluated without inventing capabilities or external authority. |
+
+Use **Confirmed**, **Assumption awaiting confirmation**, **Open question**, or **Not applicable** accurately. Link to a stronger existing owner instead of copying it. Do not use generic filler to make a document look complete.
+
+For an established repository, report what was reused, created, linked, intentionally preserved, or left unproven. For a legacy repository, reconcile the generated migration note before treating generation 2 owners as complete.
+
+## Verify And Save Acceptance Evidence
+
+Run the installed workflow check and the real gate declared by `docs/PROJECT_HEALTH.md`. Then conduct an installed-only cold-start review that can answer the project's purpose, construction, current/future outcomes, active work, next action, and required checks.
+
+Save evidence inside the configured state root, normally `.project/workflow-acceptance.json`:
+
+```json
+{
+  "ok": true,
+  "workflow_version": "<exact starter workflow version>",
+  "accepted_at": "<ISO-8601 timestamp>",
+  "root": "C:\\absolute\\path\\to\\project",
+  "checks": [
+    "workflow check passed with all required owners",
+    "declared project health gate passed",
+    "installed-only cold-start review passed"
+  ]
+}
+```
+
+List only checks that actually passed. Required skipped or failing checks make `ok: true` invalid.
+
+## Finalize
+
+After owner review, run from the starter-package root:
+
+```powershell
+npm.cmd run workflow:install -- --root C:\path\to\project --phase finalize --acceptance-evidence .project\workflow-acceptance.json
+```
+
+Replace `.project` with the actual `stateRoot` reported by dry-run when the target preserves another layout such as `.tova`.
+
+Finalize reruns the checker, validates target-local evidence, and writes `<state-root>/TOVA_INSTALLATION.json`. It does not commit, publish, release, approve the product, or promote a baseline.
+
+Then close/replace the Workflow Initialization Review in `docs/CURRENT_TASK.md`, reconcile `.project/CURRENT_STATE.md`, and record the meaningful adoption milestone in `docs/DOC_CHANGE_LOG.md`. Keep this guide and `docs/PROJECT_DISCOVERY.md` available but conditional.
+
+## Use The Workflow
+
+- Start routine work with `.project/PROJECT_BOOT_PROTOCOL.md`.
+- Use `docs/TOVA_HELP.md` for everyday document routing, planning, and promotion.
+- Use `docs/README.md` to locate only the specialist owners needed by the current Slice.
+- Keep active work in `docs/CURRENT_TASK.md`, verification policy in `docs/PROJECT_HEALTH.md`, construction in `docs/ARCHITECTURE.md`, outcomes in Capability owners, and mechanisms in Feature owners.
+- Keep durable execution/writer state in `.project/EXECUTION_STATE.json` and online/local/multi-node rules in `docs/COLLABORATION_PROTOCOL.md`.
+- Update only owners whose truth changed.
+
+## Troubleshooting
+
+- Plan hash mismatch: rerun dry-run and review the new plan.
+- Competing owners or case collision: choose/reconcile explicitly; never guess or overwrite.
+- Unavailable health command: correct the owner or environment; never substitute a passing placeholder.
+- Acceptance rejected: check evidence version, timestamp, root, checks, and in-target path.
+- Missing legacy fact: inspect the generated migration note and exact archived bytes, then distill current truth into the correct owner.
+- Rollback: use Git first; do not manually reactivate archived generation 1 boot owners.
+
+The starter package's `project-workflow/README.md` owns deeper installer classifications, stop rules, schemas, preservation, and idempotency behavior.

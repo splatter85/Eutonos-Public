@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "kind": "tova.projectWorkflowReleaseCandidate",
+  "workflow_id": "tova-project-workflow",
+  "workflow_version": "2.0.0-rc.5",
+  "architecture_generation": 2,
+  "slice": "TOVA9.1",
+  "assembled_on": "2026-07-25",
+  "status": "ready-for-owner-release-decision",
+  "source": {
+    "repository": ".",
+    "distribution_root": "ToVA universal development starter kit",
+    "historical_source_commit": "5bdd3032bf12d0289a1fc5c4da1be77602107008",
+    "candidate_is_uncommitted_working_tree": true
+  },
+  "package": {
+    "checksum_manifest": "project-workflow/releases/2.0.0-rc.5/SHA256SUMS",
+    "checksum_scope": "all starter-package files except project-workflow/releases/ to avoid self-reference",
+    "file_count": 128,
+    "aggregate_sha256": "b6fd32d4392f6128341ad29d435e323cd348726c74b2ae812e2111436e125652"
+  },
+  "mirror_pairs": [
+    {
+      "id": "portable-workflow",
+      "source": "project-workflow",
+      "mirror": "ToVA universal development starter kit/project-workflow"
+    },
+    {
+      "id": "workflow-checker",
+      "source": "tools/project-workflow-check.js",
+      "mirror": "ToVA universal development starter kit/tools/project-workflow-check.js"
+    },
+    {
+      "id": "workflow-installer",
+      "source": "tools/project-workflow-install.js",
+      "mirror": "ToVA universal development starter kit/tools/project-workflow-install.js"
+    },
+    {
+      "id": "workflow-fixtures",
+      "source": "tools/project-workflow-fixtures.js",
+      "mirror": "ToVA universal development starter kit/tools/project-workflow-fixtures.js"
+    },
+    {
+      "id": "workflow-tests",
+      "source": "tests/project-workflow.spec.js",
+      "mirror": "ToVA universal development starter kit/tests/project-workflow.spec.js"
+    },
+    {
+      "id": "workflow-fixture-sources",
+      "source": "test-fixtures/tova-workflow",
+      "mirror": "ToVA universal development starter kit/test-fixtures/tova-workflow"
+    },
+    {
+      "id": "app-assurance-tool",
+      "source": "tools/app-build-assurance.js",
+      "mirror": "ToVA universal development starter kit/tools/app-build-assurance.js"
+    },
+    {
+      "id": "app-assurance-tests",
+      "source": "tests/app-build-assurance.spec.js",
+      "mirror": "ToVA universal development starter kit/tests/app-build-assurance.spec.js"
+    },
+    {
+      "id": "campaign-plan-template",
+      "source": "docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/CAMPAIGN_PLAN_TEMPLATE.md"
+    },
+    {
+      "id": "slice-plan-template",
+      "source": "docs/templates/SLICE_PLAN_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/SLICE_PLAN_TEMPLATE.md"
+    },
+    {
+      "id": "work-classification-examples",
+      "source": "docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/WORK_CLASSIFICATION_EXAMPLES.md"
+    },
+    {
+      "id": "outputs-owner",
+      "source": "docs/outputs/README.md",
+      "mirror": "ToVA universal development starter kit/docs/outputs/README.md"
+    }
+  ],
+  "required_package_scripts": {
+    "workflow:check": "node tools/project-workflow-check.js",
+    "workflow:install": "node tools/project-workflow-install.js",
+    "workflow:fixtures": "node tools/project-workflow-fixtures.js",
+    "test": "node --test tests/*.spec.js"
+  },
+  "preserved_trees": [
+    {
+      "role": "tova-generation-1-bootstrap-and-evaluation-archive",
+      "source_commit": "efc6ef28b72d9f3aff8ee3350974aec0cc08c8da",
+      "path": "archive/old-projects/tova-project-workflow-generation-1/legacy-bootstrap-and-evaluation",
+      "file_count": 22,
+      "aggregate_sha256": "b4cd3f2d23fd56aec400a994b859e68a8faf7b21f63cdd12e5a96d4df385980c"
+    }
+  ],
+  "preserved_files": [
+    {
+      "role": "starter-generation-1-archive",
+      "original_path": "ToVA universal development starter kit/.project/SESSION_RESUME.md",
+      "path": "ToVA universal development starter kit/archive/old-projects/project-workflow-generation-1/.project/SESSION_RESUME.md",
+      "sha256": "f4c42d9b72009b18082f2fa9beb3ca78efcaa3097e995c3e99a6b655344a78ef",
+      "git_blob": "dfa291f306969a47c7e856cc287ba072b6eed6d0"
+    },
+    {
+      "role": "starter-generation-1-archive",
+      "original_path": "ToVA universal development starter kit/.project/TASK_STATE.md",
+      "path": "ToVA universal development starter kit/archive/old-projects/project-workflow-generation-1/.project/TASK_STATE.md",
+      "sha256": "d010a4fc2b26226a89cce46bb290e2bdbc8c1bbeec3ac2956c782f767cb9862b",
+      "git_blob": "37f121dd5df5d870f4609199ec8814c5dcf382ec"
+    },
+    {
+      "role": "starter-generation-1-archive",
+      "original_path": "ToVA universal development starter kit/docs/BUG_WORKFLOW.md",
+      "path": "ToVA universal development starter kit/archive/old-projects/project-workflow-generation-1/docs/BUG_WORKFLOW.md",
+      "sha256": "4752848cbf5da9bdf84b145f50b5e41db2c7d0af481f694d96ee1e05b7d0cb2c",
+      "git_blob": "ed5859a45108539432ccb2d561e2169a2c23caaa"
+    },
+    {
+      "role": "starter-generation-1-archive",
+      "original_path": "ToVA universal development starter kit/docs/NEXT_TASK_CANDIDATES.md",
+      "path": "ToVA universal development starter kit/archive/old-projects/project-workflow-generation-1/docs/NEXT_TASK_CANDIDATES.md",
+      "sha256": "8b4fd24e5576975ec6548d10a0a433a6971e36a7b8d30061495ea75f0e47fb6c",
+      "git_blob": "61ee5f4470726a9a998dcb5c937602ebef931939"
+    },
+    {
+      "role": "optional-operations-overlay",
+      "original_path": "ToVA universal development starter kit/docs/CONNECTORS.md",
+      "path": "ToVA universal development starter kit/overlays/integrations-and-operations/docs/CONNECTORS.md",
+      "sha256": "8ca7fafc4351e255fefa877430c93fd907a6d6f644fceb947d844ceeeafa0c36",
+      "git_blob": "5b6c02eb3a63fcc3c5d11a43abe368b3a542c42e"
+    },
+    {
+      "role": "optional-operations-overlay",
+      "original_path": "ToVA universal development starter kit/docs/DEVELOPMENT_INSTRUCTIONS.md",
+      "path": "ToVA universal development starter kit/overlays/integrations-and-operations/docs/DEVELOPMENT_INSTRUCTIONS.md",
+      "sha256": "0bf18c8b1ef9d9949b1009adcd3c5266a41109ca494396799e0de08149bae100",
+      "git_blob": "3022d5b7007bfa77d3c488abaf8b9fba2c7164b3"
+    },
+    {
+      "role": "optional-operations-overlay",
+      "original_path": "ToVA universal development starter kit/docs/ERROR_HANDLING_AND_LOGGING.md",
+      "path": "ToVA universal development starter kit/overlays/integrations-and-operations/docs/ERROR_HANDLING_AND_LOGGING.md",
+      "sha256": "7264460e3f64e85459cc0e9894cb79faf1169e4fcf320deb8bb0cf86735960d2",
+      "git_blob": "771301cf1c714a74610922e2a801df7a5caedb2e"
+    },
+    {
+      "role": "website-overlay",
+      "original_path": "ToVA universal development starter kit/overlays/website/README.md",
+      "path": "ToVA universal development starter kit/overlays/website/README.md",
+      "sha256": "9a3c6ec9ee0f19dcb5fed71a99a33ae944b561c074e68268061df12c6e50ddc8",
+      "git_blob": "9172ab1c658a8a52a411bdfcf6816fc6b6acb9f3"
+    },
+    {
+      "role": "website-overlay",
+      "original_path": "ToVA universal development starter kit/overlays/website/docs/WEBSITE_CONNECTORS.md",
+      "path": "ToVA universal development starter kit/overlays/website/docs/WEBSITE_CONNECTORS.md",
+      "sha256": "aae45936da2abfc002bc555afbbde5a818e58ce72722be23f41cd5d9035450c6",
+      "git_blob": "68db19b2d95fb6420613b0eddc2f495fbcb8ab78"
+    },
+    {
+      "role": "website-overlay",
+      "original_path": "ToVA universal development starter kit/overlays/website/docs/WEBSITE_DEVELOPMENT_INSTRUCTIONS.md",
+      "path": "ToVA universal development starter kit/overlays/website/docs/WEBSITE_DEVELOPMENT_INSTRUCTIONS.md",
+      "sha256": "fae8638653c0642288c3108467be0f34e4833eea211aeecac3d020ed4ca6b68c",
+      "git_blob": "5e1f8f5fcb441045b25693b4ee5a3158d8370d92"
+    },
+    {
+      "role": "website-overlay",
+      "original_path": "ToVA universal development starter kit/overlays/website/docs/WEBSITE_QUALITY_GATES.md",
+      "path": "ToVA universal development starter kit/overlays/website/docs/WEBSITE_QUALITY_GATES.md",
+      "sha256": "857cf59d88cf259a12d39b13f984fcd9e5a35cc0e4e3684ec90f93b69e75e670",
+      "git_blob": "df9183d707268ad77741c6ffc52e87764cad6be3"
+    }
+  ],
+  "retired_live_paths": [
+    ".tova/SESSION_RESUME.md",
+    ".tova/SESSION_RESUME.json",
+    ".tova/TASK_STATE.md",
+    ".tova/TASK_STATE.json",
+    "docs/NEXT_TASK_CANDIDATES.md",
+    "docs/BUG_WORKFLOW.md",
+    "docs/PROJECT_WORKFLOW_LAYOUT.md",
+    "docs/templates/project-workflow-bootstrap.prompt.md",
+    "docs/templates/project-workflow-eval-pack",
+    "docs/templates/project-workflow-eval-pack.zip",
+    "ToVA universal development starter kit/.project/SESSION_RESUME.md",
+    "ToVA universal development starter kit/.project/TASK_STATE.md",
+    "ToVA universal development starter kit/docs/NEXT_TASK_CANDIDATES.md",
+    "ToVA universal development starter kit/docs/BUG_WORKFLOW.md",
+    "ToVA universal development starter kit/docs/CONNECTORS.md",
+    "ToVA universal development starter kit/docs/DEVELOPMENT_INSTRUCTIONS.md",
+    "ToVA universal development starter kit/docs/ERROR_HANDLING_AND_LOGGING.md"
+  ],
+  "evidence": {
+    "fixture_acceptance": "project-workflow/evidence/TOVA8.2_FIRST_RUN_DISCOVERY_ACCEPTANCE.json",
+    "release_check_json": "project-workflow/releases/2.0.0-rc.5/TOVA9.1_RELEASE_CHECK.json",
+    "release_check_markdown": "project-workflow/releases/2.0.0-rc.5/TOVA9.1_RELEASE_CHECK.md",
+    "decision_packet": "project-workflow/releases/2.0.0-rc.5/RELEASE_CANDIDATE.md",
+    "full_project_gate": {
+      "command": "npm.cmd run verify",
+      "status": "passed",
+      "environment": "normal Windows SDK access",
+      "started_at": "2026-07-26T03:06:46.397Z",
+      "completed_at": "2026-07-26T03:07:30.815Z",
+      "apps_validated": 45,
+      "apps_built": 45,
+      "tests_passed": 248,
+      "tests_total": 248,
+      "doctor_errors": 0,
+      "doctor_warnings": 1,
+      "doctor_warning_boundary": "Expected portable snapshot drift remains because npm.cmd run accept was not authorized or run.",
+      "source_focused_checks": "Source workflow tests passed 12/12, starter tests passed 17/17, both 21-owner workflow checks passed, and TOVA9.1 release parity/checksum tests passed.",
+      "restricted_environment_attempt": "The restricted run passed 247/248; its only failure was the known native Paint Windows SDK sandbox boundary. The normal-access rerun passed 248/248.",
+      "source_report": ".tova/last-verify-report.json"
+    }
+  },
+  "limitations": [
+    "The build-artifact safeguard is a planning, reporting, and closeout contract. It does not run background cleanup, infer deletion safety from gitignore, or change the retention owners for snapshots, checkpoints, run evidence, releases, handoffs, dependencies, or shared caches.",
+    "The first-run discovery owner is a conditional interview protocol, not a second product-goal, architecture, state, task, or answer ledger; suggestions remain labeled until user confirmation.",
+    "The app-build-assurance module is disabled by default. Its structural pass checks contract completeness and references but does not prove runtime, device, human, privacy, migration, beta, or release acceptance.",
+    "The retained-output owner stores useful reports, analyses, comparisons, exports, and other bounded work products; it is not a second task board, source-of-truth owner, acceptance record, release authority, or handoff package.",
+    "The handoff owner packages bounded transfers and references current project truth; it is not a second task board, acceptance record, release authority, history system, or external evidence home.",
+    "The checksum scope excludes project-workflow/releases to avoid self-referential release artifacts.",
+    "Automated installed-only cold-start evidence does not equal separate human or fresh-model release approval.",
+    "The portable installer creates the smallest meaningful core and preserves richer target-native owners rather than overwriting them.",
+    "Repository and external ZIP copies are transport artifacts and must match the recorded SHA-256; they do not become writable project truth.",
+    "Website and integrations/operations overlays are optional and are not automatically installed as universal boot owners.",
+    "No target repository has been installed from this assembled candidate.",
+    "TOVA7.4 iOS and SwiftData work remains deferred."
+  ],
+  "release_decision": {
+    "automated_candidate_ready": true,
+    "owner_approved": false,
+    "git_commit_created": false,
+    "published": false,
+    "target_installation_identity_written": false,
+    "portable_baseline_accepted": false
+  }
+}

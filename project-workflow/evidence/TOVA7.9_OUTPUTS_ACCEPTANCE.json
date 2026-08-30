@@ -1,0 +1,502 @@
+{
+  "ok": true,
+  "kind": "tova.projectWorkflowFixtureCampaign",
+  "slice": "TOVA7.6",
+  "workflowVersion": "2.0.0-rc.3",
+  "fixtureManifest": "test-fixtures/tova-workflow/install/FIXTURES.json",
+  "mutationBoundary": "temporary copies under the operating-system temp directory only",
+  "committedFixtureTreeUnchanged": true,
+  "fixtures": [
+    {
+      "id": "F1",
+      "name": "blank repository",
+      "ok": true,
+      "initialClassification": "blank",
+      "layout": {
+        "stateRoot": ".project",
+        "docsRoot": "docs"
+      },
+      "dryRun": {
+        "deterministic": true,
+        "writesPerformed": 0,
+        "targetUnchanged": true
+      },
+      "apply": {
+        "writesPerformed": 21,
+        "installationManifestWritten": false,
+        "preservedOriginalFiles": 0,
+        "archivedOriginalFiles": 0,
+        "archivedPaths": []
+      },
+      "workflowCheck": {
+        "errors": 0,
+        "warnings": 0,
+        "ownersChecked": 20
+      },
+      "health": {
+        "ok": true,
+        "mode": "manual-project-health",
+        "commands": []
+      },
+      "coldStart": {
+        "ok": true,
+        "kind": "tova.projectWorkflowColdStartAudit",
+        "readsOnlyInstalledFiles": true,
+        "owners": {
+          "goals": "docs/PROJECT_GOALS.md",
+          "currentTask": "docs/CURRENT_TASK.md",
+          "activeAgentWork": ".project/ACTIVE_AGENT_WORK.md",
+          "projectHealth": "docs/PROJECT_HEALTH.md",
+          "knownBugs": "docs/KNOWN_BUGS.md",
+          "outputs": "docs/outputs/README.md"
+        },
+        "responses": {
+          "product": {
+            "owner": "docs/PROJECT_GOALS.md",
+            "answer": "Installation cannot infer product intent safely. The first project-owned task is to replace this initialization status with a confirmed purpose, users, measurable success criteria, constraints, and non-goals."
+          },
+          "currentTask": {
+            "owner": "docs/CURRENT_TASK.md",
+            "answer": "Workflow Initialization Review"
+          },
+          "parallelWork": {
+            "owner": ".project/ACTIVE_AGENT_WORK.md",
+            "answer": "Purpose: prevent overlapping edits and unsafe baseline promotion."
+          },
+          "healthCommands": {
+            "owner": "docs/PROJECT_HEALTH.md",
+            "answer": [
+              "manual project-health checks"
+            ]
+          },
+          "knownBugs": {
+            "owner": "docs/KNOWN_BUGS.md",
+            "answer": "Record reproducible defects that should survive beyond the current task. States are `open`, `investigating`, `blocked`, `deferred`, and `fixed`."
+          },
+          "retainedOutputs": {
+            "owner": "docs/outputs/README.md",
+            "answer": "This directory is the repository-owned workspace for intentionally retained work products that are useful to the project but are not handoff packages and do not belong in a more authoritative owner."
+          },
+          "nextAction": {
+            "owner": "docs/CURRENT_TASK.md",
+            "answer": "Confirm project goals and architecture owners."
+          }
+        },
+        "findings": []
+      },
+      "finalize": {
+        "workflowVersion": "2.0.0-rc.3",
+        "architectureGeneration": 2,
+        "manifestPath": ".project/TOVA_INSTALLATION.json",
+        "acceptedEvidenceInsideTarget": true
+      },
+      "idempotency": {
+        "repeatedApplyWrites": 0,
+        "repeatedFinalizeWrites": 0
+      },
+      "committedFixtureSourceUnchanged": true
+    },
+    {
+      "id": "F2",
+      "name": "existing non-ToVA repository",
+      "ok": true,
+      "initialClassification": "existing-non-tova",
+      "layout": {
+        "stateRoot": ".project",
+        "docsRoot": "Docs"
+      },
+      "dryRun": {
+        "deterministic": true,
+        "writesPerformed": 0,
+        "targetUnchanged": true
+      },
+      "apply": {
+        "writesPerformed": 16,
+        "installationManifestWritten": false,
+        "preservedOriginalFiles": 7,
+        "archivedOriginalFiles": 0,
+        "archivedPaths": []
+      },
+      "workflowCheck": {
+        "errors": 0,
+        "warnings": 0,
+        "ownersChecked": 20
+      },
+      "health": {
+        "ok": true,
+        "mode": "declared-commands",
+        "commands": [
+          {
+            "command": "npm run test",
+            "script": "test",
+            "ok": true,
+            "exitCode": 0,
+            "launchError": null,
+            "outputConfirmed": true
+          },
+          {
+            "command": "npm run build",
+            "script": "build",
+            "ok": true,
+            "exitCode": 0,
+            "launchError": null,
+            "outputConfirmed": true
+          }
+        ]
+      },
+      "coldStart": {
+        "ok": true,
+        "kind": "tova.projectWorkflowColdStartAudit",
+        "readsOnlyInstalledFiles": true,
+        "owners": {
+          "goals": "Docs/PROJECT_GOALS.md",
+          "currentTask": "Docs/CURRENT_TASK.md",
+          "activeAgentWork": ".project/ACTIVE_AGENT_WORK.md",
+          "projectHealth": "Docs/PROJECT_HEALTH.md",
+          "knownBugs": "Docs/KNOWN_BUGS.md",
+          "outputs": "Docs/outputs/README.md"
+        },
+        "responses": {
+          "product": {
+            "owner": "Docs/PROJECT_GOALS.md",
+            "answer": "Inventory Exporter gives warehouse supervisors a repeatable offline CSV export of current stock records. Success means the same input produces the same ordered rows without network access or record mutation."
+          },
+          "currentTask": {
+            "owner": "Docs/CURRENT_TASK.md",
+            "answer": "Export Audit Slice"
+          },
+          "parallelWork": {
+            "owner": ".project/ACTIVE_AGENT_WORK.md",
+            "answer": "Purpose: prevent overlapping edits and unsafe baseline promotion."
+          },
+          "healthCommands": {
+            "owner": "Docs/PROJECT_HEALTH.md",
+            "answer": [
+              "npm run test",
+              "npm run build"
+            ]
+          },
+          "knownBugs": {
+            "owner": "Docs/KNOWN_BUGS.md",
+            "answer": "F2-EXPORT-001 - Duplicate identifiers are not rejected"
+          },
+          "retainedOutputs": {
+            "owner": "Docs/outputs/README.md",
+            "answer": "This directory is the repository-owned workspace for intentionally retained work products that are useful to the project but are not handoff packages and do not belong in a more authoritative owner."
+          },
+          "nextAction": {
+            "owner": "Docs/CURRENT_TASK.md",
+            "answer": "Add a duplicate-identifier fixture and focused assertion."
+          }
+        },
+        "findings": []
+      },
+      "finalize": {
+        "workflowVersion": "2.0.0-rc.3",
+        "architectureGeneration": 2,
+        "manifestPath": ".project/TOVA_INSTALLATION.json",
+        "acceptedEvidenceInsideTarget": true
+      },
+      "idempotency": {
+        "repeatedApplyWrites": 0,
+        "repeatedFinalizeWrites": 0
+      },
+      "committedFixtureSourceUnchanged": true
+    },
+    {
+      "id": "F3",
+      "name": "generation 1 legacy repository",
+      "ok": true,
+      "initialClassification": "legacy",
+      "layout": {
+        "stateRoot": ".project",
+        "docsRoot": "docs"
+      },
+      "dryRun": {
+        "deterministic": true,
+        "writesPerformed": 0,
+        "targetUnchanged": true
+      },
+      "apply": {
+        "writesPerformed": 21,
+        "installationManifestWritten": false,
+        "preservedOriginalFiles": 7,
+        "archivedOriginalFiles": 4,
+        "archivedPaths": [
+          ".project/SESSION_RESUME.md",
+          ".project/TASK_STATE.md",
+          "docs/BUG_WORKFLOW.md",
+          "docs/NEXT_TASK_CANDIDATES.md"
+        ]
+      },
+      "workflowCheck": {
+        "errors": 0,
+        "warnings": 0,
+        "ownersChecked": 20
+      },
+      "health": {
+        "ok": true,
+        "mode": "declared-commands",
+        "commands": [
+          {
+            "command": "npm run test",
+            "script": "test",
+            "ok": true,
+            "exitCode": 0,
+            "launchError": null,
+            "outputConfirmed": true
+          },
+          {
+            "command": "npm run build",
+            "script": "build",
+            "ok": true,
+            "exitCode": 0,
+            "launchError": null,
+            "outputConfirmed": true
+          }
+        ]
+      },
+      "coldStart": {
+        "ok": true,
+        "kind": "tova.projectWorkflowColdStartAudit",
+        "readsOnlyInstalledFiles": true,
+        "owners": {
+          "goals": "docs/PROJECT_GOALS.md",
+          "currentTask": "docs/CURRENT_TASK.md",
+          "activeAgentWork": ".project/ACTIVE_AGENT_WORK.md",
+          "projectHealth": "docs/PROJECT_HEALTH.md",
+          "knownBugs": "docs/KNOWN_BUGS.md",
+          "outputs": "docs/outputs/README.md"
+        },
+        "responses": {
+          "product": {
+            "owner": "docs/PROJECT_GOALS.md",
+            "answer": "Community Ledger keeps contribution records understandable and locally auditable. Success means every reconciliation total can be reproduced from committed sample records without remote services."
+          },
+          "currentTask": {
+            "owner": "docs/CURRENT_TASK.md",
+            "answer": "Reconciliation Total Slice"
+          },
+          "parallelWork": {
+            "owner": ".project/ACTIVE_AGENT_WORK.md",
+            "answer": "Purpose: prevent overlapping edits and unsafe baseline promotion."
+          },
+          "healthCommands": {
+            "owner": "docs/PROJECT_HEALTH.md",
+            "answer": [
+              "npm run test",
+              "npm run build"
+            ]
+          },
+          "knownBugs": {
+            "owner": "docs/KNOWN_BUGS.md",
+            "answer": "F3-LEDGER-004 - Refunds remain in available total"
+          },
+          "retainedOutputs": {
+            "owner": "docs/outputs/README.md",
+            "answer": "This directory is the repository-owned workspace for intentionally retained work products that are useful to the project but are not handoff packages and do not belong in a more authoritative owner."
+          },
+          "nextAction": {
+            "owner": "docs/CURRENT_TASK.md",
+            "answer": "Add the refunded-contribution sample."
+          }
+        },
+        "findings": []
+      },
+      "finalize": {
+        "workflowVersion": "2.0.0-rc.3",
+        "architectureGeneration": 2,
+        "manifestPath": ".project/TOVA_INSTALLATION.json",
+        "acceptedEvidenceInsideTarget": true
+      },
+      "idempotency": {
+        "repeatedApplyWrites": 0,
+        "repeatedFinalizeWrites": 0
+      },
+      "committedFixtureSourceUnchanged": true
+    },
+    {
+      "id": "F4",
+      "name": "customized generation 1 repository",
+      "ok": true,
+      "initialClassification": "legacy",
+      "layout": {
+        "stateRoot": ".tova",
+        "docsRoot": "Docs"
+      },
+      "dryRun": {
+        "deterministic": true,
+        "writesPerformed": 0,
+        "targetUnchanged": true
+      },
+      "apply": {
+        "writesPerformed": 17,
+        "installationManifestWritten": false,
+        "preservedOriginalFiles": 14,
+        "archivedOriginalFiles": 4,
+        "archivedPaths": [
+          ".tova/SESSION_RESUME.md",
+          ".tova/TASK_STATE.json",
+          "Docs/BUG_WORKFLOW.md",
+          "Docs/NEXT_TASK_CANDIDATES.md"
+        ]
+      },
+      "workflowCheck": {
+        "errors": 0,
+        "warnings": 0,
+        "ownersChecked": 20
+      },
+      "health": {
+        "ok": true,
+        "mode": "declared-commands",
+        "commands": [
+          {
+            "command": "npm run test",
+            "script": "test",
+            "ok": true,
+            "exitCode": 0,
+            "launchError": null,
+            "outputConfirmed": true
+          },
+          {
+            "command": "npm run build",
+            "script": "build",
+            "ok": true,
+            "exitCode": 0,
+            "launchError": null,
+            "outputConfirmed": true
+          }
+        ]
+      },
+      "coldStart": {
+        "ok": true,
+        "kind": "tova.projectWorkflowColdStartAudit",
+        "readsOnlyInstalledFiles": true,
+        "owners": {
+          "goals": "Docs/PROJECT_GOALS.md",
+          "currentTask": "Docs/CURRENT_TASK.md",
+          "activeAgentWork": ".tova/ACTIVE_AGENT_WORK.md",
+          "projectHealth": "Docs/PROJECT_HEALTH.md",
+          "knownBugs": "Docs/KNOWN_BUGS.md",
+          "outputs": "Docs/outputs/README.md"
+        },
+        "responses": {
+          "product": {
+            "owner": "Docs/PROJECT_GOALS.md",
+            "answer": "Community Arts Site helps residents find reviewed local art events without collecting visitor data. Success means accessible static event cards build deterministically from the approved local catalog."
+          },
+          "currentTask": {
+            "owner": "Docs/CURRENT_TASK.md",
+            "answer": "Event Card Accessibility Slice"
+          },
+          "parallelWork": {
+            "owner": ".tova/ACTIVE_AGENT_WORK.md",
+            "answer": "content-review-agent"
+          },
+          "healthCommands": {
+            "owner": "Docs/PROJECT_HEALTH.md",
+            "answer": [
+              "npm run test",
+              "npm run build"
+            ]
+          },
+          "knownBugs": {
+            "owner": "Docs/KNOWN_BUGS.md",
+            "answer": "F4-SITE-007 - Date text lacks an explicit accessible label"
+          },
+          "retainedOutputs": {
+            "owner": "Docs/outputs/README.md",
+            "answer": "This directory is the repository-owned workspace for intentionally retained work products that are useful to the project but are not handoff packages and do not belong in a more authoritative owner."
+          },
+          "nextAction": {
+            "owner": "Docs/CURRENT_TASK.md",
+            "answer": "Add the accessible date-label rendering assertion."
+          }
+        },
+        "findings": []
+      },
+      "finalize": {
+        "workflowVersion": "2.0.0-rc.3",
+        "architectureGeneration": 2,
+        "manifestPath": ".tova/TOVA_INSTALLATION.json",
+        "acceptedEvidenceInsideTarget": true
+      },
+      "idempotency": {
+        "repeatedApplyWrites": 0,
+        "repeatedFinalizeWrites": 0
+      },
+      "committedFixtureSourceUnchanged": true
+    }
+  ],
+  "failureBoundaries": [
+    {
+      "id": "stale-plan",
+      "ok": true,
+      "expectedCode": "PLAN_HASH_MISMATCH",
+      "conflictCodes": [
+        "PLAN_HASH_MISMATCH"
+      ],
+      "writesPerformed": 0,
+      "targetUnchanged": true
+    },
+    {
+      "id": "owner-collision",
+      "ok": true,
+      "expectedCode": "ROLE_OWNER_COLLISION",
+      "conflictCodes": [
+        "ROLE_OWNER_COLLISION"
+      ],
+      "writesPerformed": 0,
+      "targetUnchanged": true
+    },
+    {
+      "id": "unavailable-command",
+      "ok": true,
+      "expectedCode": "DECLARED_COMMAND_UNAVAILABLE",
+      "conflictCodes": [
+        "DECLARED_COMMAND_UNAVAILABLE"
+      ],
+      "writesPerformed": 0,
+      "targetUnchanged": true
+    },
+    {
+      "id": "occupied-archive",
+      "ok": true,
+      "expectedCode": "LEGACY_ARCHIVE_TARGET_EXISTS",
+      "conflictCodes": [
+        "LEGACY_ARCHIVE_TARGET_EXISTS"
+      ],
+      "writesPerformed": 0,
+      "targetUnchanged": true
+    },
+    {
+      "id": "newer-version",
+      "ok": true,
+      "expectedCode": "TARGET_VERSION_NEWER",
+      "conflictCodes": [
+        "TARGET_VERSION_NEWER"
+      ],
+      "writesPerformed": 0,
+      "targetUnchanged": true
+    },
+    {
+      "id": "case-only-paths",
+      "ok": true,
+      "expectedCode": "CASE_COLLISION",
+      "conflictCodes": [
+        "CASE_COLLISION"
+      ],
+      "writesPerformed": 0,
+      "targetUnchanged": true,
+      "pureCrossPlatformProbe": true
+    }
+  ],
+  "summary": {
+    "fixturesPassed": 4,
+    "fixturesTotal": 4,
+    "failureBoundariesPassed": 6,
+    "failureBoundariesTotal": 6,
+    "installationManifestsFinalizedInDisposableTargets": 4,
+    "repositoryInstallationManifestWritten": false
+  }
+}

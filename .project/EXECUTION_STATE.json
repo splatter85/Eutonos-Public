@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "workflow_extension": "cross_environment_continuity.v1",
+  "work_mode": "paused",
+  "campaign": null,
+  "slice": null,
+  "active_slice_document": null,
+  "phase": "idle",
+  "writer": {
+    "class": null,
+    "development_node": null,
+    "integration_branch": null,
+    "lease": "paused"
+  },
+  "assignment_base_sha": null,
+  "source_baseline_sha": null,
+  "pull_request": null,
+  "active_exchange": null,
+  "relevant_notes": [],
+  "owned_paths": [],
+  "checkpoint_policy": {
+    "online_repository": "active_pull_request_checkpoint",
+    "local": ".tova-runtime/active-run.json"
+  },
+  "last_durable_checkpoint": null
+}

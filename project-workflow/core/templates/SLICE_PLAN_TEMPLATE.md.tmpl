@@ -1,0 +1,37 @@
+# Slice Plan
+
+- Name:
+- Parent: None / Campaign / Slice
+- Goal:
+- Why this matters:
+- Files to inspect first:
+- Files likely to edit:
+- Exact behavior/docs/state change:
+- Non-goals:
+- Implementation notes:
+- Build artifact plan: exact path, shared/reused | Slice-ephemeral | intentionally retained, reason, and cleanup/retention owner; or None
+- Risk areas:
+- Verification commands/checks:
+- Required docs/state updates:
+- Stop conditions:
+- Expected final report:
+- Cold-agent execution context: None, or `compact | expanded | auto` with Campaign Capsule, `route://...` IDs from `{{OWNER_repositoryIndex}}`, and a packet using `{{OWNER_sliceExecutionPacketTemplate}}`
+
+Readiness: confirm the Slice can be completed without owning unrelated shared-file changes, its proof is specific, generated/local state is separated from durable source, every build path is classified, every Slice-ephemeral path has an exact post-evidence cleanup action, and an obvious child-slice breakup exists if scope expands. Gitignored never means safe to delete.
+
+## Action Registry
+
+Optional for legacy or short-lived plans; required when tracked `{{OWNER_executionState}}.last_durable_checkpoint.action_id` points into this Slice. Keep only durable Actions declared by this Slice. This exact-reference aid is not another task board.
+
+```json
+{
+  "schema_version": 1,
+  "actions": [
+    {
+      "id": "EXAMPLE-SLICE-DESIGN",
+      "status": "planned",
+      "summary": "EXAMPLE-Resolve the bounded design decision before implementation."
+    }
+  ]
+}
+```

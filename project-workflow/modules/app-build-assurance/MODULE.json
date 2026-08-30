@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "app-build-assurance",
+  "version": "1.1.0",
+  "purpose": "Add proportional product, architecture, data, quality, review, and lifecycle assurance to repositories that build maintained software applications with AI agents.",
+  "admission": {
+    "criteria": [
+      "The project builds or maintains a software application whose user workflows, data, or release claims need review beyond the universal workflow core.",
+      "The project can run Node.js for the structural contract check or explicitly records that environment gate as open."
+    ],
+    "evidence": [
+      "The ToVA Operations Command Center contract proves same-source app intent can link product workflows to existing source and acceptance evidence.",
+      "The founder-friendly app-building review identified product, data, migration, performance, security/privacy, testing, and lifecycle checks not owned by the universal core."
+    ]
+  },
+  "non_goals": [
+    "Do not replace the product goal, architecture, active task, Project Health, source code, or acceptance owners.",
+    "Do not require one UI-controller-service-repository class structure for every application.",
+    "Do not turn a structural contract pass into runtime, device, human, privacy, migration, beta, or release acceptance."
+  ],
+  "installs": {
+    "files": [
+      "docs/app-building/README.md",
+      "docs/app-building/APP_BUILD_CONTRACT.schema.json",
+      "docs/app-building/APP_BUILD_CONTRACT.template.json",
+      "docs/app-building/RELEASE_ACCEPTANCE_TEMPLATE.md",
+      "docs/app-building/examples/founder-friendly-app.build.json",
+      "docs/app-building/examples/founder-friendly-app.acceptance.json",
+      "tools/app-build-assurance.js"
+    ],
+    "commands": [
+      "node tools/app-build-assurance.js --contract docs/app-building/examples/founder-friendly-app.build.json"
+    ]
+  },
+  "extends": [
+    "docs/PROJECT_DISCOVERY.md",
+    "docs/ARCHITECTURE.md",
+    "docs/PROJECT_HEALTH.md",
+    "docs/templates/SLICE_PLAN_TEMPLATE.md"
+  ],
+  "health": {
+    "checks": [
+      {
+        "id": "example-contract",
+        "command": "node tools/app-build-assurance.js --contract docs/app-building/examples/founder-friendly-app.build.json",
+        "required": true
+      }
+    ]
+  },
+  "retirement": {
+    "remove": [
+      "modules/app-build-assurance/MODULE.json",
+      "docs/app-building/README.md",
+      "docs/app-building/APP_BUILD_CONTRACT.schema.json",
+      "docs/app-building/APP_BUILD_CONTRACT.template.json",
+      "docs/app-building/RELEASE_ACCEPTANCE_TEMPLATE.md",
+      "docs/app-building/examples/founder-friendly-app.build.json",
+      "docs/app-building/examples/founder-friendly-app.acceptance.json",
+      "tools/app-build-assurance.js"
+    ],
+    "preserve": [
+      "Project-owned app.build.json contracts that remain linked from current source or acceptance owners.",
+      "Accepted assurance evidence needed to explain historical beta, release, migration, or human decisions."
+    ]
+  },
+  "examples": [
+    "docs/app-building/RELEASE_ACCEPTANCE_TEMPLATE.md",
+    "docs/app-building/examples/founder-friendly-app.build.json",
+    "docs/app-building/examples/founder-friendly-app.acceptance.json"
+  ]
+}

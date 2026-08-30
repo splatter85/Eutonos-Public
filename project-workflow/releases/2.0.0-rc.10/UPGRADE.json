@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "kind": "tova.projectWorkflowUpgradeContract",
+  "workflow_id": "tova-project-workflow",
+  "release_version": "2.0.0-rc.10",
+  "status": "candidate",
+  "supported_source_versions": ["2.0.0-rc.9"],
+  "minimum_supported_version": "2.0.0-rc.9",
+  "direct_upgrade_paths": [
+    { "from": "2.0.0-rc.9", "to": "2.0.0-rc.10" }
+  ],
+  "sequential_upgrade_paths": [],
+  "role_changes": {
+    "added": ["tovaMigration", "migrationLedgerTemplate"],
+    "retired": [],
+    "renamed": []
+  },
+  "schema_changes": [
+    {
+      "id": "upgrade-contract-v1",
+      "summary": "Each release declares a machine-readable supported upgrade path.",
+      "migration_action": "Load and validate UPGRADE.json before planning a versioned migration."
+    },
+    {
+      "id": "migration-ledger-v1",
+      "summary": "Mature migrations use a reviewed content-level reconciliation ledger.",
+      "migration_action": "Create and accept a ledger before retiring customized owners or finalizing."
+    }
+  ],
+  "state_changes": [
+    {
+      "id": "migration-evidence",
+      "summary": "Finalized migrated installations record migration evidence independently from ordinary acceptance evidence.",
+      "migration_action": "Preserve the prior manifest and record the accepted ledger path and SHA-256."
+    }
+  ],
+  "migration_sensitive_changes": [
+    {
+      "id": "retirement-after-reconciliation",
+      "summary": "Customized legacy owners no longer retire merely because structural apply found them.",
+      "migration_action": "Bootstrap and reconcile first; retire only entries explicitly accepted as safe_to_retire."
+    },
+    {
+      "id": "explicit-project-root",
+      "summary": "Installer and checker operations are scoped to one explicit project root and exclude nested ToVA roots.",
+      "migration_action": "Review reported nested projects and run each project migration independently."
+    }
+  ],
+  "module_changes": [
+    {
+      "id": "app-build-release-acceptance",
+      "summary": "App Build Assurance gains an optional release-acceptance contract without expanding universal core.",
+      "migration_action": "Admit it only for projects with a distinct final release-candidate gate."
+    }
+  ],
+  "manual_reconciliation_requirements": [
+    "Map existing owners by logical role before filename.",
+    "Preserve project facts and compatible stronger local rules while superseding conflicting older ToVA workflow semantics.",
+    "Resolve every customized retirement candidate and declared extension in the migration ledger.",
+    "Convert live execution state from current evidence rather than historical prose."
+  ],
+  "known_incompatibilities": [
+    "Direct upgrades from versions earlier than 2.0.0-rc.9 are not mechanically trusted; use legacy discovery and reviewed reconciliation."
+  ],
+  "required_migration_fixtures": ["F3", "F4", "F5", "F6", "F7"],
+  "required_acceptance_gates": [
+    "workflow:check",
+    "workflow:collaboration-check",
+    "workflow:migration-check",
+    "proportional Project Health",
+    "fresh-agent migration comprehension",
+    "zero-write rerun",
+    "workflow:release-check"
+  ],
+  "rollback_boundary": {
+    "reversible_until": "Retirement and finalization remain unapproved; structural planning and baseline bootstrap are create-only.",
+    "preserved_evidence": [
+      "previous TOVA_INSTALLATION.json",
+      "accepted migration ledger",
+      "source fingerprints and archived exact bytes",
+      "Git history"
+    ],
+    "irreversible_actions": [
+      "External publication or owner-approved destruction outside the repository cannot be reversed by the installer."
+    ]
+  }
+}

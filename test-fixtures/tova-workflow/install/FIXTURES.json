@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "workflow_version": "2.0.0-rc.11-dev",
+  "fixtures": [
+    {
+      "id": "F1",
+      "name": "blank repository",
+      "source": null,
+      "expected_classification": "blank",
+      "expected_state_root": ".project",
+      "expected_docs_root": "docs",
+      "required_preserved": [],
+      "expected_archived": []
+    },
+    {
+      "id": "F2",
+      "name": "existing non-ToVA repository",
+      "source": "F2-existing-non-tova",
+      "expected_classification": "existing-non-tova",
+      "expected_state_root": ".project",
+      "expected_docs_root": "Docs",
+      "required_preserved": [
+        "README.md",
+        "Docs/PROJECT_GOALS.md",
+        "Docs/CURRENT_TASK.md",
+        "Docs/PROJECT_HEALTH.md",
+        "Docs/KNOWN_BUGS.md",
+        "src/main.js"
+      ],
+      "expected_archived": []
+    },
+    {
+      "id": "F3",
+      "name": "generation 1 legacy repository",
+      "source": "F3-legacy",
+      "expected_classification": "legacy",
+      "expected_state_root": ".project",
+      "expected_docs_root": "docs",
+      "required_preserved": [
+        "README.md",
+        "docs/PROJECT_GOALS.md",
+        "docs/CURRENT_TASK.md",
+        "docs/PROJECT_HEALTH.md",
+        "docs/KNOWN_BUGS.md",
+        "src/ledger.js"
+      ],
+      "expected_archived": [
+        ".project/SESSION_RESUME.md",
+        ".project/TASK_STATE.md",
+        "docs/NEXT_TASK_CANDIDATES.md",
+        "docs/BUG_WORKFLOW.md"
+      ]
+    },
+    {
+      "id": "F4",
+      "name": "customized generation 1 repository",
+      "source": "F4-customized-legacy",
+      "expected_classification": "legacy",
+      "expected_state_root": ".tova",
+      "expected_docs_root": "Docs",
+      "required_preserved": [
+        "AGENTS.md",
+        "README.md",
+        ".tova/CURRENT_STATE.md",
+        ".tova/ACTIVE_AGENT_WORK.md",
+        "Docs/PROJECT_GOALS.md",
+        "Docs/ARCHITECTURE.md",
+        "Docs/CURRENT_TASK.md",
+        "Docs/PROJECT_HEALTH.md",
+        "Docs/KNOWN_BUGS.md",
+        "Docs/CONNECTORS.md",
+        "Docs/ERROR_HANDLING_AND_LOGGING.md",
+        "overlays/website/README.md",
+        "src/site.js"
+      ],
+      "expected_archived": [
+        ".tova/SESSION_RESUME.md",
+        ".tova/TASK_STATE.json",
+        "Docs/NEXT_TASK_CANDIDATES.md",
+        "Docs/BUG_WORKFLOW.md"
+      ]
+    },
+    {
+      "id": "F5",
+      "name": "mature versioned ToVA repository",
+      "source": "F5-mature-versioned",
+      "expected_classification": "installed-upgrade",
+      "expected_state_root": ".project",
+      "expected_docs_root": "Docs",
+      "required_preserved": ["AGENTS.md", "README.md", "Docs/PROJECT_GOALS.md", "Docs/CURRENT_TASK.md", "Docs/PROJECT_HEALTH.md", "Docs/KNOWN_BUGS.md", "Docs/RELEASE_READINESS.md", "src/app.js"],
+      "expected_archived": ["Docs/NEXT_TASK_CANDIDATES.md"]
+    },
+    {
+      "id": "F6",
+      "name": "mature established non-ToVA repository",
+      "source": "F6-mature-non-tova",
+      "expected_classification": "existing-non-tova",
+      "expected_state_root": ".project",
+      "expected_docs_root": "Docs",
+      "required_preserved": ["README.md", "Docs/PRODUCT_VISION.md", "Docs/CURRENT_TASKS.md", "Docs/KNOWN_ISSUES.md", "Docs/ROADMAP.md", "Docs/RELEASE_CHECKLIST.md", "Docs/PROJECT_HEALTH.md", "src/app.js"],
+      "expected_archived": [],
+      "expected_semantic_candidates": ["Docs/PRODUCT_VISION.md", "Docs/CURRENT_TASKS.md", "Docs/KNOWN_ISSUES.md", "Docs/ROADMAP.md"]
+    },
+    {
+      "id": "F7",
+      "name": "parent repository with nested independent ToVA project",
+      "source": "F7-nested-projects",
+      "expected_classification": "existing-non-tova",
+      "expected_state_root": ".project",
+      "expected_docs_root": "Docs",
+      "required_preserved": ["README.md", "Docs/PROJECT_GOALS.md", "Docs/CURRENT_TASK.md", "Docs/PROJECT_HEALTH.md", "src/app.js", "Tools/ATLAS/.project/TOVA_INSTALLATION.json", "Tools/ATLAS/docs/CURRENT_TASK.md"],
+      "expected_archived": [],
+      "expected_nested_roots": ["Tools/ATLAS"]
+    }
+  ]
+}

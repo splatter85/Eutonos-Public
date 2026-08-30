@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "purpose": "Safe capability routing for local development environments; empty until a node is confirmed.",
+  "privacy_policy": "Do not store credentials, usernames, absolute paths, private host details, device serials, or tokens.",
+  "nodes": []
+}

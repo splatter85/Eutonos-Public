@@ -1,0 +1,9 @@
+{
+  "name": "f2-existing-inventory-exporter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"console.log('F2 tests passed')\"",
+    "build": "node -e \"console.log('F2 build passed')\""
+  }
+}

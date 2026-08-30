@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "placeholder-module",
+  "version": "2.0.0",
+  "purpose": "This intentionally invalid fixture advertises a command that does not exist.",
+  "admission": {
+    "criteria": ["A vague future possibility exists."],
+    "evidence": ["TODO"]
+  },
+  "non_goals": ["No meaningful behavior is defined."],
+  "installs": {
+    "files": ["modules/placeholder-module/missing.js"],
+    "commands": ["npm.cmd run placeholder:check"]
+  },
+  "extends": ["docs/PROJECT_HEALTH.md"],
+  "health": {
+    "checks": [
+      {
+        "id": "placeholder-check",
+        "command": "npm.cmd run placeholder:check",
+        "required": true
+      }
+    ]
+  },
+  "retirement": {
+    "remove": [],
+    "preserve": []
+  },
+  "examples": ["TODO"]
+}

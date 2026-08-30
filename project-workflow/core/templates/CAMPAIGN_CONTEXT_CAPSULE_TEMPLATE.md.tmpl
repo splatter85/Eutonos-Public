@@ -1,0 +1,83 @@
+# Campaign Context Capsule Template
+
+## Purpose
+
+Give a cold agent the minimum campaign-level architecture and product context it could not reliably discover from the Slice alone.
+
+## Write Here When
+
+Create or refresh one capsule for a substantial Campaign crossing an agent, session, repository interface, or machine boundary. Reuse it across revision-compatible Slices.
+
+## Do Not Use For
+
+Do not use this as a task board, architecture owner, decision log, proof ledger, or substitute for canonical sources. Routine same-session work normally needs no capsule.
+
+## Format And Profile Selection
+
+Produce one selected profile and remove unused guidance.
+
+- `compact`: target 500–900 tokens for a narrow Slice, context-constrained model, or project-familiar receiver when `{{OWNER_repositoryIndex}}` is current.
+- `expanded`: target 1,500–3,000 tokens excluding linked source contents for a cold remote agent, shared architecture, high-risk invariants, previous regressions, or unfamiliar ownership.
+- `auto`: receiver chooses, records `compact` or `expanded`, and gives one-sentence reasoning. Prefer expanded when ambiguity/risk remains; choose compact for real context constraints. Stop if mandatory context still does not fit.
+
+An explicit sender profile wins. Compact reduces explanation, not authority or proof. Both profiles link canonical sources and retain stop conditions.
+
+Compact normally names at most five primary and three conditional sources. Expanded normally names at most ten primary sources and does not preload conditional sources. If safe work needs more, narrow the Slice or explain the mandatory exception.
+
+---
+
+# Campaign Context Capsule: `[CAMPAIGN-ID]`
+
+- **Selected profile:** `[compact | expanded]`
+- **Selection reason:** `[one sentence]`
+- **Prepared against Git revision:** `[exact 40-character revision]`
+- **Prepared/updated:** `[date or durable checkpoint]`
+- **Authority label:** Navigation context only; canonical linked sources win.
+
+## Goal, Why, And Non-goals
+
+- **Goal:** `[outcome]`
+- **Why:** `[problem/product reasoning]`
+- **Non-goals:** `[exclusions]`
+
+## Repository Routes
+
+- `[route://smallest/matching-route]` from `{{OWNER_repositoryIndex}}`
+
+If a route is missing, stale, or contradictory, inspect direct sources and refresh or bypass the capsule.
+
+## Current Architecture And Ownership
+
+`[Compact: 3-6 sentences naming flow, canonical owner, shared system, local specialization, and generated/external boundary. Expanded: add component relationships and ownership reasons.]`
+
+## Invariants
+
+- `[behavior, data, semantic, compatibility, authority, or evidence invariant]`
+
+## Known Risks And Traps
+
+- `[regression, edge case, collision surface, or misleading shortcut plus direct evidence path]`
+
+## Required Reading
+
+| Source | Required section | Why |
+| --- | --- | --- |
+| `[path]` | `[whole file for compact, exact section for expanded]` | `[authority/fact]` |
+
+## Conditional Reading
+
+| Trigger | Source/section |
+| --- | --- |
+| `[decision, contradiction, or failure]` | `[path and section]` |
+
+## Verification Boundary
+
+- **Locally/automatically provable:** `[checks/environment]`
+- **Platform/external/human-only:** `[remaining boundary]`
+- **Claims not permitted:** `[deployment/device/provider/publication/acceptance/etc.]`
+
+## Stop Conditions And Freshness
+
+- `[contradiction, missing evidence, revision, authority, environment, or collision boundary]`
+
+Refresh for changed architecture, goal, prerequisites, invariants, ownership, routes, or major discovery—not routine Action progress. Canonical owners retain authoritative detail.

@@ -1,0 +1,9 @@
+{
+  "name": "f6-mature-native-operations",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"console.log('F6 tests passed')\"",
+    "build": "node -e \"console.log('F6 build passed')\""
+  }
+}

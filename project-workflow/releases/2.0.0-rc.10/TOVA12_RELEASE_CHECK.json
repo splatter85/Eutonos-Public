@@ -1,0 +1,262 @@
+{
+  "ok": true,
+  "kind": "tova.projectWorkflowReleaseCheck",
+  "slice": "TOVA12",
+  "workflowVersion": "2.0.0-rc.10",
+  "releaseStatus": "ready-for-owner-release-decision",
+  "mirror": {
+    "pairsChecked": 24,
+    "filesCompared": 205,
+    "allPairsMatch": true,
+    "pairs": [
+      {
+        "id": "portable-workflow",
+        "source": "project-workflow",
+        "mirror": "ToVA universal development starter kit/project-workflow",
+        "filesCompared": 111,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-checker",
+        "source": "tools/project-workflow-check.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-check.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "collaboration-checker",
+        "source": "tools/collaboration-workflow-check.js",
+        "mirror": "ToVA universal development starter kit/tools/collaboration-workflow-check.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "migration-checker",
+        "source": "tools/project-workflow-migration-check.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-migration-check.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-installer",
+        "source": "tools/project-workflow-install.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-install.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-fixtures",
+        "source": "tools/project-workflow-fixtures.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-fixtures.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-tests",
+        "source": "tests/project-workflow.spec.js",
+        "mirror": "ToVA universal development starter kit/tests/project-workflow.spec.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-fixture-sources",
+        "source": "test-fixtures/tova-workflow",
+        "mirror": "ToVA universal development starter kit/test-fixtures/tova-workflow",
+        "filesCompared": 72,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "app-assurance-tool",
+        "source": "tools/app-build-assurance.js",
+        "mirror": "ToVA universal development starter kit/tools/app-build-assurance.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "app-assurance-tests",
+        "source": "tests/app-build-assurance.spec.js",
+        "mirror": "ToVA universal development starter kit/tests/app-build-assurance.spec.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "campaign-plan-template",
+        "source": "docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "slice-plan-template",
+        "source": "docs/templates/SLICE_PLAN_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/SLICE_PLAN_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "work-classification-examples",
+        "source": "docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "outputs-owner",
+        "source": "docs/outputs/README.md",
+        "mirror": "ToVA universal development starter kit/docs/outputs/README.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "help-surface",
+        "source": "docs/TOVA_HELP.md",
+        "mirror": "ToVA universal development starter kit/docs/TOVA_HELP.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "portable-help-template",
+        "source": "project-workflow/core/templates/TOVA_HELP.md.tmpl",
+        "mirror": "ToVA universal development starter kit/project-workflow/core/templates/TOVA_HELP.md.tmpl",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "portable-setup-template",
+        "source": "project-workflow/core/templates/TOVA_SETUP.md.tmpl",
+        "mirror": "ToVA universal development starter kit/project-workflow/core/templates/TOVA_SETUP.md.tmpl",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "portable-current-capabilities-template",
+        "source": "project-workflow/core/templates/CURRENT_CAPABILITIES.md.tmpl",
+        "mirror": "ToVA universal development starter kit/project-workflow/core/templates/CURRENT_CAPABILITIES.md.tmpl",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "portable-future-capabilities-template",
+        "source": "project-workflow/core/templates/FUTURE_CAPABILITIES.md.tmpl",
+        "mirror": "ToVA universal development starter kit/project-workflow/core/templates/FUTURE_CAPABILITIES.md.tmpl",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "migration-owner",
+        "source": "docs/TOVA_MIGRATION.md",
+        "mirror": "ToVA universal development starter kit/docs/TOVA_MIGRATION.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "migration-ledger-template",
+        "source": "docs/templates/MIGRATION_LEDGER_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/MIGRATION_LEDGER_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "roadmap-template",
+        "source": "docs/templates/ROADMAP_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/ROADMAP_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "acceptance-workspace-template",
+        "source": "docs/templates/ACCEPTANCE_WORKSPACE_README_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/ACCEPTANCE_WORKSPACE_README_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "capability-maturity-template",
+        "source": "docs/templates/CAPABILITY_MATURITY_MODEL_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/CAPABILITY_MATURITY_MODEL_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      }
+    ]
+  },
+  "starterWorkflow": {
+    "ok": true,
+    "ownersChecked": 33,
+    "errors": 0,
+    "warnings": 0
+  },
+  "checksum": {
+    "path": "project-workflow/releases/2.0.0-rc.10/SHA256SUMS",
+    "scope": "starter package files excluding project-workflow/releases/",
+    "filesChecked": 196,
+    "aggregateSha256": "17a7c26185e4d51f675386abced7160c78bfb3872aeba26669c4c16e4efd2a75",
+    "manifestMatches": true
+  },
+  "preservation": {
+    "filesChecked": 22,
+    "treesChecked": 1,
+    "allHashesMatch": true
+  },
+  "retirement": {
+    "pathsChecked": 17,
+    "allAbsent": true
+  },
+  "packageScripts": {
+    "scriptsChecked": 6,
+    "allMatch": true
+  },
+  "starterIdentity": {
+    "expected": "2.0.0-rc.10",
+    "packageVersion": "2.0.0-rc.10",
+    "coreVersion": "2.0.0-rc.10",
+    "readmeMatches": true,
+    "ok": true
+  },
+  "upgradeContract": {
+    "required": true,
+    "present": true,
+    "ok": true
+  },
+  "decisionBoundary": {
+    "automatedCandidateReady": true,
+    "ownerApproved": false,
+    "published": false,
+    "gitCommitCreatedByCampaign": false,
+    "targetInstallationIdentityWritten": false,
+    "portableBaselineAccepted": false
+  },
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "mirrorPairs": 24,
+    "mirrorFilesCompared": 205,
+    "starterPayloadFiles": 196,
+    "preservedFiles": 22,
+    "retiredLivePaths": 17
+  },
+  "findings": []
+}

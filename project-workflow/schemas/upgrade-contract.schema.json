@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tova.local/project-workflow/upgrade-contract.schema.json",
+  "title": "ToVA Project Workflow Release Upgrade Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "workflow_id",
+    "release_version",
+    "status",
+    "supported_source_versions",
+    "minimum_supported_version",
+    "direct_upgrade_paths",
+    "sequential_upgrade_paths",
+    "role_changes",
+    "schema_changes",
+    "state_changes",
+    "migration_sensitive_changes",
+    "module_changes",
+    "manual_reconciliation_requirements",
+    "known_incompatibilities",
+    "required_migration_fixtures",
+    "required_acceptance_gates",
+    "rollback_boundary"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": { "const": "tova.projectWorkflowUpgradeContract" },
+    "workflow_id": { "const": "tova-project-workflow" },
+    "release_version": { "$ref": "#/$defs/version" },
+    "status": { "enum": ["in-development", "candidate", "released", "superseded"] },
+    "supported_source_versions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/version" }
+    },
+    "minimum_supported_version": { "$ref": "#/$defs/version" },
+    "direct_upgrade_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to"],
+        "properties": {
+          "from": { "$ref": "#/$defs/version" },
+          "to": { "$ref": "#/$defs/version" }
+        }
+      }
+    },
+    "sequential_upgrade_paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "via", "to"],
+        "properties": {
+          "from": { "$ref": "#/$defs/version" },
+          "via": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/version" } },
+          "to": { "$ref": "#/$defs/version" }
+        }
+      }
+    },
+    "role_changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["added", "retired", "renamed"],
+      "properties": {
+        "added": { "$ref": "#/$defs/stringArray" },
+        "retired": { "$ref": "#/$defs/stringArray" },
+        "renamed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["from", "to"],
+            "properties": { "from": { "type": "string", "minLength": 1 }, "to": { "type": "string", "minLength": 1 } }
+          }
+        }
+      }
+    },
+    "schema_changes": { "$ref": "#/$defs/changeArray" },
+    "state_changes": { "$ref": "#/$defs/changeArray" },
+    "migration_sensitive_changes": { "$ref": "#/$defs/changeArray" },
+    "module_changes": { "$ref": "#/$defs/changeArray" },
+    "manual_reconciliation_requirements": { "$ref": "#/$defs/stringArrayNonEmpty" },
+    "known_incompatibilities": { "$ref": "#/$defs/stringArray" },
+    "required_migration_fixtures": { "$ref": "#/$defs/stringArrayNonEmpty" },
+    "required_acceptance_gates": { "$ref": "#/$defs/stringArrayNonEmpty" },
+    "rollback_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reversible_until", "preserved_evidence", "irreversible_actions"],
+      "properties": {
+        "reversible_until": { "type": "string", "minLength": 3 },
+        "preserved_evidence": { "$ref": "#/$defs/stringArrayNonEmpty" },
+        "irreversible_actions": { "$ref": "#/$defs/stringArray" }
+      }
+    }
+  },
+  "$defs": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$" },
+    "stringArray": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "stringArrayNonEmpty": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "changeArray": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "summary", "migration_action"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string", "minLength": 3 },
+          "migration_action": { "type": "string", "minLength": 3 }
+        }
+      }
+    }
+  }
+}

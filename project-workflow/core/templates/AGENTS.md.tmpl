@@ -1,0 +1,35 @@
+# Agent Contract For {{PROJECT_NAME}}
+
+This repository uses ToVA Project Workflow generation 2 as its documentation, planning, verification, and continuity layer. The workflow supports the product; it does not redefine the product.
+
+Start with `{{OWNER_bootProtocol}}`. `{{OWNER_executionState}}` owns durable machine-readable execution/writer state. `{{OWNER_currentTask}}` is the sole live agent work board for approved bounded work, paused work needing an owner decision, and the next ready Slice. It is human-readable so the human owner can understand, steer, and authorize agent work; it is not a task list for the human to perform. `{{OWNER_currentState}}` provides compact orientation and pointers, never a second task board; `{{OWNER_docsMap}}` maps durable document ownership. `{{OWNER_repositoryIndexGuide}}` and `{{OWNER_repositoryIndex}}` provide navigation-only routes to exact owners/source/tests/proof without duplicating their truth. `{{OWNER_workModel}}` owns Campaign/Slice definitions, `{{OWNER_collaborationProtocol}}` owns online/local/multi-node coordination, and `{{OWNER_projectHealth}}` owns proportional verification. `{{OWNER_handoffs}}` owns transfer conventions and `{{OWNER_outputs}}` owns retained non-handoff work-product conventions. `{{OWNER_architecture}}` owns current construction, `{{OWNER_designLanguage}}` owns visual/UI reuse plus user-facing language and copy, Capability owners describe end-to-end outcomes, and Feature owners inventory concrete mechanisms. `{{OWNER_tovaHelp}}` explains that routing. During deployment/adoption/upgrade, `{{OWNER_tovaSetup}}` owns setup-to-acceptance and `{{OWNER_tovaMigration}}` owns reconciliation semantics; while project definition remains open, `{{OWNER_projectDiscovery}}` owns the short evidence-first interview.
+
+Before editing:
+
+1. Read Execution State and Current Task; load compact Current State only when broader context is needed.
+2. Confirm the requested Slice and likely source owner.
+3. Use the smallest matching repository route when the Slice or source layout is unfamiliar; fall back to direct-source inspection if the route is stale or contradictory.
+4. Preserve existing project content, casing, architecture, and commands.
+5. Read `{{OWNER_designLanguage}}` before changing user-visible design, reusable UI surfaces, interaction text, or product copy.
+6. Edit durable source rather than generated output.
+7. Run the gate named by Project Health.
+
+Keep active or paused work in one clearly named section of `{{OWNER_currentTask}}`. Preserve an unfinished paused checklist there; when it completes, remove or collapse it and place detailed history in Git, `{{OWNER_docChangeLog}}`, archives, or the relevant truth owner. Do not update broad status, feature/capability, architecture, handoff, or change-log documents for every small step.
+
+Before creating or redirecting a build root, classify its exact path under the Work Model. Prefer shared/reused roots. Use a uniquely named Slice-ephemeral root only when isolation is required, record its cleanup action before creation, and remove only that exact Slice-owned path after final evidence. Gitignored never means safe to delete; intentionally retained history, dependencies, shared caches, unknown paths, and another active owner's output remain under their normal owners.
+
+On the first agent run after installation, inspect the repository and current owners before asking the discovery questions. If the user is unsure, offer two or three evidence-based options plus one conservative default, explain the tradeoffs briefly, and label suggestions as assumptions until the user confirms them.
+
+## Migration Mode
+
+During initial adoption or a version upgrade, the current supported Starter Kit owns ToVA workflow semantics while the project continues to own project facts, commands, compatible stronger rules, history, and evidence. Follow `{{OWNER_tovaMigration}}`, review the migration ledger, and do not retire an old owner until every unique current fact has an accepted destination. Keep workflow migration separate from new product behavior unless a bounded repair is required to preserve an existing check or behavior.
+
+Keep completed history in Git and milestone logs. Do not turn current state, Execution State, Notes, or Exchanges into completed-work archives. Keep volatile Action progress in a PR checkpoint or ignored `.tova-runtime/` journal. Stop before destructive operations, dependency expansion, baseline promotion, publication, or work outside the authorized Slice unless the owner has approved it.
+
+Use `{{OWNER_handoffs}}` only for explicit AI-to-AI, AI-to-Codex, cross-session, cross-machine, or human transfers. Handoffs package and point to current truth; they do not become a second task board, status owner, history system, or acceptance record. Exclude secrets and local-only artifacts, and verify archives before transfer.
+
+When the owner says work will be handed to ChatGPT, Claude, a GitHub agent, a local model, another Codex session, or any AI without reliable prior context—or asks for more context for assigned Slices—treat it as an explicit cold-agent handoff request. Follow `{{OWNER_handoffs}}`. Create or reuse a revision-backed Campaign Context Capsule from `{{OWNER_campaignContextTemplate}}` and prepare one bounded Slice Execution Packet per assigned Slice from `{{OWNER_sliceExecutionPacketTemplate}}`. Use `compact`, `expanded`, or `auto` as requested; if unspecified, prefer `expanded` for a cold agent.
+
+Use `{{OWNER_agentNotes}}` only for sparse non-authoritative observations. Serial work keeps one active branch and moves one writer lease; parallel source writers use distinct branches and isolated checkouts, while several nodes may verify one exact revision read-only.
+
+Use `{{OWNER_outputs}}` for useful reports, analyses, exports, or other intentionally retained work products that are not transfer packages and do not belong in a stronger owner. Outputs point to current truth rather than replacing it, and generated/build artifacts do not become durable merely by being copied there.

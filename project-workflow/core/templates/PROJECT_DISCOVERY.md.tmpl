@@ -1,0 +1,56 @@
+# First-Run Project Discovery
+
+Use this protocol while the Workflow Initialization Review in `{{OWNER_currentTask}}` is open or the project goal and architecture remain unconfirmed. It is an interview guide, not a second source of truth. Confirmed answers and clearly labeled assumptions belong in the owners listed below.
+
+For established-repository adoption or upgrade, migration evidence comes first and questions come second. Inspect existing documentation, source, build/test scripts, CI, release rules, and current work before asking the user. Do not ask the user to redefine a fact already established merely because a current-baseline template has an empty field; follow `{{OWNER_tovaMigration}}` and ask only about genuine conflicts or unknowns.
+
+## Before Asking
+
+- Inspect the repository, existing documents, code, package metadata, screenshots, designs, voice/copy owners, and current behavior first.
+- Do not re-ask questions that existing evidence answers clearly; summarize the evidence and ask the user to confirm or correct it.
+- Ask the five grouped questions in one short conversation unless a material answer requires a follow-up.
+- Never silently turn an AI suggestion into a confirmed project decision.
+
+## The Five Questions
+
+### 1. What are we building, who is it for, and what should become easier or possible?
+
+Capture the product purpose, primary users, their current problem, and the outcome they should experience.
+
+### 2. Which two or three complete user workflows must work end to end?
+
+Describe outcomes from the user's point of view, including the start, important decisions, visible result, and likely failure or recovery path.
+
+### 3. Where should it run, what existing code, designs, or materials must be preserved, and what visual or language style should guide new surfaces?
+
+Record target platforms and environments, current assets, source ownership, generated artifacts, reusable UI/template locations, typography or visual rules, terminology or copy voice, and any compatibility or migration boundary.
+
+### 4. What data, files, accounts, permissions, or external services are involved, including import, export, sync, backup, or deletion?
+
+Record what is durable or sensitive, who owns it, how it moves, what can fail, and what recovery or destructive-operation safeguards are expected.
+
+### 5. What would make the first usable version successful, and what constraints and explicit non-goals should shape it?
+
+Capture measurable first-version acceptance, timing or budget constraints, quality expectations, known risks, and work intentionally deferred.
+
+## When The User Is Unsure
+
+- Inspect repository evidence before suggesting an answer.
+- Offer two or three plausible options and identify one conservative default.
+- Explain the practical tradeoff of each option briefly and in plain language.
+- Record the result as **Confirmed**, **Assumption awaiting confirmation**, or **Open question**.
+- Keep an unresolved choice visible in `{{OWNER_currentTask}}`; do not present it as settled architecture or product truth.
+
+Suggestions may help the user choose, but only the user's selection or explicit confirmation becomes confirmed truth.
+
+## Writeback Map
+
+| Question | Durable destination |
+| --- | --- |
+| 1. Purpose, users, and desired outcome | `{{OWNER_goals}}`; compact confirmed context may also be reflected in `{{OWNER_currentState}}` |
+| 2. Complete workflows | `{{OWNER_goals}}` for intent, `{{OWNER_currentCapabilities}}` for confirmed supported workflows, `{{OWNER_futureCapabilities}}` for desired workflows, and `{{OWNER_currentTask}}` for admitted implementation work |
+| 3. Platforms, preserved materials, and design/copy language | `{{OWNER_architecture}}` for system/source boundaries, `{{OWNER_designLanguage}}` for reusable visual/UI paths and language rules; current source/generated boundaries may also be summarized in `{{OWNER_currentState}}` |
+| 4. Data, permissions, integrations, and recovery | `{{OWNER_architecture}}` for ownership/boundaries and `{{OWNER_currentTask}}` for unresolved proof or implementation work |
+| 5. Success, constraints, and non-goals | `{{OWNER_goals}}`, `{{OWNER_projectHealth}}`, and `{{OWNER_currentTask}}` |
+
+After writeback, reconcile `{{OWNER_currentState}}`, close or replace the Workflow Initialization Review checklist, and remove this protocol from conditional boot once the goal and architecture are genuinely confirmed. Keep this file as the reusable first-run protocol; do not turn it into a duplicate answer ledger.

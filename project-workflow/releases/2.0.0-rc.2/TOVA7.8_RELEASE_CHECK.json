@@ -1,0 +1,130 @@
+{
+  "ok": true,
+  "kind": "tova.projectWorkflowReleaseCheck",
+  "slice": "TOVA7.8",
+  "workflowVersion": "2.0.0-rc.2",
+  "releaseStatus": "ready-for-owner-release-decision",
+  "mirror": {
+    "pairsChecked": 9,
+    "filesCompared": 86,
+    "allPairsMatch": true,
+    "pairs": [
+      {
+        "id": "portable-workflow",
+        "source": "project-workflow",
+        "mirror": "ToVA universal development starter kit/project-workflow",
+        "filesCompared": 37,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-checker",
+        "source": "tools/project-workflow-check.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-check.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-installer",
+        "source": "tools/project-workflow-install.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-install.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-fixtures",
+        "source": "tools/project-workflow-fixtures.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-fixtures.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-tests",
+        "source": "tests/project-workflow.spec.js",
+        "mirror": "ToVA universal development starter kit/tests/project-workflow.spec.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-fixture-sources",
+        "source": "test-fixtures/tova-workflow",
+        "mirror": "ToVA universal development starter kit/test-fixtures/tova-workflow",
+        "filesCompared": 42,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "campaign-plan-template",
+        "source": "docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "slice-plan-template",
+        "source": "docs/templates/SLICE_PLAN_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/SLICE_PLAN_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "work-classification-examples",
+        "source": "docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      }
+    ]
+  },
+  "starterWorkflow": {
+    "ok": true,
+    "ownersChecked": 19,
+    "errors": 0,
+    "warnings": 0
+  },
+  "checksum": {
+    "path": "project-workflow/releases/2.0.0-rc.2/SHA256SUMS",
+    "scope": "starter package files excluding project-workflow/releases/",
+    "filesChecked": 111,
+    "aggregateSha256": "f4a9133de77b86fe04049d1ad39353523c58690fb670d83b92468b97ca7640b5",
+    "manifestMatches": true
+  },
+  "preservation": {
+    "filesChecked": 33,
+    "treesChecked": 1,
+    "allHashesMatch": true
+  },
+  "retirement": {
+    "pathsChecked": 17,
+    "allAbsent": true
+  },
+  "packageScripts": {
+    "scriptsChecked": 4,
+    "allMatch": true
+  },
+  "decisionBoundary": {
+    "automatedCandidateReady": true,
+    "ownerApproved": false,
+    "published": false,
+    "gitCommitCreatedByCampaign": false,
+    "targetInstallationIdentityWritten": false,
+    "portableBaselineAccepted": false
+  },
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "mirrorPairs": 9,
+    "mirrorFilesCompared": 86,
+    "starterPayloadFiles": 111,
+    "preservedFiles": 33,
+    "retiredLivePaths": 17
+  },
+  "findings": []
+}

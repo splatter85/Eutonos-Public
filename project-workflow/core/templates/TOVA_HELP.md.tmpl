@@ -1,0 +1,168 @@
+# ToVA Help
+
+Use this guide when you want to know where a project fact belongs, how an idea becomes verified current truth, or what to ask an agent next.
+
+ToVA keeps durable project truth in the repository instead of relying on chat memory. Architecture, capabilities, features, active work, checks, decisions, handoffs, and retained outputs have different owners.
+
+If the workflow is being installed, initialized, adopted into an established repository, or upgraded, follow `{{OWNER_tovaSetup}}` first. For established-repository adoption or any older/legacy ToVA layout, use `{{OWNER_tovaMigration}}` with Setup. This page is the shorter everyday-use guide.
+
+## Architecture, Capabilities, And Features
+
+- **Architecture** answers: How is the system built, which components interact, and where do source, runtime, data, host, generated-output, and integration responsibilities live?
+- **Capability** answers: What complete outcome or process can the product/application perform?
+- **Feature** answers: Which concrete command, control, adapter, format, API, target operation, or other mechanism implements part of that outcome?
+
+One capability usually depends on several features. A feature can exist structurally without establishing a complete capability.
+
+The word capability may also appear in technical target maps, package permissions, host classifications, or effect declarations. The Current/Future Capabilities owners use capability to mean a product/application outcome unless they say otherwise.
+
+## Design And User-Facing Language
+
+`{{OWNER_designLanguage}}` answers a different set of questions: What should user-visible surfaces look and feel like? Which tokens, components, controls, templates, assets, and string sources should be reused? Which fonts, semantic sizes, states, terminology, and copy patterns apply?
+
+Read it before visual/UI or user-facing copy work. Update it when an accepted reusable rule or canonical path changes. Keep app-specific implementation in its token/component/template/string source, and keep visual or human acceptance in the applicable proof owner.
+
+## The Everyday Workflow
+
+```text
+Future outcome or proposed mechanism
+  -> Future Capabilities or Future Features
+  -> Campaign or Slice plan
+  -> Current Task
+  -> Execute one Slice or Sub-slice
+  -> Verify the claimed result
+  -> Current Features for concrete implemented mechanisms
+  -> Current Capabilities when the supported outcome changed
+  -> Architecture when system structure or ownership changed
+  -> Change log / compact state for a meaningful milestone
+```
+
+The documents have different jobs:
+
+- `{{OWNER_architecture}}` owns current construction and responsibility boundaries.
+- `{{OWNER_designLanguage}}` owns reusable visual/UI routes, typography, interaction patterns, terminology, and user-facing copy style.
+- `{{OWNER_futureCapabilities}}` remembers desired end-to-end outcomes that are not current claims or ordered work.
+- `{{OWNER_futureFeatures}}` remembers proposed concrete mechanisms that are not implemented current features.
+- `{{OWNER_currentTask}}` is the single live board for admitted active/paused work and the next action.
+- `{{OWNER_currentFeatures}}` inventories concrete implemented mechanisms.
+- `{{OWNER_currentCapabilities}}` explains supported end-to-end outcomes, their process, evidence, and limitations.
+- `{{OWNER_docChangeLog}}` records meaningful completed documentation, workflow, architecture, capability, or feature milestones.
+
+When work ships, update only the owners whose truth changed. A new command may change Current Features without creating a new capability. A new complete workflow may change both. A new layering or ownership boundary may also change Architecture.
+
+## Online, Local, And Multi-Machine Work
+
+`{{OWNER_executionState}}` owns durable mode, active Slice, writer/branch, Exchange, relevant Notes, owned paths, and checkpoint. `{{OWNER_collaborationProtocol}}` owns online/local roles, development nodes, Action checkpoints, writer rules, Agent Notes, versioned exact-revision Exchanges, review mode, and recovery.
+
+Serial work keeps one branch and moves one writer lease after a durable checkpoint. Parallel source writers use distinct branches and isolated checkouts; several nodes may verify one exact revision read-only. A v2 Exchange transfers bounded execution; a generic handoff transfers context/payload without that authority. Agent Notes remain observations, not truth.
+
+## Campaigns, Slices, And Sub-slices
+
+A **Campaign** coordinates several dependent outcomes, shared surfaces, multiple sessions or owners, or one meaningful end-to-end acceptance boundary.
+
+A **Slice** is the smallest coherent outcome that can be changed, verified, documented, and reported without taking ownership of unrelated work.
+
+A **Sub-slice** is a child created after inspection reveals separate owners, risks, transactions, consumers, or verification gates inside a planned Slice. It is not merely a list of implementation steps.
+
+Use the lightest useful shape:
+
+- Local polish with no shared behavior or risk boundary: handle directly.
+- One coherent feature, capability improvement, architecture change, or fix: use one Slice.
+- Several dependent outcomes: use a Campaign with ordered Slices.
+- A Slice proves too broad: split it and execute only the first unblocked child.
+
+`{{OWNER_workModel}}` owns the formal definitions and closeout policy.
+
+When a cold agent knows the work intent but not the layout, use the smallest route in `{{OWNER_repositoryIndex}}`. For a substantial transfer, choose compact/expanded context from `{{OWNER_campaignContextTemplate}}` and `{{OWNER_sliceExecutionPacketTemplate}}`. Routes and packets reduce discovery cost but never grant authority or replace direct sources.
+
+## What To Ask An Agent
+
+### Remember a desired outcome
+
+```text
+Add this to Future Capabilities: <outcome>.
+Explain who needs it, the intended process, dependencies, and what proof would be required before it becomes current.
+```
+
+### Remember a proposed mechanism
+
+```text
+Add this to Future Features: <mechanism>.
+Explain what capability it could enable, why it matters, dependencies, and what is explicitly out of scope.
+```
+
+### Choose work from the backlog
+
+```text
+Review Future Capabilities and Future Features for <goal>.
+Inspect the repository, identify the smallest coherent outcome, explain dependencies and risks, and recommend a Slice or Campaign. Planning only.
+```
+
+### Plan a Slice
+
+```text
+Create a Slice plan for <goal>.
+Inspect Architecture, Current Capabilities, Current Features, and the relevant future owner first. Put the live plan in Current Task with files, exact change, non-goals, risks, gate, docs updates, and stop conditions. Do not implement yet.
+```
+
+### Execute safely
+
+```text
+Do Slice <id>.
+Inspect the planned files first. If the Slice is too broad, split it in Current Task and complete only the first unblocked child. Run its gate, update only changed truth owners, and stop.
+```
+
+### Check status or resume
+
+```text
+Where are we? Read Execution State, Current Task, compact state, Current Capabilities, and the relevant Architecture/Feature/Future owners. Tell me what is true, what is active, what remains deferred, and the next sensible request.
+```
+
+### Inspect a claim
+
+```text
+What current capability supports <outcome>? Show the process, enabling features, evidence, limitations, and any architecture boundary that matters.
+```
+
+## Concrete Promotion Example
+
+Suppose Future Capabilities says "Users can export and reopen documents offline," while Future Features proposes a file format, save adapter, open adapter, migration rules, and recovery tests.
+
+1. Plan the smallest Slice or Campaign in Current Task.
+2. Implement concrete mechanisms in durable source.
+3. Verify save, restart, reopen, failure, migration, and recovery behavior at the claimed boundary.
+4. Move the implemented mechanisms into Current Features.
+5. Move the outcome into Current Capabilities only when the complete supported process is proven.
+6. Update Architecture only if persistence ownership, data flow, adapters, or generated boundaries changed.
+7. Remove or narrow the completed future wording.
+
+That prevents a partial feature from being mistaken for a complete capability.
+
+## Guardrails
+
+- A plan is not implementation; a checked box is not verification; a build is not release approval.
+- A structural scaffold or generated artifact is not automatically a product capability.
+- Work one Slice at a time unless a coordinated Campaign explicitly requires otherwise.
+- Use Current Task for live work, not handoffs, outputs, changelogs, capability documents, or feature documents.
+- When a Current Task checklist is complete, remove or collapse it; leave only active work, paused work, the next candidate, and history pointers.
+- Do not duplicate the same current fact across Architecture, Capabilities, and Features; link between owners.
+- Do not run baseline acceptance, publish, install into another project, or delete artifacts merely because a Slice is complete.
+- Classify every created or redirected build path as shared/reused, Slice-ephemeral, or intentionally retained. Gitignore is not deletion permission.
+
+## Core Owners
+
+- `{{OWNER_agents}}` - repository-specific working rules.
+- `{{OWNER_docsMap}}` - document ownership map.
+- `{{OWNER_tovaSetup}}` - conditional deployment, initialization, acceptance, and upgrade guide.
+- `{{OWNER_tovaMigration}}` - established-repository reconciliation, extension, retirement, and migration acceptance doctrine.
+- `{{OWNER_architecture}}` - current construction and boundaries.
+- `{{OWNER_designLanguage}}` - visual/UI reuse, typography and sizing, interaction patterns, terminology, and user-facing copy.
+- `{{OWNER_currentCapabilities}}` / `{{OWNER_futureCapabilities}}` - supported and desired outcomes.
+- `{{OWNER_currentFeatures}}` / `{{OWNER_futureFeatures}}` - implemented and proposed mechanisms.
+- `{{OWNER_currentTask}}` - active/paused work and next action.
+- `{{OWNER_workModel}}` - Campaign, Slice, and Sub-slice policy.
+- `{{OWNER_executionState}}` - durable machine-readable execution and writer state.
+- `{{OWNER_collaborationProtocol}}` - online/local/multi-node and Exchange policy.
+- `{{OWNER_agentNotes}}` - sparse non-authoritative working-memory rules.
+- `{{OWNER_projectHealth}}` - proportional verification gates.
+- `{{OWNER_handoffs}}` and `{{OWNER_outputs}}` - conditional transfer and retained-output rules.

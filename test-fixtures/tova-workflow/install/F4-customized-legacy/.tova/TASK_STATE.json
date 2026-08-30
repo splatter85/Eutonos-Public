@@ -1,0 +1,6 @@
+{
+  "generation": 1,
+  "current": "event-card-accessibility",
+  "next": "calendar-import-diagnostics",
+  "note": "Historical queue only; preserve exact JSON bytes during migration."
+}

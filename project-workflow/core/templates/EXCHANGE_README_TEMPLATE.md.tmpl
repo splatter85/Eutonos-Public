@@ -1,0 +1,60 @@
+# Exchange README Template
+
+## Purpose
+
+Use this file as the human entry point for one bounded execution Exchange at `docs/handoffs/XCH-.../README.md`.
+
+## Write Here When
+
+Create it with the neighboring `EXCHANGE.json` when an integration owner transfers one named Campaign or Slice to a receiver. Keep summaries aligned with the JSON, which remains authoritative for identity, lifecycle, authority, revisions, amendments, response, and integration review.
+
+## Do Not Use For
+
+Do not use this as a second task board, acceptance record, generic portable handoff receipt, or substitute for `EXCHANGE.json`. Do not make a historical Exchange active merely because its directory still exists.
+
+## Format
+
+Replace every `EXAMPLE-` value. At terminal closeout, say explicitly that the Exchange is historical and non-executable.
+
+---
+
+# EXAMPLE Exchange: XCH-EXAMPLE-SL12-001
+
+Lifecycle: `ready`
+
+Authoritative contract: `EXCHANGE.json`
+
+Template reference: `{{OWNER_exchangeReadmeTemplate}}`
+
+## Mission
+
+EXAMPLE-Implement only Slice SL12 from the pinned source revision and return the required evidence.
+
+## Start Here
+
+1. Read `EXCHANGE.json` completely.
+2. Confirm its source revision, branch strategy, target capabilities, authority envelope, and required verification owners.
+3. Read the exact procedure owners and source routes named by the request.
+4. Resolve `context_packet`: honor an explicit profile or record compact/expanded plus a reason when `auto`.
+5. Stop if the branch, revision, authority, context packet, or repository state contradicts the request.
+
+## Workspace
+
+- Mode: `serial_shared_branch`
+- Integration branch: `EXAMPLE-main`
+- Work branch: `EXAMPLE-main`
+- Writer rule: one active source writer; transfer the lease only after the outgoing writer stops.
+
+For `parallel_isolated_branch`, use a distinct work branch and isolated checkout. Separate branches do not isolate shared databases, services, devices, or credentials.
+
+## Authority Summary
+
+EXAMPLE-Source, tests, and bounded documentation may change inside the mission. New Slice work, architecture changes, destructive authority expansion, external writes, and public exposure remain forbidden unless a durable human amendment explicitly changes the relevant structured permission.
+
+## Return Contract
+
+For `returned`, set `response` with exact `tested_source_revision`, source commits added, every requested verification result exactly once, a scope outcome, material additional work, Agent Note IDs, and a sensitive-data declaration. Use `passed`, `failed`, `blocked`, or `not_run` honestly. Do not claim the later metadata-response commit was tested.
+
+## Integration Closeout
+
+For `integrated`, record exact `integrated_revision`, `disposition: integrated`, safe `reviewer_owner`, proportional `verification_results`, and `notes_reconciled`. These do not rewrite receiver results. For `cancelled` or `superseded`, record `terminal_reason`. Clear the active Exchange pointer for every terminal lifecycle.

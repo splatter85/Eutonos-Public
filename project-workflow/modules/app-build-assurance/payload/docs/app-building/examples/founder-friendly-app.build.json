@@ -1,0 +1,129 @@
+{
+  "$schema": "../APP_BUILD_CONTRACT.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "tova.appBuildContract",
+  "app": {
+    "id": "founder-friendly-task-board",
+    "name": "Founder-Friendly Task Board",
+    "stage": "prototype",
+    "purpose": "Help a solo founder turn product ideas into a small prioritized work queue without losing the reason each task matters.",
+    "primaryUsers": ["solo founder"],
+    "targets": ["local web application"]
+  },
+  "workflows": [
+    {
+      "id": "capture-and-prioritize-work",
+      "actor": "solo founder",
+      "goal": "Capture a product task, record why it matters, and place it in a visible priority order.",
+      "successCriteria": [
+        "A task keeps its user problem and intended outcome beside its priority.",
+        "Changing priority does not erase the original task intent."
+      ],
+      "acceptanceRefs": [
+        "docs/app-building/examples/founder-friendly-app.acceptance.json"
+      ]
+    }
+  ],
+  "architecture": {
+    "sourceOfTruth": [
+      {
+        "concern": "example product and workflow contract",
+        "ownerRef": "docs/app-building/examples/founder-friendly-app.build.json"
+      }
+    ],
+    "responsibilityBoundaries": [
+      {
+        "id": "task-intent-rules",
+        "responsibility": "Preserve task purpose and priority rules outside purely visual page rendering.",
+        "ownerRefs": [
+          "docs/app-building/examples/founder-friendly-app.build.json"
+        ]
+      }
+    ],
+    "generatedArtifacts": [],
+    "externalSystems": []
+  },
+  "data": {
+    "models": [
+      {
+        "id": "Task",
+        "relationships": ["A task belongs to one local project list."]
+      }
+    ],
+    "persistence": "in-memory",
+    "migrationRisk": "none",
+    "backupRecovery": "Not applicable because this example intentionally proves only in-memory prototype behavior.",
+    "syncConflictPolicy": "Not applicable because this example has no synchronized or shared data copies.",
+    "destructiveOperations": []
+  },
+  "quality": {
+    "errorAndEmptyStates": [
+      "The empty queue explains how to add the first task.",
+      "A task without a purpose is rejected with useful feedback."
+    ],
+    "performanceRisks": [
+      "A future large task list may require filtering or virtualization; this prototype makes no large-data claim."
+    ],
+    "securityPrivacyRisks": [
+      "The example uses no accounts, secrets, external AI calls, or durable personal data."
+    ],
+    "testPlan": {
+      "unit": {
+        "status": "planned",
+        "evidenceRefs": [],
+        "reason": "Priority and required-purpose rules need unit tests when the example becomes executable."
+      },
+      "integration": {
+        "status": "passed",
+        "evidenceRefs": ["docs/app-building/examples/founder-friendly-app.acceptance.json"],
+        "reason": "The module fixture validates the complete example contract and its evidence links."
+      },
+      "ui": {
+        "status": "planned",
+        "evidenceRefs": [],
+        "reason": "No executable UI is claimed by this documentation-only example."
+      },
+      "migration": {
+        "status": "not-applicable",
+        "evidenceRefs": [],
+        "reason": "The example has no durable storage or historical schema."
+      },
+      "regression": {
+        "status": "passed",
+        "evidenceRefs": ["docs/app-building/examples/founder-friendly-app.acceptance.json"],
+        "reason": "The module test keeps the example structurally valid and reference-complete."
+      },
+      "manualQa": {
+        "status": "planned",
+        "evidenceRefs": [],
+        "reason": "Human usability review remains open because the example is not a runnable product."
+      }
+    }
+  },
+  "review": {
+    "requiredLenses": [
+      "architecture",
+      "data",
+      "testing",
+      "performance",
+      "security-privacy",
+      "product-workflow"
+    ],
+    "healthGate": "Standard",
+    "acceptanceRefs": [
+      "docs/app-building/examples/founder-friendly-app.acceptance.json"
+    ],
+    "unresolvedAcceptance": [
+      "Executable UI behavior and human usability remain deliberately unclaimed."
+    ]
+  },
+  "constraints": [
+    "Keep this artifact clearly labeled as an example rather than real application acceptance."
+  ],
+  "nonGoals": [
+    "No account system, collaboration, durable storage, deployment, beta, or release claim."
+  ],
+  "openQuestions": [
+    "Which runtime and storage model should be selected if this example becomes a real application?"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "2.0.0",
+  "architectureGeneration": 2,
+  "project": "{{PROJECT_NAME_JSON}}",
+  "mustRead": [
+    "{{OWNER_agents}}",
+    "{{OWNER_bootProtocol}}",
+    "{{OWNER_executionState}}",
+    "{{OWNER_currentTask}}",
+    "{{OWNER_goals}}"
+  ],
+  "owners": {
+    "docsMap": "{{OWNER_docsMap}}",
+    "repositoryIndexGuide": "{{OWNER_repositoryIndexGuide}}",
+    "repositoryIndex": "{{OWNER_repositoryIndex}}",
+    "tovaSetup": "{{OWNER_tovaSetup}}",
+    "tovaMigration": "{{OWNER_tovaMigration}}",
+    "tovaHelp": "{{OWNER_tovaHelp}}",
+    "executionState": "{{OWNER_executionState}}",
+    "developmentNodes": "{{OWNER_developmentNodes}}",
+    "collaborationProtocol": "{{OWNER_collaborationProtocol}}",
+    "agentNotes": "{{OWNER_agentNotes}}",
+    "handoffs": "{{OWNER_handoffs}}",
+    "outputs": "{{OWNER_outputs}}",
+    "projectDiscovery": "{{OWNER_projectDiscovery}}",
+    "architecture": "{{OWNER_architecture}}",
+    "designLanguage": "{{OWNER_designLanguage}}",
+    "currentCapabilities": "{{OWNER_currentCapabilities}}",
+    "currentFeatures": "{{OWNER_currentFeatures}}",
+    "futureCapabilities": "{{OWNER_futureCapabilities}}",
+    "futureFeatures": "{{OWNER_futureFeatures}}",
+    "knownBugs": "{{OWNER_knownBugs}}",
+    "lessons": "{{OWNER_lessons}}",
+    "docChangeLog": "{{OWNER_docChangeLog}}"
+  },
+  "firstRunSetup": {
+    "path": "{{OWNER_tovaSetup}}",
+    "runWhen": "The workflow is being deployed, initialized, adopted into an established repository, or upgraded from an older installation.",
+    "completion": "Every core owner is evaluated from project evidence, target-local acceptance passes, and installation identity is finalized. Optional overlays and modules remain conditional."
+  },
+  "firstRunDiscovery": {
+    "path": "{{OWNER_projectDiscovery}}",
+    "runWhen": "The Workflow Initialization Review is open or the project goal or architecture remains unconfirmed.",
+    "questionCount": 5,
+    "answerOwners": {
+      "goals": "{{OWNER_goals}}",
+      "architecture": "{{OWNER_architecture}}",
+      "designLanguage": "{{OWNER_designLanguage}}",
+      "currentState": "{{OWNER_currentState}}",
+      "currentTask": "{{OWNER_currentTask}}",
+      "projectHealth": "{{OWNER_projectHealth}}"
+    },
+    "unknownAnswerPolicy": "Inspect repository evidence, offer two or three plausible options plus one conservative default, explain tradeoffs briefly, and record Confirmed, Assumption awaiting confirmation, or Open question without fabricating settled truth."
+  },
+  "gitRequirement": {
+    "required": true,
+    "startupCheck": "The startup helper must report whether Git is available and whether this folder is a Git worktree before architecture work is treated as fully oriented.",
+    "missingPrompt": "If Git is missing, ask the user before installing Git or changing PATH.",
+    "notWorktreePrompt": "If Git is installed but the folder is not a worktree, ask the user whether the agent should run git init or connect the folder to the intended remote."
+  },
+  "rules": [
+    "Preserve project-native product and architecture ownership.",
+    "Use one live checklist in the current-task owner.",
+    "Use Execution State as the sole durable machine-readable execution and writer owner; use PR or ignored local journals for volatile Action progress.",
+    "Serial work keeps one active branch and moves one writer lease; parallel source writers use distinct branches and isolated checkouts while read-only verification may run on several nodes against one exact revision.",
+    "Use repository routes only for navigation; canonical sources win and routes never grant edit authority or proof.",
+    "Use Agent Notes only for sparse non-authoritative observations and close them at Slice or Campaign boundaries.",
+    "Use the handoffs owner only for explicit transfers; it packages references to current truth and never replaces those owners.",
+    "Use the outputs owner only for useful retained non-handoff work products; it never replaces current truth or acceptance evidence.",
+    "Use the workflow-setup owner for deployment, full-core initialization, established-repository adoption, and upgrades; keep it out of routine boot after setup.",
+    "Use the migration owner during established-repository adoption or older-version upgrades; the current supported baseline owns ToVA workflow semantics while project truth and accepted extensions survive.",
+    "Use the workflow-help owner when a user asks how architecture, capabilities, features, planning, execution, and verification fit together.",
+    "Use the project-discovery owner only while initialization or project-definition review remains open; write confirmed answers to their durable owners.",
+    "Use the design-language owner before changing user-visible design, reusable UI surfaces, interaction text, or product copy; record actual source paths and do not invent brand rules during installation.",
+    "Use compact Current State only for broad truth; Active Agent Work is a compatibility pointer to Execution State.",
+    "Run commands only when Project Health declares them available.",
+    "Use Git as exact completed history and rollback source.",
+    "Confirm Git startup state before editing; do not initialize Git, install Git, or connect a remote without owner confirmation."
+  ]
+}

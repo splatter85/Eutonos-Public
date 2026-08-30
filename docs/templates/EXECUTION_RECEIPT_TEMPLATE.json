@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "run_id": "<run-id>",
+  "actor_class": "<online_repository_agent|local_agent>",
+  "development_node": null,
+  "campaign": null,
+  "slice": "<slice>",
+  "branch": "<branch>",
+  "base_revision": "<commit-sha>",
+  "result_revision": "<commit-sha>",
+  "actions": [],
+  "checks": [],
+  "notes_created": [],
+  "exchange_id": null,
+  "sensitive_data_in_receipt": false
+}

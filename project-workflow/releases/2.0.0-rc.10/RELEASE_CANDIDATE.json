@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "kind": "tova.projectWorkflowReleaseCandidate",
+  "workflow_id": "tova-project-workflow",
+  "workflow_version": "2.0.0-rc.10",
+  "architecture_generation": 2,
+  "slice": "TOVA12",
+  "assembled_on": "2026-08-20",
+  "status": "ready-for-owner-release-decision",
+  "requires_upgrade_contract": true,
+  "source": {
+    "repository": ".",
+    "distribution_root": "ToVA universal development starter kit",
+    "historical_source_commit": "d8818132d0b5f44b165dc8d26273bc4940d55ba6",
+    "candidate_is_uncommitted_working_tree": true
+  },
+  "package": {
+    "checksum_manifest": "project-workflow/releases/2.0.0-rc.10/SHA256SUMS",
+    "checksum_scope": "all starter-package files except project-workflow/releases/ to avoid self-reference",
+    "file_count": 196,
+    "aggregate_sha256": "17a7c26185e4d51f675386abced7160c78bfb3872aeba26669c4c16e4efd2a75"
+  },
+  "mirror_pairs": [
+    {
+      "id": "portable-workflow",
+      "source": "project-workflow",
+      "mirror": "ToVA universal development starter kit/project-workflow"
+    },
+    {
+      "id": "workflow-checker",
+      "source": "tools/project-workflow-check.js",
+      "mirror": "ToVA universal development starter kit/tools/project-workflow-check.js"
+    },
+    {
+      "id": "collaboration-checker",
+      "source": "tools/collaboration-workflow-check.js",
+      "mirror": "ToVA universal development starter kit/tools/collaboration-workflow-check.js"
+    },
+    {
+      "id": "migration-checker",
+      "source": "tools/project-workflow-migration-check.js",
+      "mirror": "ToVA universal development starter kit/tools/project-workflow-migration-check.js"
+    },
+    {
+      "id": "workflow-installer",
+      "source": "tools/project-workflow-install.js",
+      "mirror": "ToVA universal development starter kit/tools/project-workflow-install.js"
+    },
+    {
+      "id": "workflow-fixtures",
+      "source": "tools/project-workflow-fixtures.js",
+      "mirror": "ToVA universal development starter kit/tools/project-workflow-fixtures.js"
+    },
+    {
+      "id": "workflow-tests",
+      "source": "tests/project-workflow.spec.js",
+      "mirror": "ToVA universal development starter kit/tests/project-workflow.spec.js"
+    },
+    {
+      "id": "workflow-fixture-sources",
+      "source": "test-fixtures/tova-workflow",
+      "mirror": "ToVA universal development starter kit/test-fixtures/tova-workflow"
+    },
+    {
+      "id": "app-assurance-tool",
+      "source": "tools/app-build-assurance.js",
+      "mirror": "ToVA universal development starter kit/tools/app-build-assurance.js"
+    },
+    {
+      "id": "app-assurance-tests",
+      "source": "tests/app-build-assurance.spec.js",
+      "mirror": "ToVA universal development starter kit/tests/app-build-assurance.spec.js"
+    },
+    {
+      "id": "campaign-plan-template",
+      "source": "docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/CAMPAIGN_PLAN_TEMPLATE.md"
+    },
+    {
+      "id": "slice-plan-template",
+      "source": "docs/templates/SLICE_PLAN_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/SLICE_PLAN_TEMPLATE.md"
+    },
+    {
+      "id": "work-classification-examples",
+      "source": "docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/WORK_CLASSIFICATION_EXAMPLES.md"
+    },
+    {
+      "id": "outputs-owner",
+      "source": "docs/outputs/README.md",
+      "mirror": "ToVA universal development starter kit/docs/outputs/README.md"
+    },
+    {
+      "id": "help-surface",
+      "source": "docs/TOVA_HELP.md",
+      "mirror": "ToVA universal development starter kit/docs/TOVA_HELP.md"
+    },
+    {
+      "id": "portable-help-template",
+      "source": "project-workflow/core/templates/TOVA_HELP.md.tmpl",
+      "mirror": "ToVA universal development starter kit/project-workflow/core/templates/TOVA_HELP.md.tmpl"
+    },
+    {
+      "id": "portable-setup-template",
+      "source": "project-workflow/core/templates/TOVA_SETUP.md.tmpl",
+      "mirror": "ToVA universal development starter kit/project-workflow/core/templates/TOVA_SETUP.md.tmpl"
+    },
+    {
+      "id": "portable-current-capabilities-template",
+      "source": "project-workflow/core/templates/CURRENT_CAPABILITIES.md.tmpl",
+      "mirror": "ToVA universal development starter kit/project-workflow/core/templates/CURRENT_CAPABILITIES.md.tmpl"
+    },
+    {
+      "id": "portable-future-capabilities-template",
+      "source": "project-workflow/core/templates/FUTURE_CAPABILITIES.md.tmpl",
+      "mirror": "ToVA universal development starter kit/project-workflow/core/templates/FUTURE_CAPABILITIES.md.tmpl"
+    },
+    {
+      "id": "migration-owner",
+      "source": "docs/TOVA_MIGRATION.md",
+      "mirror": "ToVA universal development starter kit/docs/TOVA_MIGRATION.md"
+    },
+    {
+      "id": "migration-ledger-template",
+      "source": "docs/templates/MIGRATION_LEDGER_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/MIGRATION_LEDGER_TEMPLATE.md"
+    },
+    {
+      "id": "roadmap-template",
+      "source": "docs/templates/ROADMAP_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/ROADMAP_TEMPLATE.md"
+    },
+    {
+      "id": "acceptance-workspace-template",
+      "source": "docs/templates/ACCEPTANCE_WORKSPACE_README_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/ACCEPTANCE_WORKSPACE_README_TEMPLATE.md"
+    },
+    {
+      "id": "capability-maturity-template",
+      "source": "docs/templates/CAPABILITY_MATURITY_MODEL_TEMPLATE.md",
+      "mirror": "ToVA universal development starter kit/docs/templates/CAPABILITY_MATURITY_MODEL_TEMPLATE.md"
+    }
+  ],
+  "required_package_scripts": {
+    "workflow:check": "node tools/project-workflow-check.js",
+    "workflow:install": "node tools/project-workflow-install.js",
+    "workflow:migration-check": "node tools/project-workflow-migration-check.js",
+    "workflow:fixtures": "node tools/project-workflow-fixtures.js",
+    "workflow:collaboration-check": "node tools/collaboration-workflow-check.js",
+    "test": "node --test tests/*.spec.js"
+  },
+  "preserved_trees": [
+    {
+      "role": "tova-generation-1-bootstrap-and-evaluation-archive",
+      "source_commit": "efc6ef28b72d9f3aff8ee3350974aec0cc08c8da",
+      "path": "archive/old-projects/tova-project-workflow-generation-1/legacy-bootstrap-and-evaluation",
+      "file_count": 22,
+      "aggregate_sha256": "b4cd3f2d23fd56aec400a994b859e68a8faf7b21f63cdd12e5a96d4df385980c"
+    }
+  ],
+  "preserved_files": [],
+  "retired_live_paths": [
+    ".tova/SESSION_RESUME.md",
+    ".tova/SESSION_RESUME.json",
+    ".tova/TASK_STATE.md",
+    ".tova/TASK_STATE.json",
+    "docs/NEXT_TASK_CANDIDATES.md",
+    "docs/BUG_WORKFLOW.md",
+    "docs/PROJECT_WORKFLOW_LAYOUT.md",
+    "docs/templates/project-workflow-bootstrap.prompt.md",
+    "docs/templates/project-workflow-eval-pack",
+    "docs/templates/project-workflow-eval-pack.zip",
+    "ToVA universal development starter kit/.project/SESSION_RESUME.md",
+    "ToVA universal development starter kit/.project/TASK_STATE.md",
+    "ToVA universal development starter kit/docs/NEXT_TASK_CANDIDATES.md",
+    "ToVA universal development starter kit/docs/BUG_WORKFLOW.md",
+    "ToVA universal development starter kit/docs/CONNECTORS.md",
+    "ToVA universal development starter kit/docs/DEVELOPMENT_INSTRUCTIONS.md",
+    "ToVA universal development starter kit/docs/ERROR_HANDLING_AND_LOGGING.md"
+  ],
+  "evidence": {
+    "fixture_acceptance": "project-workflow/evidence/TOVA12.9_MATURE_REPOSITORY_FIXTURE_ACCEPTANCE.json",
+    "release_check_json": "project-workflow/releases/2.0.0-rc.10/TOVA12_RELEASE_CHECK.json",
+    "release_check_markdown": "project-workflow/releases/2.0.0-rc.10/TOVA12_RELEASE_CHECK.md",
+    "decision_packet": "project-workflow/releases/2.0.0-rc.10/RELEASE_CANDIDATE.md",
+    "full_project_gate": {
+      "command": "npm.cmd run verify",
+      "status": "passed",
+      "environment": "normal Windows SDK access after the restricted run reached only the known native host SDK boundary",
+      "started_at": "2026-08-20T22:35:27.151Z",
+      "completed_at": "2026-08-20T22:35:48.892Z",
+      "apps_validated": 45,
+      "apps_built": 45,
+      "tests_passed": 263,
+      "tests_total": 263,
+      "doctor_errors": 0,
+      "doctor_warnings": 1,
+      "doctor_warning_boundary": "Expected portable snapshot drift remains because npm.cmd run accept was not authorized or run.",
+      "source_report": ".tova/last-verify-report.json"
+    }
+  },
+  "limitations": [
+    "The migration checker validates reviewed ledger structure and retirement safety; it does not decide project meaning or replace owner judgment.",
+    "Semantic role candidates are non-authoritative suggestions until content-level reconciliation is accepted.",
+    "Nested ToVA roots are excluded from parent discovery and mutation by default; each independent project requires its own explicit-root operation.",
+    "Roadmap, acceptance-workspace, capability-maturity, and release-acceptance contracts are conditional extensions, not universal boot owners.",
+    "The Workflow Controller remains a later implementation campaign; rc.10 supplies Controller-compatible migration and verification semantics, not a running scheduler.",
+    "Formulator OS and ATLAS have not been upgraded or reassessed from this candidate. TOVA12.12 remains a separate read-only external review.",
+    "The checksum scope excludes project-workflow/releases to avoid self-referential release artifacts.",
+    "No target repository installation identity, Git commit, publication, or portable-baseline acceptance was created by assembly."
+  ],
+  "release_decision": {
+    "automated_candidate_ready": true,
+    "owner_approved": false,
+    "git_commit_created": false,
+    "published": false,
+    "target_installation_identity_written": false,
+    "portable_baseline_accepted": false
+  }
+}

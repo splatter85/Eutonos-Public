@@ -1,0 +1,170 @@
+{
+  "ok": true,
+  "kind": "tova.projectWorkflowReleaseCheck",
+  "slice": "TOVA10.1",
+  "workflowVersion": "2.0.0-rc.6",
+  "releaseStatus": "ready-for-owner-release-decision",
+  "mirror": {
+    "pairsChecked": 14,
+    "filesCompared": 125,
+    "allPairsMatch": true,
+    "pairs": [
+      {
+        "id": "portable-workflow",
+        "source": "project-workflow",
+        "mirror": "ToVA universal development starter kit/project-workflow",
+        "filesCompared": 71,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-checker",
+        "source": "tools/project-workflow-check.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-check.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-installer",
+        "source": "tools/project-workflow-install.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-install.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-fixtures",
+        "source": "tools/project-workflow-fixtures.js",
+        "mirror": "ToVA universal development starter kit/tools/project-workflow-fixtures.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-tests",
+        "source": "tests/project-workflow.spec.js",
+        "mirror": "ToVA universal development starter kit/tests/project-workflow.spec.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "workflow-fixture-sources",
+        "source": "test-fixtures/tova-workflow",
+        "mirror": "ToVA universal development starter kit/test-fixtures/tova-workflow",
+        "filesCompared": 42,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "app-assurance-tool",
+        "source": "tools/app-build-assurance.js",
+        "mirror": "ToVA universal development starter kit/tools/app-build-assurance.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "app-assurance-tests",
+        "source": "tests/app-build-assurance.spec.js",
+        "mirror": "ToVA universal development starter kit/tests/app-build-assurance.spec.js",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "campaign-plan-template",
+        "source": "docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/CAMPAIGN_PLAN_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "slice-plan-template",
+        "source": "docs/templates/SLICE_PLAN_TEMPLATE.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/SLICE_PLAN_TEMPLATE.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "work-classification-examples",
+        "source": "docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+        "mirror": "ToVA universal development starter kit/docs/templates/WORK_CLASSIFICATION_EXAMPLES.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "outputs-owner",
+        "source": "docs/outputs/README.md",
+        "mirror": "ToVA universal development starter kit/docs/outputs/README.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "help-surface",
+        "source": "docs/TOVA_HELP.md",
+        "mirror": "ToVA universal development starter kit/docs/TOVA_HELP.md",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      },
+      {
+        "id": "portable-help-template",
+        "source": "project-workflow/core/templates/TOVA_HELP.md.tmpl",
+        "mirror": "ToVA universal development starter kit/project-workflow/core/templates/TOVA_HELP.md.tmpl",
+        "filesCompared": 1,
+        "ok": true,
+        "mismatches": []
+      }
+    ]
+  },
+  "starterWorkflow": {
+    "ok": true,
+    "ownersChecked": 22,
+    "errors": 0,
+    "warnings": 0
+  },
+  "checksum": {
+    "path": "project-workflow/releases/2.0.0-rc.6/SHA256SUMS",
+    "scope": "starter package files excluding project-workflow/releases/",
+    "filesChecked": 129,
+    "aggregateSha256": "67232cfcf463ad1015f9ca0a5c7377618318cceb7c99b509039aa52096a71913",
+    "manifestMatches": true
+  },
+  "preservation": {
+    "filesChecked": 33,
+    "treesChecked": 1,
+    "allHashesMatch": true
+  },
+  "retirement": {
+    "pathsChecked": 17,
+    "allAbsent": true
+  },
+  "packageScripts": {
+    "scriptsChecked": 4,
+    "allMatch": true
+  },
+  "decisionBoundary": {
+    "automatedCandidateReady": true,
+    "ownerApproved": false,
+    "published": false,
+    "gitCommitCreatedByCampaign": false,
+    "targetInstallationIdentityWritten": false,
+    "portableBaselineAccepted": false
+  },
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "mirrorPairs": 14,
+    "mirrorFilesCompared": 125,
+    "starterPayloadFiles": 129,
+    "preservedFiles": 33,
+    "retiredLivePaths": 17
+  },
+  "findings": []
+}

@@ -1,0 +1,19 @@
+# Campaign Plan
+
+- Name:
+- Outcome:
+- Why this matters:
+- Admission evidence:
+- Included Slices:
+- Dependencies and sequence:
+- Shared-file hotspots:
+- Build-root policy: shared/reused roots by default; exact Slice-ephemeral paths and cleanup owners where isolation is required; intentionally retained owners
+- Non-goals:
+- Interruption/resume rule:
+- Rollback boundary:
+- Campaign acceptance:
+- Required docs/state updates:
+- Release or owner decision after acceptance:
+- Cold-agent context: None, or `compact | expanded | auto` with `route://...` IDs from `{{OWNER_repositoryIndex}}` and a Capsule path using `{{OWNER_campaignContextTemplate}}`
+
+Each included Slice still needs its own bounded plan and proportional health gate. Campaign closeout reviews Git-tree hygiene and disk retention separately, removes only recorded Slice-owned ephemeral paths after evidence capture, and leaves retained/shared paths with explicit owners.

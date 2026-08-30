@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "workflow_id": "tova-project-workflow",
+  "workflow_version": "2.0.0-rc.9",
+  "architecture_generation": 2,
+  "installed_at": "2026-07-18T12:00:00.000Z",
+  "installer_version": "2.0.0-rc.9",
+  "layout": {
+    "state_root": ".project",
+    "docs_root": "Docs"
+  },
+  "owners": {
+    "agents": "AGENTS.md",
+    "projectGoals": "Docs/PROJECT_GOALS.md",
+    "currentTask": "Docs/CURRENT_TASK.md",
+    "projectHealth": "Docs/PROJECT_HEALTH.md",
+    "knownBugs": "Docs/KNOWN_BUGS.md",
+    "architecture": "Docs/ARCHITECTURE.md",
+    "currentFeatures": "Docs/CURRENT_FEATURES.md",
+    "futureFeatures": "Docs/FUTURE_FEATURES.md",
+    "workModel": "Docs/WORK_MODEL.md",
+    "docsReadme": "Docs/README.md"
+  },
+  "enabled_modules": [],
+  "variant": "mature-fixture",
+  "acceptance_evidence": {
+    "path": ".project/RC9_ACCEPTANCE.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "accepted_at": "2026-07-18T12:00:00.000Z",
+    "checks": ["fixture rc.9 workflow and project checks"]
+  }
+}

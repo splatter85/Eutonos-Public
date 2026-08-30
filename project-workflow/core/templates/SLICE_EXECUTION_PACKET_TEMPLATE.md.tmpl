@@ -1,0 +1,79 @@
+# Slice Execution Packet Template
+
+## Purpose
+
+Turn one approved Slice into a bounded packet a receiving agent can execute without reconstructing the Campaign from chat history.
+
+## Write Here When
+
+Use for an explicit agent/session/machine transfer or cold executor. It may accompany an Exchange or generic handoff but replaces neither contract.
+
+## Do Not Use For
+
+Do not create a second live checklist, expand authority, summarize unverified claims as fact, or combine independent Slices. Stop after the named Slice(s) and gates.
+
+## Format And Profile Selection
+
+- `compact`: target 350–700 tokens when the Slice is narrow, capsule/index is current, and context is constrained or familiarity is high.
+- `expanded`: target 700–1,200 tokens excluding linked sources for a cold receiver, shared-file hotspots, high risk, platform boundaries, or previous regressions.
+- `auto`: receiver selects, records the choice and one-sentence reason, and loads expanded fields or stops if compact leaves ambiguity.
+
+Both profiles carry identical behavior, authority, checks, deliverables, and stop conditions. Expanded adds section-level reading reasons, prerequisite evidence, shared consumers, and conditional failure routes.
+
+Compact normally names at most five inspect-first sources and expanded at most ten; conditional sources load only on their trigger. Narrow the Slice or explain a mandatory larger set.
+
+---
+
+# Slice Execution Packet: `[SLICE-ID]`
+
+- **Selected profile:** `[compact | expanded]`
+- **Selection reason:** `[one sentence]`
+- **Base revision:** `[exact 40-character revision]`
+- **Branch/workspace strategy:** `[serial shared | parallel isolated]`
+- **Prerequisite Slices/evidence:** `[IDs/status/evidence or None]`
+- **Campaign capsule:** `[relative path and prepared revision, or None]`
+- **Repository routes:** `[route://... IDs from {{OWNER_repositoryIndex}}]`
+- **Requested mode:** `[valid mode]`
+
+## Required Sources
+
+| Inspect first | Required section | Why |
+| --- | --- | --- |
+| `[path]` | `[whole file for compact, exact section for expanded]` | `[reason]` |
+
+## Likely Edit Scope
+
+- `[repository-relative advisory path/pattern, not independent authority]`
+
+## Behavior Or Outcome To Implement
+
+`[exact observable behavior/docs/state change]`
+
+## Inherited Invariants And Non-goals
+
+- `[invariant]`
+- `[non-goal]`
+
+## Known Traps And Shared Consumers
+
+`[Compact: highest-risk trap/shared surface. Expanded: shared files/APIs/users/generated outputs and failure routes.]`
+
+## Required Checks
+
+- `[stable verification ID -> owner path -> command/check]`
+- `[integration gate]`
+
+## Environment And Claim Limits
+
+- **Available:** `[environment]`
+- **Unavailable/external:** `[boundary]`
+- **Allowed claims:** `[proof limit]`
+
+## Expected Deliverables And Stop
+
+- `[source/tests/docs/state/response/report]`
+- **Commit/push policy:** `[commit, push, report only, or no authority]`
+- **Stop after:** `[exact Slice/sub-slices and gates]`
+- **Stop conditions:** `[revision/branch mismatch, missing owner, contradiction, collision, out-of-scope failure, or authority gap]`
+
+Capsules, packets, and routes are navigation context. Canonical pinned sources win; record contradictions and stop when resolving one would change scope or authority.

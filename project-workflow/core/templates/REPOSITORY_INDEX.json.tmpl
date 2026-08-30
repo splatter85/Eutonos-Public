@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "tova.repositoryNavigationIndex",
+  "authority": "navigation_only",
+  "review_triggers": [
+    "A canonical owner or entrypoint moves.",
+    "A source, test, or proof route materially changes.",
+    "A portable workflow role changes.",
+    "A handoff exposes a missing or misleading route."
+  ],
+  "routes": [
+    {
+      "id": "route://workflow/orientation",
+      "purpose": "Orient to current project truth and active work without broad repository reading.",
+      "primary_owners": ["{{OWNER_bootProtocol}}", "{{OWNER_executionState}}", "{{OWNER_currentTask}}"],
+      "inspect_first": ["{{OWNER_agents}}", "{{OWNER_goals}}", "{{OWNER_docsMap}}"],
+      "likely_change_surfaces": ["{{OWNER_currentTask}}", "{{OWNER_executionState}}"],
+      "verification_surfaces": ["{{OWNER_projectHealth}}"],
+      "conditional_references": ["{{OWNER_currentState}}", "{{OWNER_tovaHelp}}", "{{OWNER_repositoryIndexGuide}}"]
+    },
+    {
+      "id": "route://workflow/planning",
+      "purpose": "Classify, plan, split, execute, and close bounded Campaigns and Slices.",
+      "primary_owners": ["{{OWNER_workModel}}", "{{OWNER_currentTask}}"],
+      "inspect_first": ["{{OWNER_campaignTemplate}}", "{{OWNER_sliceTemplate}}", "{{OWNER_projectHealth}}"],
+      "likely_change_surfaces": ["{{OWNER_currentTask}}", "{{OWNER_executionState}}"],
+      "verification_surfaces": ["{{OWNER_projectHealth}}"],
+      "conditional_references": ["{{OWNER_tovaMigration}}", "{{OWNER_templatesIndex}}"]
+    },
+    {
+      "id": "route://workflow/collaboration",
+      "purpose": "Transfer one bounded work unit or recover it across agents, sessions, or machines.",
+      "primary_owners": ["{{OWNER_collaborationProtocol}}", "{{OWNER_handoffs}}", "{{OWNER_executionState}}"],
+      "inspect_first": ["{{OWNER_templatesIndex}}", "{{OWNER_exchangeReadmeTemplate}}", "{{OWNER_exchangeTemplate}}", "{{OWNER_agentNotes}}"],
+      "likely_change_surfaces": ["{{OWNER_handoffs}}", "{{OWNER_currentTask}}", "{{OWNER_executionState}}"],
+      "verification_surfaces": ["{{OWNER_projectHealth}}"],
+      "conditional_references": ["{{OWNER_developmentNodes}}", "{{OWNER_executionReceipts}}", "{{OWNER_outputs}}"]
+    },
+    {
+      "id": "route://project/architecture",
+      "purpose": "Understand or change current project construction and responsibility boundaries.",
+      "primary_owners": ["{{OWNER_architecture}}", "{{OWNER_goals}}"],
+      "inspect_first": ["{{OWNER_agents}}", "{{OWNER_currentCapabilities}}", "{{OWNER_currentFeatures}}"],
+      "likely_change_surfaces": ["{{OWNER_architecture}}", "{{OWNER_currentFeatures}}"],
+      "verification_surfaces": ["{{OWNER_projectHealth}}"],
+      "conditional_references": ["{{OWNER_futureCapabilities}}", "{{OWNER_futureFeatures}}", "{{OWNER_knownBugs}}"]
+    },
+    {
+      "id": "route://project/design-language",
+      "purpose": "Create or change user-visible design, reusable UI surfaces, typography, controls, templates, interaction text, or product copy.",
+      "primary_owners": ["{{OWNER_designLanguage}}"],
+      "inspect_first": ["{{OWNER_agents}}", "{{OWNER_architecture}}", "{{OWNER_currentFeatures}}"],
+      "likely_change_surfaces": ["{{OWNER_designLanguage}}", "{{OWNER_currentTask}}"],
+      "verification_surfaces": ["{{OWNER_projectHealth}}"],
+      "conditional_references": ["{{OWNER_currentCapabilities}}", "{{OWNER_futureFeatures}}", "{{OWNER_knownBugs}}"]
+    },
+    {
+      "id": "route://project/behavior-change",
+      "purpose": "Locate project-specific durable source, tests, and owner updates before changing behavior.",
+      "primary_owners": ["{{OWNER_agents}}", "{{OWNER_architecture}}"],
+      "inspect_first": ["{{OWNER_currentTask}}", "{{OWNER_currentFeatures}}", "{{OWNER_projectHealth}}"],
+      "likely_change_surfaces": ["{{OWNER_architecture}}", "{{OWNER_currentFeatures}}"],
+      "verification_surfaces": ["{{OWNER_projectHealth}}"],
+      "conditional_references": ["{{OWNER_currentCapabilities}}", "{{OWNER_knownBugs}}", "{{OWNER_lessons}}"]
+    },
+    {
+      "id": "route://workflow/setup-or-upgrade",
+      "purpose": "Deploy, adopt, initialize, or upgrade workflow owners without overwriting project truth.",
+      "primary_owners": ["{{OWNER_tovaSetup}}", "{{OWNER_tovaMigration}}"],
+      "inspect_first": ["{{OWNER_agents}}", "{{OWNER_docsMap}}", "{{OWNER_projectHealth}}"],
+      "likely_change_surfaces": ["{{OWNER_docsMap}}", "{{OWNER_repositoryIndex}}", "{{OWNER_executionState}}"],
+      "verification_surfaces": ["{{OWNER_projectHealth}}"],
+      "conditional_references": ["{{OWNER_projectDiscovery}}", "{{OWNER_docChangeLog}}"]
+    }
+  ]
+}

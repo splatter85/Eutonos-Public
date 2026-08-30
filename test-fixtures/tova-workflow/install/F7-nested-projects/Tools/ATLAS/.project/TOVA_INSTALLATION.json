@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "workflow_id": "tova-project-workflow",
+  "workflow_version": "2.0.0-rc.9",
+  "architecture_generation": 2,
+  "installed_at": "2026-07-18T12:00:00.000Z",
+  "installer_version": "2.0.0-rc.9",
+  "layout": { "state_root": ".project", "docs_root": "docs" },
+  "owners": {
+    "agents": "AGENTS.md",
+    "projectGoals": "docs/PROJECT_GOALS.md",
+    "currentTask": "docs/CURRENT_TASK.md",
+    "projectHealth": "docs/PROJECT_HEALTH.md",
+    "knownBugs": "docs/KNOWN_BUGS.md",
+    "architecture": "docs/ARCHITECTURE.md",
+    "currentFeatures": "docs/CURRENT_FEATURES.md",
+    "futureFeatures": "docs/FUTURE_FEATURES.md",
+    "workModel": "docs/WORK_MODEL.md",
+    "docsReadme": "docs/README.md"
+  },
+  "enabled_modules": [],
+  "variant": "nested-independent-tool",
+  "acceptance_evidence": {
+    "path": ".project/NESTED_ACCEPTANCE.json",
+    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "accepted_at": "2026-07-18T12:00:00.000Z",
+    "checks": ["nested fixture evidence"]
+  }
+}

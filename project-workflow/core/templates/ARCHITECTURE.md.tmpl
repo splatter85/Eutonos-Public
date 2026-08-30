@@ -1,0 +1,11 @@
+# Architecture
+
+Discovery summary: {{ARCHITECTURE_SUMMARY}}
+
+The installer did not infer component semantics or generated-output boundaries. Use `{{OWNER_projectDiscovery}}` while initialization review is open, then record the project's durable source owners, major components, platforms, data/runtime boundaries, generated artifacts, integrations, recovery expectations, and debugging path here after inspecting the real repository.
+
+This owner explains how the system is built. Supported end-to-end outcomes belong in `{{OWNER_currentCapabilities}}`; concrete implemented mechanisms belong in `{{OWNER_currentFeatures}}`. Future architecture decisions remain labeled proposals in the appropriate plan or specialist owner until adopted.
+
+During established-repository adoption or an older-version upgrade, `{{OWNER_tovaMigration}}` owns reconciliation and retirement semantics. Preserve project architecture truth here; do not turn Migration into a competing product-architecture owner.
+
+Suggestions remain labeled assumptions until the user confirms them. Existing architecture documents take precedence and are reused without modification. Workflow files support architecture work but do not become the product architecture.

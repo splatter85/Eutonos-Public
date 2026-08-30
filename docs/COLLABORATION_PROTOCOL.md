@@ -1,0 +1,108 @@
+# Cross-Environment Development Continuity
+
+This document owns coordination between the human owner, online repository agents, local agents, and development nodes. It extends `docs/WORK_MODEL.md`; it does not replace Git, Project Health, Current Task, the active Slice, or product/architecture truth.
+
+## Roles And Authority
+
+The human owner controls product intent, material Campaign outcome or architecture changes, destructive actions, new external-write authority, publication/deployment, and major acceptance decisions.
+
+An **online repository agent** works through a hosted repository interface/API. A **local agent** works in a real checkout with machine-bound capabilities. A **development node** is one local environment with a safe declared capability set.
+
+## Durable Owners
+
+- `docs/CURRENT_TASK.md` - approved human-readable work and stable local/external verification IDs;
+- `.project/EXECUTION_STATE.json` - durable mode, active Campaign/Slice, writer lease, integration branch, Exchange, relevant Notes, owned paths, and checkpoint;
+- active Slice - bounded behavior, Actions, checks, non-goals, and stop conditions;
+- mutable PR checkpoint or ignored `.tova-runtime/` journal - volatile Action progress;
+- Git - exact source history and rollback;
+- `docs/PROJECT_HEALTH.md` and acceptance owners - required and accepted proof.
+
+Do not copy the same live state into several tracked files.
+
+## Work Modes
+
+Valid modes: `plan_only`, `review_only`, `implement`, `verify`, `operate`, `handoff`, `paused`.
+
+Review-only work does not imply implementation authority. Findings become active work only after disposition.
+
+## Branch And Writer Rules
+
+Environment transfer and concurrency are separate. Serial work keeps one active branch while one writer lease moves between agents/machines after the outgoing writer stops and makes the checkpoint durable. That branch may be `main` when policy and owner intent permit; branch identity never proves acceptance.
+
+Parallel source writers use distinct work branches and isolated checkouts, then return through integration review. Branch isolation does not isolate shared databases, services, devices, ports, credentials, or external resources. Several nodes may perform read-only verification against the same exact revision.
+
+The durable writer lease belongs in Execution State. Volatile Action state does not.
+
+## Actions And Recovery
+
+A Slice normally declares 5-12 meaningful Actions. Valid states are `planned`, `started`, `completed`, `failed`, `blocked`, `resumed`, and `cancelled`.
+
+When Execution State names a durable Action, a modern Slice declares its exact ID in the optional `## Action Registry` from `docs/templates/SLICE_PLAN_TEMPLATE.md`. The bounded registry remains part of the Slice, not a task board. Legacy plans without it retain text-reference compatibility.
+
+Local runtime state stays ignored:
+
+```text
+.tova-runtime/
+  active-run.json
+  events.jsonl
+```
+
+If an Action started without completion, inspect Git/worktree state and only the necessary checkpoint tail, mark it resumed, rerun its declared verification, then record completed, failed, or blocked. Never infer success.
+
+## Execution State
+
+Tracked Execution State contains durable boundaries only. It must not contain exact current `head_sha` or volatile `current_action`. `assignment_base_sha` may record where authorized work began; it is not Current HEAD or a global verification result. `source_baseline_sha` is compatibility-only and should not be used for new state. Exact tested revisions belong to Git/PR/Exchange evidence.
+
+Idle repositories may use `paused` with null Campaign, Slice, active Slice document, and writer identity. Active write modes require a Slice, active Slice document, writer class, integration branch, and active/handed-off lease.
+
+## Current Revision, Evidence, And Carry-Forward
+
+Git owns Current HEAD. An Evidence SHA is the exact revision where a named check ran and proves only its named claim/domain. A later SHA does not automatically stale every prior PASS. Classify later work by semantic impact: documentation/planning normally carries product proof forward; workflow/tooling/test changes need focused scrutiny of the affected evidence; product/runtime changes require affected-domain proof; shared security, persistence, middleware, configuration, dependency, test-framework, or artifact-integrity changes may require integration or full proof.
+
+Until the future Controller exists, record a carry-forward decision in the active Slice, Exchange/PR evidence, Project Health report, or handoff. State Current HEAD, Assignment Base when relevant, Evidence SHA/claim/status, what can continue, and the smallest next gate. Historical evidence is preserved even when it becomes stale for current acceptance.
+
+## Development Nodes
+
+`.project/DEVELOPMENT_NODES.json` stores safe capability metadata. Do not store credentials, usernames, email, IP/hostname, absolute/repository paths, device serials, private endpoints, or tokens.
+
+## Agent Notes
+
+`docs/agent-notes/README.md` owns temporary non-authoritative working memory. Copy `docs/templates/AGENT_NOTE_TEMPLATE.md`; filename and front-matter `id` must match and YAML delimiters are required.
+
+Valid states: `open`, `investigating`, `promoted`, `resolved`, `dismissed`, `superseded`.
+
+A Note cannot establish a bug, Feature, Capability, architecture decision, passing check, or acceptance. Target under 300 words, hard maximum about 600, normally 3-5 relevant open Notes. Close or explicitly carry them at Slice/Campaign closeout.
+
+## Cross-Environment Exchange
+
+New execution Exchanges use stable `XCH-<WORK-UNIT>-<NNN>` paths and schema v2 from `docs/templates/EXCHANGE_README_TEMPLATE.md` plus `docs/templates/EXCHANGE_TEMPLATE.json`. Existing v1 Exchanges remain valid history and an active v1 Exchange may finish under v1; never mix versions or rewrite history merely to modernize it.
+
+`EXCHANGE.json` owns identity, lifecycle, mission/authority, source/returned/integrated revisions, amendments, response, and integration evidence. The README is a human entry point only. Lifecycle is `ready -> in_progress -> returned -> integrated`, with terminal `cancelled` and `superseded`; terminal Exchanges cannot remain active.
+
+The request pins work unit/mode, exact source, target capabilities, serial-shared or parallel-isolated workspace strategy, adaptive context packet, bounded authority, stable verification IDs/owner paths, and procedure owners. Source/test/docs/adjacent fixes apply only inside the mission. New Slice work, architecture, destructive authority expansion, external writes, and public exposure default false and require explicit human authorization or a structured amendment.
+
+Serial mode requires equal work/integration branches; parallel mode requires distinct branches. An environment-only move needs no new Exchange when mission, authority, strategy, and round trip remain unchanged. An independent receiver pass or materially different work needs a new Exchange.
+
+For source fixes: commit source, test that exact revision, record `tested_source_revision` and every requested result exactly once, then commit response metadata afterward. The metadata commit is intentionally not claimed as tested. Integration review separately records `integrated_revision`, reconciles Notes/state/acceptance, and either integrates, cancels, or supersedes. Minor in-authority integration fixes may remain in the same Exchange; independent rework may link a new Exchange with `previous_exchange_id`.
+
+## Progressive Context
+
+Routine boot loads agent instructions, Boot Protocol, Execution State, Current Task, the active Slice, and only named relevant Notes. Load collaboration rules, Current State, architecture/source/tests, verification owners, and history only when needed. The goal is minimum sufficient context.
+
+For a substantial cold transfer, use one Campaign Context Capsule and one Slice Execution Packet from `docs/templates/CAMPAIGN_CONTEXT_CAPSULE_TEMPLATE.md` and `docs/templates/SLICE_EXECUTION_PACKET_TEMPLATE.md`. They consume `route://...` entries from `docs/REPOSITORY_INDEX.json` and direct-source links without replacing authority.
+
+- `compact`: about 500-900 capsule tokens plus 350-700 packet tokens for narrow, familiar, or context-constrained execution.
+- `expanded`: about 1,500-3,000 plus 700-1,200 tokens for cold, shared, high-risk, or regression-prone work.
+- `auto`: receiver records compact/expanded and a reason before acting; prefer expanded for unresolved risk/ambiguity and compact for real capacity constraints.
+
+Both profiles keep identical authority, proof, deliverables, and stop conditions. If mandatory context does not fit, stop instead of omitting it. Refresh on goal/architecture/ownership/prerequisite/invariant/route/major-discovery changes, not routine progress.
+
+## Sensitive Data And Evidence
+
+Never track credentials, `.env` contents, private email/evidence, raw model output, hidden reasoning, local databases, or unsafe machine identifiers. Return bounded safe metadata for sensitive local proof.
+
+A structural collaboration check does not prove a real handoff, runtime, browser/device, model/provider, external service, network, reboot, or human/business boundary.
+
+## Controller Boundary
+
+The workflow remains human-readable and agent-operable. A future deterministic Controller may automate context, authorizations, metadata, returns, and recovery, but it is not implemented or required here.

@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "workflow_version": "2.0.0-rc.9",
+  "accepted_at": "2026-07-18T12:00:00.000Z",
+  "checks": ["workflow and project checks passed on the fixture source"]
+}

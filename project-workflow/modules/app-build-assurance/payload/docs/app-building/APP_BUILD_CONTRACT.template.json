@@ -1,0 +1,69 @@
+{
+  "$schema": "./APP_BUILD_CONTRACT.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "tova.appBuildContract",
+  "app": {
+    "id": "[stable-app-id]",
+    "name": "[App name]",
+    "stage": "prototype",
+    "purpose": "[Who the app helps, what it helps them do, and why that matters.]",
+    "primaryUsers": ["[Primary user]"],
+    "targets": ["[First runtime or platform]"]
+  },
+  "workflows": [
+    {
+      "id": "[workflow-id]",
+      "actor": "[User type]",
+      "goal": "[Complete user job, not merely a screen action.]",
+      "successCriteria": ["[Visible and testable success criterion.]"],
+      "acceptanceRefs": ["[Path to acceptance or test evidence owner.]" ]
+    }
+  ],
+  "architecture": {
+    "sourceOfTruth": [
+      {
+        "concern": "[Program, product, data, or acceptance concern]",
+        "ownerRef": "[Durable owner path]"
+      }
+    ],
+    "responsibilityBoundaries": [
+      {
+        "id": "[boundary-id]",
+        "responsibility": "[Rule, workflow, data access, rendering, or integration responsibility.]",
+        "ownerRefs": ["[Owning source or architecture path]"]
+      }
+    ],
+    "generatedArtifacts": [],
+    "externalSystems": []
+  },
+  "data": {
+    "models": [],
+    "persistence": "none",
+    "migrationRisk": "none",
+    "backupRecovery": "Not applicable because this contract stores no durable user data.",
+    "syncConflictPolicy": "Not applicable because this contract has no synchronized data copies.",
+    "destructiveOperations": []
+  },
+  "quality": {
+    "errorAndEmptyStates": ["[Important empty, invalid, partial-failure, retry, or cancellation state.]"],
+    "performanceRisks": ["[Largest responsiveness or workload risk, even if currently low.]"],
+    "securityPrivacyRisks": ["[Data, permission, secret, tool-use, AI-output, or approval risk.]"],
+    "testPlan": {
+      "unit": { "status": "planned", "evidenceRefs": [], "reason": "[Required logic checks or why not applicable.]" },
+      "integration": { "status": "planned", "evidenceRefs": [], "reason": "[Required cross-layer checks or why not applicable.]" },
+      "ui": { "status": "planned", "evidenceRefs": [], "reason": "[Required UI checks or why not applicable.]" },
+      "migration": { "status": "not-applicable", "evidenceRefs": [], "reason": "[Why no stored-data migration can occur.]" },
+      "regression": { "status": "planned", "evidenceRefs": [], "reason": "[Behavior that future changes must preserve.]" },
+      "manualQa": { "status": "planned", "evidenceRefs": [], "reason": "[Human workflow, device, visual, or accessibility checks.]" }
+    }
+  },
+  "review": {
+    "requiredLenses": ["architecture", "data", "testing", "performance", "security-privacy", "product-workflow"],
+    "healthGate": "Standard",
+    "acceptanceRefs": ["[Primary app acceptance owner path]"],
+    "unresolvedAcceptance": ["[Explicit human, external, device, data, or release acceptance still open.]" ]
+  },
+  "constraints": ["[Must-preserve behavior, data, environment, or authorization boundary.]"],
+  "nonGoals": ["[Adjacent behavior or claim intentionally excluded.]"],
+  "openQuestions": []
+}

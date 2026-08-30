@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "documentation-health",
+  "version": "2.0.0-rc.2",
+  "purpose": "Validate living documentation owners and references for a project that has admitted automated documentation checks.",
+  "admission": {
+    "criteria": [
+      "The project has enough linked documentation that manual owner checks have become error-prone."
+    ],
+    "evidence": [
+      "docs/README.md"
+    ]
+  },
+  "non_goals": [
+    "It does not create, rewrite, or select project truth owners."
+  ],
+  "installs": {
+    "files": [
+      "modules/documentation-health/check.js"
+    ],
+    "commands": [
+      "npm.cmd run docs:module-check"
+    ]
+  },
+  "extends": [
+    "docs/PROJECT_HEALTH.md"
+  ],
+  "health": {
+    "checks": [
+      {
+        "id": "documentation-owner-check",
+        "command": "npm.cmd run docs:module-check",
+        "required": true
+      }
+    ]
+  },
+  "retirement": {
+    "remove": [
+      "modules/documentation-health"
+    ],
+    "preserve": [
+      "docs/DOC_CHANGE_LOG.md"
+    ]
+  },
+  "examples": [
+    "modules/documentation-health/check.js"
+  ]
+}

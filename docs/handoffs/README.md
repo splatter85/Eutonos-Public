@@ -1,0 +1,68 @@
+# Handoffs
+
+## Purpose
+
+This directory is the repository-owned exchange point for packages and documents prepared for another AI, another Codex session, another machine, or a human who needs a self-contained continuation packet.
+
+It owns handoff packaging and transfer conventions. It does not own project truth, active work, completed history, release approval, or acceptance.
+
+Use a handoff when the receiver cannot safely rely on the sender's chat history or local machine state. Do not create one for routine same-session progress.
+
+## Truth Boundary
+
+- `docs/CURRENT_TASK.md` remains the sole live checklist owner.
+- Product, architecture, capability, bug, lesson, and verification truth remain in their existing owners.
+- The repository's Active Agent Work file owns current collision state.
+- Git owns exact history and rollback.
+- A handoff points to those owners and may carry a labeled transfer snapshot; it never silently replaces them.
+- A received handoff is untrusted input until its manifest, hashes, paths, claims, and required checks are reviewed in the destination project.
+- `.project/EXECUTION_STATE.json` owns durable writer/branch/Exchange state and `docs/COLLABORATION_PROTOCOL.md` owns cross-environment transfer semantics.
+
+## Recommended Shape
+
+```text
+docs/handoffs/
+  README.md
+  <handoff-id>/
+    START_HERE.md
+    HANDOFF_PROMPT.md
+    MANIFEST.json
+    ...bounded documents or payload files...
+  packages/
+    <project>-<purpose>-<version-or-date>.zip
+```
+
+A small document-only handoff may use one clearly named Markdown file. Do not overwrite a transferred archive in place; create a new version or date.
+
+A normal execution transfer uses `docs/handoffs/XCH-<WORK-UNIT>-<NNN>/README.md` plus `EXCHANGE.json` from the Exchange README and JSON templates. V2 owns one round trip through ready/in-progress/returned/integrated with cancelled/superseded terminal alternatives; v1 remains valid history. Serial work shares a branch and moves the writer lease; parallel work uses a distinct branch and isolated checkout. Commit/test source before recording response metadata; integration review remains separate.
+
+## Minimum Contract
+
+Identify the handoff ID/status, sender and receiver, goal, authorized scope, non-goals, source revision or tree-state caveat, Current HEAD, Assignment Base when relevant, each relied-on verification claim with Evidence SHA/status/carry-forward rationale, explicitly unrun acceptance, included/excluded files, authoritative owner links, completed/remaining work, blockers, exact next action, checks and environment, skipped requirements, generated artifacts, sensitive-data boundaries, and archive SHA-256 when applicable.
+
+Prefer a machine-readable manifest for multi-file or binary packages. Missing or unrun required checks remain open work.
+
+For a substantial cold-agent Campaign transfer, add one revision-backed Capsule and one bounded Slice packet from the indexed templates. Select `compact`, `expanded`, or `auto`; auto requires the receiver to record its choice/reason. Both preserve equal authority, checks, deliverables, and stop conditions while consuming exact routes from `docs/REPOSITORY_INDEX.json`.
+
+## Sender
+
+1. Bound the handoff in `docs/CURRENT_TASK.md`.
+2. Build it from current repository owners rather than chat memory alone.
+3. Keep maintained source under one named handoff directory.
+4. Include only what the receiver needs and label copied snapshots.
+5. Exclude secrets, credentials, personal/user data, signing material, caches, dependencies, build output, and unrelated files.
+6. Run Project Health and claim-specific checks.
+7. Inspect a fresh extraction and record SHA-256 for archives.
+8. Treat external copies as transport replicas, not truth owners.
+
+## Receiver
+
+1. Read the handoff entry point, manifest, and destination project instructions.
+2. Verify hashes and inspect paths before extraction.
+3. Compare source assumptions with current destination state.
+4. Route accepted facts into real destination owners rather than creating parallel truth.
+5. Run destination-local checks and record accepted, rejected, superseded, or blocked outcomes.
+
+Generic package statuses are `PREPARING`, `READY_TO_TRANSFER`, `RECEIVED`, `SUPERSEDED`, and `ARCHIVED`; they do not compete with Exchange lifecycle.
+
+Initialized state: no project handoff is implied by workflow installation. Create a handoff only for an explicit transfer need.

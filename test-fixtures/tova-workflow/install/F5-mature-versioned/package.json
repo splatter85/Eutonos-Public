@@ -1,0 +1,9 @@
+{
+  "name": "f5-mature-versioned-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"console.log('F5 tests passed')\"",
+    "build": "node -e \"console.log('F5 build passed')\""
+  }
+}

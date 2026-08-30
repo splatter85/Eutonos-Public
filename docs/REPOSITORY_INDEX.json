@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "tova.repositoryNavigationIndex",
+  "authority": "navigation_only",
+  "review_triggers": [
+    "A canonical owner or entrypoint moves.",
+    "A source, test, or proof route materially changes.",
+    "A portable workflow role changes.",
+    "A handoff exposes a missing or misleading route."
+  ],
+  "routes": [
+    {
+      "id": "route://workflow/orientation",
+      "purpose": "Orient to current project truth and active work without broad repository reading.",
+      "primary_owners": [".project/PROJECT_BOOT_PROTOCOL.md", ".project/EXECUTION_STATE.json", "docs/CURRENT_TASK.md"],
+      "inspect_first": ["AGENTS.md", "docs/PROJECT_GOALS.md", "docs/README.md"],
+      "likely_change_surfaces": ["docs/CURRENT_TASK.md", ".project/EXECUTION_STATE.json"],
+      "verification_surfaces": ["docs/PROJECT_HEALTH.md"],
+      "conditional_references": [".project/CURRENT_STATE.md", "docs/TOVA_HELP.md", "docs/REPOSITORY_INDEX.md"]
+    },
+    {
+      "id": "route://workflow/planning",
+      "purpose": "Classify, plan, split, execute, and close bounded Campaigns and Slices.",
+      "primary_owners": ["docs/WORK_MODEL.md", "docs/CURRENT_TASK.md"],
+      "inspect_first": ["docs/templates/CAMPAIGN_PLAN_TEMPLATE.md", "docs/templates/SLICE_PLAN_TEMPLATE.md", "docs/PROJECT_HEALTH.md"],
+      "likely_change_surfaces": ["docs/CURRENT_TASK.md", ".project/EXECUTION_STATE.json"],
+      "verification_surfaces": ["docs/PROJECT_HEALTH.md"],
+      "conditional_references": ["docs/TOVA_MIGRATION.md", "docs/templates/README.md"]
+    },
+    {
+      "id": "route://workflow/collaboration",
+      "purpose": "Transfer one bounded work unit or recover it across agents, sessions, or machines.",
+      "primary_owners": ["docs/COLLABORATION_PROTOCOL.md", "docs/handoffs/README.md", ".project/EXECUTION_STATE.json"],
+      "inspect_first": ["docs/templates/README.md", "docs/templates/EXCHANGE_README_TEMPLATE.md", "docs/templates/EXCHANGE_TEMPLATE.json", "docs/agent-notes/README.md"],
+      "likely_change_surfaces": ["docs/handoffs/README.md", "docs/CURRENT_TASK.md", ".project/EXECUTION_STATE.json"],
+      "verification_surfaces": ["docs/PROJECT_HEALTH.md"],
+      "conditional_references": [".project/DEVELOPMENT_NODES.json", ".project/execution/receipts/README.md", "docs/outputs/README.md"]
+    },
+    {
+      "id": "route://project/architecture",
+      "purpose": "Understand or change current project construction and responsibility boundaries.",
+      "primary_owners": ["docs/ARCHITECTURE.md", "docs/PROJECT_GOALS.md"],
+      "inspect_first": ["AGENTS.md", "docs/CURRENT_CAPABILITIES.md", "docs/CURRENT_FEATURES.md"],
+      "likely_change_surfaces": ["docs/ARCHITECTURE.md", "docs/CURRENT_FEATURES.md"],
+      "verification_surfaces": ["docs/PROJECT_HEALTH.md"],
+      "conditional_references": ["docs/FUTURE_CAPABILITIES.md", "docs/FUTURE_FEATURES.md", "docs/KNOWN_BUGS.md"]
+    },
+    {
+      "id": "route://project/design-language",
+      "purpose": "Create or change user-visible design, reusable UI surfaces, typography, controls, templates, interaction text, or product copy.",
+      "primary_owners": ["docs/DESIGN_LANGUAGE.md"],
+      "inspect_first": ["AGENTS.md", "docs/ARCHITECTURE.md", "docs/CURRENT_FEATURES.md"],
+      "likely_change_surfaces": ["docs/DESIGN_LANGUAGE.md", "docs/CURRENT_TASK.md"],
+      "verification_surfaces": ["docs/PROJECT_HEALTH.md"],
+      "conditional_references": ["docs/CURRENT_CAPABILITIES.md", "docs/FUTURE_FEATURES.md", "docs/KNOWN_BUGS.md"]
+    },
+    {
+      "id": "route://project/behavior-change",
+      "purpose": "Locate project-specific durable source, tests, and owner updates before changing behavior.",
+      "primary_owners": ["AGENTS.md", "docs/ARCHITECTURE.md"],
+      "inspect_first": ["docs/CURRENT_TASK.md", "docs/CURRENT_FEATURES.md", "docs/PROJECT_HEALTH.md"],
+      "likely_change_surfaces": ["docs/ARCHITECTURE.md", "docs/CURRENT_FEATURES.md"],
+      "verification_surfaces": ["docs/PROJECT_HEALTH.md"],
+      "conditional_references": ["docs/CURRENT_CAPABILITIES.md", "docs/KNOWN_BUGS.md", "docs/lessons/README.md"]
+    },
+    {
+      "id": "route://workflow/setup-or-upgrade",
+      "purpose": "Deploy, adopt, initialize, or upgrade workflow owners without overwriting project truth.",
+      "primary_owners": ["docs/TOVA_SETUP.md", "docs/TOVA_MIGRATION.md"],
+      "inspect_first": ["AGENTS.md", "docs/README.md", "docs/PROJECT_HEALTH.md"],
+      "likely_change_surfaces": ["docs/README.md", "docs/REPOSITORY_INDEX.json", ".project/EXECUTION_STATE.json"],
+      "verification_surfaces": ["docs/PROJECT_HEALTH.md"],
+      "conditional_references": ["docs/PROJECT_DISCOVERY.md", "docs/DOC_CHANGE_LOG.md"]
+    }
+  ]
+}

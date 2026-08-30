@@ -1,0 +1,28 @@
+# Workflow Template Index
+
+## Purpose
+
+Route agents and maintainers to the canonical reusable workflow template for the artifact they are creating.
+
+## Write Here When
+
+Add or change an entry only when the portable workflow adds, retires, or renames a template role.
+
+## Do Not Use For
+
+Do not record live work, project status, acceptance evidence, or template instructions that belong inside the named template.
+
+## Format
+
+Keep one row per reusable artifact type. The installed path is the canonical template owner in an initialized repository.
+
+| Artifact | Template | Use |
+| --- | --- | --- |
+| Campaign plan | `{{OWNER_campaignTemplate}}` | Multi-Slice goal, sequence, boundaries, and campaign-level proof |
+| Slice plan | `{{OWNER_sliceTemplate}}` | One bounded implementation/review unit and optional Action Registry |
+| Campaign Context Capsule | `{{OWNER_campaignContextTemplate}}` | Compact or expanded campaign-level navigation context for a cold receiver |
+| Slice Execution Packet | `{{OWNER_sliceExecutionPacketTemplate}}` | Compact or expanded bounded executor instructions for one Slice |
+| Agent Note | `{{OWNER_agentNoteTemplate}}` | Sparse non-authoritative observation that may cross a session boundary |
+| Exchange README | `{{OWNER_exchangeReadmeTemplate}}` | Human entry point for one execution Exchange |
+| Exchange JSON | `{{OWNER_exchangeTemplate}}` | Machine-readable Exchange identity, lifecycle, authority, revisions, and evidence |
+| Execution Receipt | `{{OWNER_executionReceiptTemplate}}` | Append-only local execution receipt under the receipt owner |
