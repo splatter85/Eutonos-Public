@@ -4,6 +4,12 @@ Workflow generation: 2
 Workflow version: `2.0.0-rc.10`
 Updated: 2026-08-20
 
+## User Introduction
+
+- Status: not_shown
+
+Presentation preference only, not work or acceptance state. Valid values: `not_shown`, `shown`, `skipped`. Preserve this section during ordinary state updates. Follow the agent introduction protocol in `docs/TOVA_HELP.md`.
+
 ## Confirmed
 
 - This directory is a self-contained universal starter-package mirror, not the definition of the target project's product.
