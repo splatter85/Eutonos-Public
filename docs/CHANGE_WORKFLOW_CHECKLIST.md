@@ -2,6 +2,8 @@
 
 `docs/WORK_MODEL.md` owns planning and closeout. `docs/PROJECT_HEALTH.md` owns gates. This checklist covers package-specific synchronization surfaces without becoming another work policy or task board.
 
+**Scope boundary:** the heavier checks below apply when modifying the EUTONOS/ToVA starter package, installer, checker, fixtures, mirrors, modules, overlays, or release artifacts themselves. They MUST NOT be inherited as verification requirements for ordinary product Slices in a target repository. Target-project work follows that project's proportional Project Health gate and the Slice -> Campaign -> Release verification ladder.
+
 ## Portable Core Or Template Change
 
 - Update `project-workflow/core/` and its schema if the contract changes.
@@ -17,6 +19,7 @@
 - Keep the module disabled by default and validate `project-workflow/modules/app-build-assurance/MODULE.json` from source and from a disposable installed layout.
 - Keep its schema, template, example contract/evidence, executable checker, six review lenses, lifecycle gates, and retirement boundary synchronized.
 - Never treat structural contract success as runtime, device, human, privacy, migration, beta, or release acceptance.
+- Never turn the module's cumulative testing categories or review lenses into mandatory per-Slice passes in target projects.
 
 ## Checker Or Installer Change
 
