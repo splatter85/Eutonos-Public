@@ -81,7 +81,7 @@ Why: a Campaign Capsule reduces cold-start selection risk without copying canoni
 | `[DATA4.1]` | `[add versioned schema and migration contract]` | `[DATA4.0]` | `[Standard]` | `[PLANNED]` |
 | `[DATA4.2]` | `[switch production reads with rollback proof]` | `[DATA4.1]` | `[Full]` | `[PLANNED]` |
 
-Why: each row must be independently implementable, verifiable, and reportable. Implementation steps belong inside a Slice, not as fake Slices.
+Why: each row must be independently implementable, verifiable, and reportable. Implementation steps belong inside a Slice, not as fake Slices. Intermediate Slices should use the minimum gate that proves their own boundary; a Full gate should normally be reserved for a Slice that actually owns Campaign-level acceptance or another high-risk boundary.
 
 ## Dependency And Shared-Surface Rules
 
@@ -95,12 +95,14 @@ Why: makes sequencing and overlapping ownership explicit before execution.
 
 ## Campaign Acceptance
 
+This section owns the cumulative proof intentionally deferred by intermediate Slices. Put broad integration, regression, UI/device, migration, accessibility, performance, manual-QA, or other composed-outcome checks here when the Campaign actually requires them. Do not repeat this acceptance set after every child Slice.
+
 - `[Campaign-level proof. Example: migrate a production-shaped fixture and compare record counts and hashes.]`
 - `[Recovery proof. Example: inject failure at each migration phase and restore the original store.]`
 - `[Human/external acceptance owner. Example: product owner verifies the upgraded project opens correctly.]`
 - **Required Project Health gate:** `[normally Full Acceptance for closeout]`
 
-Why: passing each Slice does not automatically prove the composed Campaign outcome.
+Why: passing each Slice does not automatically prove the composed Campaign outcome, and proving the composed Campaign outcome does not need to be repeated at every Slice boundary.
 
 ## Interruption And Discovery Routing
 
@@ -122,6 +124,7 @@ Why: Campaign coordination must not turn destructive ambiguity into assumed perm
 
 - [ ] Every required Slice is `DONE`, `CANCELLED` with rationale, or `SUPERSEDED` with a successor.
 - [ ] Campaign acceptance and required Project Health gates passed in the stated environment.
+- [ ] Broader checks deferred by intermediate Slices were run here when required, or remain explicitly deferred to release acceptance with a named owner.
 - [ ] Shipped behavior, architecture, bugs, lessons, and deferred work moved to their sole owners where applicable.
 - [ ] Active pointers and collision leases were cleared.
 - [ ] Remaining human, device, visual, physical, or external acceptance is explicit.
@@ -130,4 +133,4 @@ Why: Campaign coordination must not turn destructive ambiguity into assumed perm
 
 ## Expected Final Report
 
-`[Summarize the outcome, completed/cancelled Slices, strongest evidence, environment, skipped or remaining acceptance, docs/state reconciliation, tree state, and exact next owner decision.]`
+`[Summarize the outcome, completed/cancelled Slices, strongest cumulative evidence, environment, skipped or release-deferred acceptance, docs/state reconciliation, tree state, and exact next owner decision.]`
