@@ -106,18 +106,21 @@ Prefer shared/reused roots. A uniquely named Slice-ephemeral root is justified o
 
 Why: a ready Slice identifies how failure will be noticed and contained.
 
-## Verification
+## Minimum Slice Verification
 
-- **Required Project Health gate:** `[Quick | Standard | Full]`
-- **Focused checks:**
-  - `[exact command or inspection; example reference search for every new template]`
-  - `[behavior, classification, parsing, UI, device, or acceptance check as applicable]`
-- **Integration checks:**
-  - `[exact command; example npm.cmd run verify]`
+Plan the smallest proof that can detect a regression introduced by this Slice. Do not fill test categories merely because they exist in the project or in this template. Broader cumulative verification belongs at Campaign or release acceptance unless the active Slice has a concrete dependency or risk that requires it now.
+
+- **Required Project Health gate:** `[Quick | Standard | Full; Full should be unusual for an intermediate Campaign Slice]`
+- **Minimum focused proof:**
+  - `[exact command or inspection that proves the changed boundary]`
+  - `[second focused check only when the first cannot cover a material risk, or None]`
+- **Additional/integration checks justified by this Slice:**
+  - `[exact command plus why it is necessary now, or None]`
+- **Deferred Campaign/release checks:** `[broader regression, UI/device, migration, accessibility, performance, manual QA, or None/not applicable]`
 - **Environment/access needs:** `[normal Windows SDK, device, service, browser, none, and any unavailable boundary]`
 - **Remaining human/external acceptance owner:** `[owner or None]`
 
-Why: passing evidence is selected before implementation and matches the claimed boundary.
+Why: passing evidence is selected before implementation, matches the claimed boundary, and does not turn every Slice into a full acceptance pass.
 
 ## Required Docs And State Updates
 
@@ -142,14 +145,15 @@ Why: stopping is an explicit safety boundary, not an excuse to abandon a merely 
 - [ ] Planned files do not require ownership of unrelated changes.
 - [ ] Shared consumers and generated/local-only artifacts are separated from durable source.
 - [ ] Build paths are classified; any Slice-ephemeral path has an exact closeout action and no other active owner.
-- [ ] The required gate and focused checks can prove the claim.
+- [ ] The required gate and minimum focused proof can prove the claim without unrelated broad testing.
+- [ ] Any broader check required now has a concrete dependency, blast-radius, failure-signal, or owner justification.
 - [ ] Risks, rollback, docs/state updates, and stop conditions are actionable.
 - [ ] If the Slice is too broad, likely Sub-slice boundaries are visible.
 
 ## Execution And Closeout Record
 
 - **Implemented boundary:** `[what actually changed, including any narrowing or Sub-slice split]`
-- **Verification result:** `[commands, environment, pass/fail, strongest evidence, skipped checks]`
+- **Verification result:** `[minimum commands/checks, environment, pass/fail, strongest evidence, intentionally deferred Campaign/release checks]`
 - **Generated/local-only artifacts:** `[exact paths, shared/reused | Slice-ephemeral | intentionally retained, removed/retained, and why; or None]`
 - **Docs/state reconciled:** `[paths or None]`
 - **Tree state:** `[clean, intentional changes, staged, committed, or awaiting separate authority]`
@@ -176,4 +180,4 @@ Optional for legacy or short-lived plans; required when tracked `EXECUTION_STATE
 
 ## Expected Final Report
 
-`[Summarize changed outcome, verification, docs/state updates, narrowing/splitting, remaining acceptance, tree/commit state, and the exact next Slice or owner decision.]`
+`[Summarize changed outcome, minimum Slice verification, docs/state updates, narrowing/splitting, deferred Campaign/release checks, remaining acceptance, tree/commit state, and the exact next Slice or owner decision.]`

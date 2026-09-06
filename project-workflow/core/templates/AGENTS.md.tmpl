@@ -14,6 +14,8 @@ Before editing:
 6. Edit durable source rather than generated output.
 7. Run the gate named by Project Health.
 
+Verification economy is a hard execution rule: for an ordinary Slice, use the smallest focused proof that can detect a regression introduced by that Slice. Do not automatically run broad regression, full UI/device, migration, performance, accessibility, or release suites at every Slice boundary. Those cumulative checks belong at Campaign or release acceptance unless a later Slice depends on them, the actual blast radius justifies them, a concrete failure gives reason to broaden, or the owner explicitly asks. More testing is permitted when technically justified; more testing is not automatically more diligent.
+
 Keep active or paused work in one clearly named section of `{{OWNER_currentTask}}`. Preserve an unfinished paused checklist there; when it completes, remove or collapse it and place detailed history in Git, `{{OWNER_docChangeLog}}`, archives, or the relevant truth owner. Do not update broad status, feature/capability, architecture, handoff, or change-log documents for every small step.
 
 Before creating or redirecting a build root, classify its exact path under the Work Model. Prefer shared/reused roots. Use a uniquely named Slice-ephemeral root only when isolation is required, record its cleanup action before creation, and remove only that exact Slice-owned path after final evidence. Gitignored never means safe to delete; intentionally retained history, dependencies, shared caches, unknown paths, and another active owner's output remain under their normal owners.

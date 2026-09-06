@@ -11,13 +11,15 @@
 - Implementation notes:
 - Build artifact plan: exact path, shared/reused | Slice-ephemeral | intentionally retained, reason, and cleanup/retention owner; or None
 - Risk areas:
-- Verification commands/checks:
+- Minimum Slice verification: smallest focused command/check that can detect a regression introduced by this Slice
+- Additional/integration verification: only when a concrete dependency, blast radius, failure signal, or owner requirement justifies it now; otherwise None
+- Deferred Campaign/release checks: broader regression, UI/device, migration, accessibility, performance, manual QA, or None/not applicable
 - Required docs/state updates:
 - Stop conditions:
 - Expected final report:
 - Cold-agent execution context: None, or `compact | expanded | auto` with Campaign Capsule, `route://...` IDs from `{{OWNER_repositoryIndex}}`, and a packet using `{{OWNER_sliceExecutionPacketTemplate}}`
 
-Readiness: confirm the Slice can be completed without owning unrelated shared-file changes, its proof is specific, generated/local state is separated from durable source, every build path is classified, every Slice-ephemeral path has an exact post-evidence cleanup action, and an obvious child-slice breakup exists if scope expands. Gitignored never means safe to delete.
+Readiness: confirm the Slice can be completed without owning unrelated shared-file changes, its minimum proof is specific and sufficient, generated/local state is separated from durable source, every build path is classified, every Slice-ephemeral path has an exact post-evidence cleanup action, and an obvious child-slice breakup exists if scope expands. Do not promote an intermediate Slice to broad Campaign/release verification merely because wider suites exist. Gitignored never means safe to delete.
 
 ## Action Registry
 
