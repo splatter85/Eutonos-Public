@@ -4,6 +4,16 @@ Routine work is a small, low-risk edit with an obvious owner and proportional ch
 
 Before execution, name the goal, exact behavior, files to inspect/edit, non-goals, risks, verification, required owner updates, and stop conditions. Execute one Slice at a time. Narrow or split when shared files reveal independent feature clusters. Close only after the declared proof passes and the live checklist is truthful. Stop before the next Slice unless it is separately authorized.
 
+## Verification Ladder
+
+Use three distinct verification levels instead of repeating final acceptance after every change:
+
+1. **Slice proof:** the minimum focused evidence needed to show the bounded change landed correctly and immediate dependencies remain usable. This is the default during Campaign construction.
+2. **Campaign acceptance:** cumulative integration, regression, UI/device, migration, or other broader checks needed to prove the composed Campaign outcome. These normally run at the Campaign acceptance Slice or closeout, not after every child Slice.
+3. **Release acceptance:** the broadest product/release evidence required for beta, release, migration finalization, or baseline promotion.
+
+Do not promote a Slice to Campaign- or release-level verification merely because broader suites exist. Broaden only when the Slice has a concrete dependency, blast-radius, failure signal, or owner requirement that makes broader proof necessary. `docs/PROJECT_HEALTH.md` owns the detailed gate policy.
+
 Route current construction and responsibility boundaries to `docs/ARCHITECTURE.md`, supported end-to-end outcomes to `docs/CURRENT_CAPABILITIES.md`, concrete implemented mechanisms to `docs/CURRENT_FEATURES.md`, desired outcomes to `docs/FUTURE_CAPABILITIES.md`, and proposed mechanisms to `docs/FUTURE_FEATURES.md`. Current Task alone owns admitted sequencing and live checklists.
 
 `.project/EXECUTION_STATE.json` owns durable machine-readable mode, active Campaign/Slice, writer lease, integration branch, Exchange, relevant Notes, owned paths, and checkpoint. The active Slice owns Actions, behavior, checks, and stop conditions. PR checkpoints or ignored `.tova-runtime/` journals own volatile Action progress. `docs/COLLABORATION_PROTOCOL.md` owns online/local/multi-node writer, node, Note, Exchange, review, and recovery rules.
