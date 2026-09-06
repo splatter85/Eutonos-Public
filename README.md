@@ -6,6 +6,12 @@ Copy this starter kit into the repository you want to work on, then point your A
 
 For an existing repository, use the included installer rather than overwriting its files blindly. It first makes a zero-write plan, preserves existing project truth, and applies only the missing workflow owners after you review that plan.
 
+## Using the workflow
+
+You describe what you want; your agent maintains the project documents. Start by confirming the project goal. Save ideas for later in Future Features or Future Capabilities without starting them. Plan substantial work as a Campaign made of manageable Slices; small tasks can be independent Slices, and trivial polish needs no formal plan. Once a plan is approved, say **"Do the next slice."** The agent follows Current Task, makes the bounded change, runs focused checks, updates the board, and reports the checkpoint. Broader checks belong at the relevant Campaign or release acceptance point, not every Slice.
+
+For the main files with one-line descriptions, examples, and a short walkthrough, read `docs/TOVA_HELP.md` or ask **"Explain the workflow."** Agents should present a brief introduction once during setup or first use, then remember `shown` or your explicit `skipped` choice in the User Introduction section of `.project/CURRENT_STATE.md`. Asking for help always works, even after it has been shown or skipped. No quiz or extra approval is needed.
+
 Workflow version: `2.0.0-rc.11-dev`
 Architecture generation: 2
 Release status: unassembled successor; not published

@@ -10,7 +10,11 @@ During initial adoption or a version upgrade, the current supported Starter Kit 
 
 ## Required Workflow
 
-1. Read Execution State and Current Task; load compact Current State only when broader context is needed.
+When maintaining this starter package itself, its shipped User Introduction marker is a template default, not a maintainer receipt. Do not present recipient onboarding during package maintenance or store a maintainer's preference in distributable files. Apply the following introduction rule to target-project use.
+
+At each user-facing startup, inspect only the `User Introduction` section in `.project/CURRENT_STATE.md`. Follow the agent introduction protocol in `docs/TOVA_HELP.md`: give the short beginner walkthrough once for `not_shown` or a missing marker, persist `shown` only after actual delivery, and record `skipped` only when the user explicitly declines. Preserve the marker across sessions and upgrades; never automatically repeat for `shown` or `skipped`. Always answer requested help. This presentation preference is not acceptance or an extra work gate.
+
+1. Read Execution State and Current Task; check the User Introduction marker below and load the rest of Current State only when broader context is needed.
 2. Confirm whether work changes portable core, installer/checker behavior, acceptance fixtures, package docs, or an optional overlay.
 3. Use the smallest repository route when the source layout is unfamiliar; inspect direct sources if it is stale or contradictory.
 4. Preserve target-project content, casing, commands, overlays, and in-repository history.

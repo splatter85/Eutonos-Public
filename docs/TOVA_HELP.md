@@ -1,196 +1,106 @@
-# ToVA Help
+# EUTONOS workflow help
 
-Use this guide when you want to know where a project fact belongs, how an idea becomes verified current truth, or what to ask an agent next.
+## Start here: your agent handles the paperwork
 
-ToVA keeps durable project truth in the repository instead of relying on chat memory. Architecture, capabilities, features, active work, checks, decisions, handoffs, and retained outputs have different owners.
+You describe what you want. Your agent maintains the project documents and uses them to keep work organized across sessions. You do not need to memorize filenames or edit these files yourself. This public starter still uses some ToVA filenames; they are part of the same workflow.
 
-If the workflow is being deployed, fully initialized, adopted into an established repository, accepted, or upgraded, follow `docs/TOVA_SETUP.md` first. For established-repository adoption or any older/legacy ToVA layout, use `docs/TOVA_MIGRATION.md` with Setup. This page is the shorter everyday-use guide.
+### The main documents
 
-In the ToVA repository, run `npm.cmd run tova:help` to print this page. In an initialized project, read its installed help owner.
+These are the configured paths for this project. Existing projects may preserve different filenames or casing; follow their actual document map rather than creating duplicates.
 
-## Architecture, Capabilities, And Features
+| Document | What it is for |
+| --- | --- |
+| `docs/PROJECT_GOALS.md` | What you are building, who it is for, what success means, and what is out of scope. |
+| `docs/FUTURE_CAPABILITIES.md` | Outcomes you want users to achieve eventually, such as backing up work and restoring it on another device. |
+| `docs/FUTURE_FEATURES.md` | Specific proposed additions, such as an export button, search filters, or an integration. |
+| `docs/CURRENT_TASK.md` | The live work board: active work, paused or blocked work, and the next ready Slice. |
+| `docs/CURRENT_CAPABILITIES.md` and `docs/CURRENT_FEATURES.md` | What the project actually supports today and the concrete features that make it possible, with evidence and limitations. |
+| `docs/ARCHITECTURE.md` | How the project is built and how its major parts fit together. |
+| `docs/DESIGN_LANGUAGE.md` | How the product should look, behave, and communicate so new work stays consistent. |
+| `docs/WORK_MODEL.md` and `docs/PROJECT_HEALTH.md` | How work is divided and which checks are appropriate. These primarily guide the agent. |
 
-- **Architecture** answers: How is the system built, which components interact, and where do source, runtime, data, host, generated-output, and integration responsibilities live?
-- **Capability** answers: What complete outcome or process can the product/application perform?
-- **Feature** answers: Which concrete token, macro, tool, command, adapter, target, app, or other mechanism implements part of that outcome?
-
-One capability usually depends on several features. A feature can exist structurally without establishing a complete capability.
-
-The word capability also appears in technical target maps, package permissions, host classifications, and effect declarations. The Current/Future Capabilities documents use capability to mean a product/application outcome unless they say otherwise.
-
-## Design And User-Facing Language
-
-`docs/DESIGN_LANGUAGE.md` answers a different set of questions: What should user-visible surfaces look and feel like? Which tokens, components, controls, templates, assets, and string sources should be reused? Which fonts, semantic sizes, states, terminology, and copy patterns apply?
-
-Read it before visual/UI or user-facing copy work. Update it when an accepted reusable rule or canonical path changes. Keep app-specific implementation in its token/component/template/string source, and keep visual or human acceptance in the applicable proof owner.
+`AGENTS.md` and the configured boot/state files primarily instruct the agent and preserve continuity. `docs/README.md` is the deeper reference map. You do not need to learn all of those files before starting.
 
 ## The Everyday Workflow
 
-```text
-Future outcome or proposed mechanism
-  -> Future Capabilities or Future Features
-  -> Campaign or Slice plan
-  -> Current Task
-  -> Execute one Slice or Sub-slice
-  -> Verify the claimed result
-  -> Current Features for concrete implemented mechanisms
-  -> Current Capabilities when the supported outcome changed
-  -> Architecture when system structure or ownership changed
-  -> Change log / compact state for a meaningful milestone
-```
+**Establish the goal early.** Explain what you are making, who will use it, and what a useful first version should do. The agent helps confirm this in Project Goals before substantial implementation planning. For an existing project, it reads what is already established and asks only about gaps or conflicts. Unknown facts stay labeled; suggestions are not decisions until you confirm them.
 
-The documents have different jobs:
+**Save ideas without starting them.** Say, "Remember that I want offline backups eventually," or "Add search filters to our future features." The agent chooses Future Capabilities for a desired outcome and Future Features for a proposed mechanism. You do not need to classify the idea perfectly. Saving an idea does not authorize implementation or change the current work order.
 
-- `docs/ARCHITECTURE.md` owns current construction and responsibility boundaries.
-- `docs/DESIGN_LANGUAGE.md` owns reusable visual/UI routes, typography, interaction patterns, terminology, and user-facing copy style.
-- `docs/FUTURE_CAPABILITIES.md` remembers desired end-to-end outcomes that are not current claims or ordered work.
-- `docs/FUTURE_FEATURES.md` remembers proposed concrete mechanisms that are not implemented current features.
-- `docs/CURRENT_TASK.md` is the single live board for admitted active/paused work and the next action.
-- `docs/CURRENT_FEATURES.md` inventories concrete implemented mechanisms.
-- `docs/CURRENT_CAPABILITIES.md` explains supported end-to-end outcomes, their process, evidence, and limitations.
-- `docs/DOC_CHANGE_LOG.md` records meaningful completed documentation, workflow, architecture, capability, or feature milestones.
+### Campaigns, Slices, And Sub-slices
 
-When work ships, update only the owners whose truth changed. A new command may change Current Features without creating a new capability. A new complete workflow may change both. A new layering or ownership boundary may also change Architecture.
+**Plan substantial work as a Campaign.** Say, "Plan a Campaign to build the first version," "Plan the new search experience," or "Plan a refactor of the editor." A Campaign coordinates a larger outcome through manageable Slices with clear results and regular checkpoints. These checkpoints help you inspect progress, steer the work, or switch agents. A small self-contained task can be an independent Slice. Trivial local polish can be handled directly. Use the lightest useful shape, not a Campaign for every change. Planning is not permission to implement.
 
-## Online, Local, And Multi-Machine Work
+**Approve the plan, then work one ready Slice at a time.** Say, "Do the next slice." The agent reads Current Task, follows its pointer to the next approved, ready Slice, does that bounded work, runs the necessary focused checks, and updates the board. It reports what changed and what comes next, then stops unless more work was authorized. If there is no ready Slice, a dependency is blocked, or multiple choices need your decision, it explains that instead of inventing work or silently expanding scope. Split an unexpectedly broad Slice into coherent Sub-slices, not a checklist of keystrokes.
 
-Cross-environment coordination has separate human-readable and machine-readable owners:
+**Come back later and continue.** In a session with access to the same up-to-date repository, say, "Read the project instructions and current task, tell me where we are, and do the next ready slice." The documents provide continuity; chat memory alone does not. A new agent still checks the repository and current branch rather than assuming yesterday's state is current.
 
-- `CURRENT_TASK.md` - approved work, paused work, next Slice, and stable local/external verification IDs;
-- configured `EXECUTION_STATE.json` - durable mode, active Campaign/Slice, writer lease, integration branch, Exchange, relevant Agent Notes, owned paths, and checkpoint;
-- active Slice - bounded behavior, Actions, checks, and stop conditions;
-- PR checkpoint or ignored `.tova-runtime/` journal - exact in-progress Action state;
-- `COLLABORATION_PROTOCOL.md` - online/local roles, development nodes, writer/branch rules, Notes, Exchanges, review mode, and recovery.
-
-Serial work keeps one active branch and moves one writer lease between environments after a durable checkpoint. Several nodes may verify the same exact revision read-only. Parallel source writers use distinct work branches and isolated checkouts, then return through integration review.
-
-Use an Agent Note for a bounded observation that may matter after a session boundary but is not yet truth. Use a v2 Exchange for an explicit execution transfer that pins source revision, mission/authority, capabilities, workspace strategy, required checks, returned evidence, and integration review. Use a generic handoff package when portable context or payload files are needed without execution authority.
-
-The future Workflow Controller may automate these mechanics, but the current workflow remains human-readable and agent-operable without it.
-
-## Campaigns, Slices, And Sub-slices
-
-A **Campaign** coordinates several dependent outcomes, shared surfaces, multiple sessions or owners, or one meaningful end-to-end acceptance boundary.
-
-A **Slice** is the smallest coherent outcome that can be changed, verified, documented, and reported without taking ownership of unrelated work.
-
-A **Sub-slice** is a child created after inspection reveals separate owners, risks, transactions, consumers, or verification gates inside a planned Slice. It is not merely a list of implementation steps.
-
-Use the lightest useful shape:
-
-- Local polish with no shared behavior or risk boundary: handle directly.
-- One coherent feature, capability improvement, architecture change, or fix: use one Slice.
-- Several dependent outcomes: use a Campaign with ordered Slices.
-- A Slice proves too broad: split it and execute only the first unblocked child.
-
-`docs/WORK_MODEL.md` owns the formal definitions and closeout policy.
-
-When a cold agent knows the intended work but not the repository layout, use the smallest matching route in `REPOSITORY_INDEX.json`. Its paths reduce discovery cost; they do not grant authority or replace Architecture, Current Task, Project Health, or direct source inspection.
+**Check the combined result at the right time.** Each Slice uses minimum focused proof. Broader integration, regression, UI/device, or other cumulative checks belong at Campaign acceptance when relevant; release acceptance is separate. Broaden earlier for a real dependency, high-risk boundary, failure signal, or explicit owner request. Regular checkpoints are not miniature release reviews, and deferred required acceptance is never reported as passed.
 
 ## What To Ask An Agent
 
-### Remember a desired outcome
+| Ask your agent | What happens |
+| --- | --- |
+| "Save this idea for later; do not build it yet." | It records the idea in the appropriate future document without changing the active plan. |
+| "Review our ideas against the project goal and recommend what to work on. Planning only." | It recommends a bounded Slice or Campaign after inspecting the project. |
+| "Plan a Campaign for this refactor. Do not implement yet." | It proposes the outcome, manageable Slices, dependencies, and the right acceptance point. |
+| "Do the next slice." | It works the next approved, ready Slice from Current Task and reports the checkpoint. |
+| "Where are we, and what needs my decision?" | It reads the current board and relevant state, reports progress and blockers, and identifies the next decision. |
+| "Explain the workflow again." | It shows this introduction again, even if it was previously shown or skipped. |
+
+These are ordinary requests, not special commands or scripts. "EUTONOS help" and "ToVA help" also mean explain the workflow.
+
+## Architecture, Capabilities, And Features
+
+Architecture describes construction and responsibility boundaries. A capability describes a complete outcome users can achieve. A feature describes a concrete mechanism that enables part of that outcome. One capability often depends on several features; a scaffold or passing structural check alone does not establish an end-to-end capability.
+
+The documents support this progression; it is not a requirement to run every Campaign check after every Slice:
 
 ```text
-Add this to Future Capabilities: <outcome>.
-Explain who needs it, the intended process, dependencies, and what proof would be required before it becomes current.
+Project goal and confirmed constraints
+  -> Future Capabilities or Future Features
+  -> Approved Campaign or Slice plan
+  -> Current Task
+  -> One Slice with focused proof
+  -> Campaign acceptance for the composed outcome
+  -> Current Features for implemented mechanisms
+  -> Current Capabilities when the supported outcome changed
+  -> Architecture only when construction or responsibility changed
 ```
 
-### Remember a proposed mechanism
+For example, offline save-and-reopen may need a file format, save and open adapters, and recovery handling. Record implemented mechanisms in Current Features when supported by evidence. Promote the outcome to Current Capabilities only when the complete claimed process is proven. Keep unresolved portions in the future documents. Update Architecture only when construction or responsibility changes, and Design Language only when reusable visual or copy rules change. This is not a requirement to update every document after every Slice.
 
-```text
-Add this to Future Features: <mechanism>.
-Explain what capability it could enable, why it matters, dependencies, and what is explicitly out of scope.
-```
+Current Task remains the only live work board. Collapse completed checklists there; keep exact history in Git and meaningful milestones in `docs/DOC_CHANGE_LOG.md`. Current State is compact orientation, not another task queue or transcript.
 
-### Choose work from the backlog
+## Design And User-Facing Language
 
-```text
-Review Future Capabilities and Future Features for <goal>.
-Inspect the repository, identify the smallest coherent outcome, explain dependencies and risks, and recommend a Slice or Campaign. Planning only.
-```
+Design Language records the reusable visual and interaction patterns, typography, terminology, and copy style. Read it before changing UI or user-facing text; reuse the project's actual components, tokens, and string sources. Update it only when a reusable rule or canonical source changes. Visual or human acceptance stays in the applicable proof owner, not in the style guide.
 
-### Plan a Slice
+## Setup and advanced work
 
-```text
-Create a Slice plan for <goal>.
-Inspect Architecture, Current Capabilities, Current Features, and the relevant future owner first. Put the live plan in Current Task with files, exact change, non-goals, risks, gate, docs updates, and stop conditions. Do not implement yet.
-```
+Use `docs/TOVA_SETUP.md` for deployment, initialization, and acceptance. Use `docs/TOVA_MIGRATION.md` for an established repository or an older installation. `docs/PROJECT_DISCOVERY.md` contains the evidence-first questions for genuinely unknown project facts. Installation, file presence, reading a guide, or a checked box is not proof of product behavior or release approval. Only run commands actually present in this repository and named by Project Health.
 
-### Execute safely
+For an agent, session, or machine transfer, follow `docs/COLLABORATION_PROTOCOL.md` and `docs/handoffs/README.md`. Execution State owns the durable writer, branch, active work, and Exchange references. Serial work transfers one writer lease; parallel writers need separate branches and isolated checkouts. Read-only reviewers may inspect one exact revision. Agent Notes in `docs/agent-notes/README.md` are sparse observations, not confirmed truth. A v2 Exchange transfers bounded execution authority; a generic handoff transfers context or payload without that authority. Campaign Capsules, Slice Packets, and repository routes reduce rediscovery but do not replace source inspection or authorize new work.
 
-```text
-Do Slice <id>.
-Inspect the planned files first. If the Slice is too broad, split it in Current Task and complete only the first unblocked child. Run its gate, update only changed truth owners, and stop.
-```
+Use `docs/outputs/README.md` for an intentionally retained report or export that has no stronger owner. Handoffs and outputs never replace tasks, current truth, or acceptance. Exclude secrets and local-only files. Preserve source, user data, history, and shared caches; Gitignore is not permission to delete. Publication, destructive operations, and baseline promotion remain separate owner decisions.
 
-### Check status or resume
+## Agent introduction protocol
 
-```text
-Where are we? Read Execution State, Current Task, compact state, Current Capabilities, and the relevant Architecture/Feature/Future owners. Tell me what is true, what is active, what remains deferred, and the next sensible request.
-```
+This section owns the one-time presentation rules; the guide above owns the explanation. The `User Introduction` section in `.project/CURRENT_STATE.md` owns only the persistent presentation marker. Do not add an onboarding task board, execution-state field, installation-manifest field, acceptance gate, quiz, read receipt, or user profile.
 
-### Inspect a claim
+At the first user-facing setup or ordinary-work interaction, inspect that marker and the current conversation. When it is missing or `not_shown`, present a short orientation based on "Start here": the main documents with one-line descriptions, goals first, ideas saved without execution, Campaigns and Slices, Current Task, "Do the next slice," resuming, and focused versus cumulative checks. Use the project's actual paths, not assumed default names. Keep the initial explanation to roughly 400 words or less and link this guide for detail; do not paste the advanced reference sections. Explain whether setup is for a new project, an existing one, or an upgrade only when that is relevant.
 
-```text
-What current capability supports <outcome>? Show the process, enabling features, evidence, limitations, and any architecture boundary that matters.
-```
+| Marker status | Agent behavior |
+| --- | --- |
+| `not_shown` or missing | Give the short introduction once at a user-facing interaction. A missing marker in an older project is not evidence that it was already shown. |
+| `shown` | Do not repeat the introduction automatically. Continue the requested work. |
+| `skipped` | The user explicitly declined the introduction or said they already know the workflow. Do not repeat it automatically. |
+| Any status plus a user request for help | Answer the request, including showing the introduction again when asked. A marker never blocks requested help. |
 
-## Concrete Promotion Examples
+Write `shown` only after the introduction was actually delivered in a user-visible message, or the user explicitly confirms it was already delivered for this project. Reading or installing the guide, planning to show it, running tests, or sending a link alone does not count. If a message and file write cannot be ordered that way in the current interface, send the introduction first and persist the marker at the next permitted write; never claim it was saved when it was not. Record `skipped` only for an explicit user choice, not inferred familiarity or silence. A partial answer to a narrow help question does not by itself mark the full introduction as shown.
 
-Suppose Future Capabilities says “Users can export and reopen documents offline,” while Future Features proposes a file format, save adapter, open adapter, migration rules, and recovery tests.
+Preserve `shown` and `skipped` across agents, sessions, same-project clones, machine transfers, routine state compaction, and upgrades. A tutorial revision must not reset the marker. In an existing owner, add a missing section without overwriting other content or creating a duplicate state file. For an invalid or conflicting marker, ask one brief clarification instead of silently discarding a preference or repeatedly reciting the guide. Follow normal writer authority; read-only work must not mutate the marker or claim it did. Lack of marker-write access is not a reason to block useful work or demand a test run.
 
-1. Plan the smallest Slice or Campaign in Current Task.
-2. Implement concrete mechanisms in durable source.
-3. Verify save, restart, reopen, failure, migration, and recovery behavior at the claimed boundary.
-4. Move the implemented mechanisms into Current Features.
-5. Move the outcome into Current Capabilities only when the complete supported process is proven.
-6. Update Architecture only if persistence ownership, data flow, adapters, or generated boundaries changed.
-7. Remove or narrow the completed future wording.
+The marker is per project, not global identity tracking. Another collaborator can always ask for the introduction. The distributed starter and portable templates must ship `not_shown`, never a maintainer's `shown` or `skipped` record. For a genuinely new project made from somebody else's project copy, initialize its own marker to `not_shown`; do not reset it for another checkout of the same project. No name, account identifier, chat transcript, or other personal data is required.
 
-That prevents a partial feature from being mistaken for a complete capability.
-
-## Useful Requests
-
-- `ToVA help` - show this workflow guide.
-- `Status from ToVA docs` - summarize durable current truth and the next action.
-- `Explain the architecture` - summarize how the current system is built and link deeper technical owners.
-- `What can it do today?` - summarize Current Capabilities with limitations.
-- `What concrete features implement <capability>?` - trace an outcome to its mechanisms and evidence.
-- `Create a slice plan for <goal>` - plan one bounded outcome.
-- `Create a campaign plan for <goal>` - plan several dependent Slices.
-- `Do the next slice` - execute one ready Slice and stop after its gate.
-- `Split this slice` - create coherent Sub-slices after inspection.
-- `Prepare a handoff` - create a transfer package only for an explicit receiver.
-- `Save this as an output` - retain a useful non-handoff work product without replacing stronger truth.
-
-## Guardrails
-
-- A plan is not implementation; a checked box is not verification; a build is not release approval.
-- A structural token, target-map entry, scaffold, or generated artifact is not automatically a product capability.
-- Work one Slice at a time unless a coordinated Campaign explicitly requires otherwise.
-- Use Current Task for live work, not handoffs, outputs, changelogs, capability documents, or feature documents.
-- When a Current Task checklist is complete, remove or collapse it; leave only active work, paused work, the next candidate, and history pointers.
-- Do not duplicate the same current fact across Architecture, Capabilities, and Features; link between owners.
-- Do not run baseline acceptance, publish, install into another project, or delete artifacts merely because a Slice is complete.
-- Classify every created or redirected build path as shared/reused, Slice-ephemeral, or intentionally retained. Gitignore is not deletion permission.
-
-## Core Owners And Checks
-
-- `AGENTS.md` - repository-specific working rules.
-- `docs/TOVA_SETUP.md` - conditional deployment, full-core initialization, acceptance, and upgrade guide.
-- `docs/TOVA_MIGRATION.md` - established-repository reconciliation, extension, retirement, and migration acceptance doctrine.
-- `docs/README.md` - document ownership map.
-- `docs/ARCHITECTURE.md` - current construction and boundaries.
-- `docs/DESIGN_LANGUAGE.md` - visual/UI reuse, typography and sizing, interaction patterns, terminology, and user-facing copy.
-- `docs/CURRENT_CAPABILITIES.md` / `docs/FUTURE_CAPABILITIES.md` - supported and desired outcomes.
-- `docs/CURRENT_FEATURES.md` / `docs/FUTURE_FEATURES.md` - implemented and proposed mechanisms.
-- `docs/CURRENT_TASK.md` - active/paused work and next action.
-- `docs/WORK_MODEL.md` - Campaign, Slice, and Sub-slice policy.
-- `docs/COLLABORATION_PROTOCOL.md` - online/local/multi-node execution and Exchange policy.
-- configured `EXECUTION_STATE.json` - durable machine-readable live work and writer state.
-- `docs/PROJECT_HEALTH.md` - proportional verification gates.
-- the configured boot and compact-state owners - ordered startup and concise current truth.
-- `docs/handoffs/README.md` and `docs/outputs/README.md` - conditional transfer and retained-output rules.
-
-Useful ToVA commands include `npm.cmd run agent:start`, `workflow:check`, `architecture:check`, `token:explore`, `snapshot:check`, and `verify`. Read `docs/AI_AGENT_HELPERS.md` for the full command map.
+This is an agent-followed documentation contract, not an automated delivery tracker. Showing, skipping, or recording the introduction is not project acceptance and does not add testing or approval requirements. Users may skip it and continue working.
