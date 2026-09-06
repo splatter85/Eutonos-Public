@@ -42,14 +42,16 @@ An app contract records:
 - architecture, data, testing, performance, security/privacy, and product-workflow review lenses;
 - constraints, non-goals, open questions, unresolved acceptance, and the required health gate.
 
+Those testing categories describe the application's cumulative assurance state. They are **not** a checklist that every Slice must execute. During Campaign construction, a Slice normally exercises only the minimum category and focused check needed to prove that Slice. Broader regression, UI/device, migration, accessibility, performance, privacy/security, and manual-QA passes normally belong at Campaign, beta, or release acceptance unless the active Slice has a concrete dependency or risk that requires them earlier.
+
 The contract must point to existing source and evidence. It must not copy implementation semantics that already belong in code, schemas, tokens, architecture owners, or acceptance files.
 
 ## Proportional Use
 
 - **Prototype:** planned or explicitly inapplicable checks are allowed. Keep unresolved product and human acceptance visible.
-- **MVP:** require a stable source of truth, recoverable errors, relevant automated checks, and an honest persistence/recovery position.
-- **Beta:** use the Full gate and require real manual-QA evidence. Real-user, device, data, privacy, recovery, and telemetry claims remain explicit.
-- **Release:** use the Full gate, close blocked/planned test categories or mark them inapplicable with a real reason, and leave no unresolved release acceptance.
+- **MVP:** require a stable source of truth, recoverable errors, relevant automated checks, and an honest persistence/recovery position. Individual Slices still use focused proof; do not turn MVP status into a full-suite requirement after every change.
+- **Beta:** use the Full gate at beta acceptance and require real manual-QA evidence. Real-user, device, data, privacy, recovery, and telemetry claims remain explicit.
+- **Release:** use the Full gate at release acceptance, close blocked/planned test categories or mark them inapplicable with a real reason, and leave no unresolved release acceptance.
 
 Conventional UI, controller, service, engine, repository, and storage layers are useful review vocabulary, not mandatory class names. The contract asks who owns each responsibility and whether rules are duplicated or bypassed.
 
@@ -67,6 +69,8 @@ Run focused passes instead of one broad "is this good?" review:
 4. Performance: repeated work, rendering cost, large collections, blocking operations, caching, progress, cancellation, and retries.
 5. Security/privacy: secrets, permissions, personal data, unsafe tools, AI output validation, audit, and approval boundaries.
 6. Product workflow: user success, empty/error states, edge cases, feedback, accessibility, and manual verification.
+
+These lenses are review perspectives, not mandatory per-Slice passes. Apply only the lens needed by the current Slice or by the Campaign/release gate being executed.
 
 Review output should separate blockers, non-blockers, evidence, missing tests, suggested fixes, skipped checks, and the remaining acceptance owner.
 
