@@ -11,9 +11,9 @@
 - Non-goals:
 - Interruption/resume rule:
 - Rollback boundary:
-- Campaign acceptance:
+- Campaign acceptance: cumulative integration/regression/UI-device/migration or other broader proof needed for the composed outcome; this is where checks intentionally deferred by intermediate Slices normally run
 - Required docs/state updates:
 - Release or owner decision after acceptance:
 - Cold-agent context: None, or `compact | expanded | auto` with `route://...` IDs from `{{OWNER_repositoryIndex}}` and a Capsule path using `{{OWNER_campaignContextTemplate}}`
 
-Each included Slice still needs its own bounded plan and proportional health gate. Campaign closeout reviews Git-tree hygiene and disk retention separately, removes only recorded Slice-owned ephemeral paths after evidence capture, and leaves retained/shared paths with explicit owners.
+Each included Slice still needs its own bounded plan and minimum proportional health gate. Do not repeat Campaign acceptance after every child Slice. Campaign closeout reviews Git-tree hygiene and disk retention separately, removes only recorded Slice-owned ephemeral paths after evidence capture, and leaves retained/shared paths with explicit owners.
